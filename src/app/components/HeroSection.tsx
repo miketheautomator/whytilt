@@ -2,7 +2,6 @@
 
 import { FC, useState } from 'react';
 import { ScreenSection } from './ScreenSection';
-import { ScrollArrow } from './ScrollArrow';
 import { ContactModal } from './ContactModal';
 
 interface HeroSectionProps {
@@ -18,6 +17,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
       <ContactModal 
         isOpen={isContactModalOpen} 
         onClose={() => setIsContactModalOpen(false)} 
+        onSuccess={() => {
+          // Handle success if needed
+        }}
       />
       
       {/* Navigation Bar - Sticky Header */}

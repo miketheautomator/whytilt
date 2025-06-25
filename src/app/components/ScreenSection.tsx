@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react';
 
 interface ScreenSectionProps extends PropsWithChildren {
   className?: string;
-  [key: string]: any; // Allow additional props like data-section
+  [key: string]: unknown; // Allow additional props like data-section
 }
 
 export const ScreenSection: FC<ScreenSectionProps> = ({ children, className = '', ...props }) => {
