@@ -3,8 +3,7 @@
 import { FC, useState } from 'react';
 import { ScreenSection } from './ScreenSection';
 import { ScrollArrow } from './ScrollArrow';
-import { WaitlistModal } from './WaitlistModal';
-import { DemoModal } from './DemoModal';
+import { ContactModal } from './ContactModal';
 
 interface HeroSectionProps {
   typed: string;
@@ -12,18 +11,13 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => {
-  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
     <>
-      <WaitlistModal 
-        isOpen={isWaitlistModalOpen} 
-        onClose={() => setIsWaitlistModalOpen(false)} 
-      />
-      <DemoModal 
-        isOpen={isDemoModalOpen} 
-        onClose={() => setIsDemoModalOpen(false)} 
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
       />
       
       {/* Navigation Bar - Sticky Header */}
@@ -34,8 +28,8 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
               <img 
                 src="/favicon-32x32.png" 
                 alt="Automagic IT Logo" 
-                width={24} 
-                height={24}
+                width={32} 
+                height={32}
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
               <span className="text-lg sm:text-xl font-bold text-white tracking-tight">
@@ -56,26 +50,10 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
                 Star Us
               </a>
               <button 
-                onClick={() => {
-                  const contactSection = document.querySelector('[data-section="contact"]');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={() => setIsContactModalOpen(true)}
                 className="hidden md:inline-flex px-3 py-1.5 bg-transparent border border-white/30 hover:border-white/40 text-white text-xs font-medium rounded-md transition-all duration-200 hover:bg-white/10"
               >
                 BOOK DEMO
-              </button>
-              <button 
-                onClick={() => {
-                  const emailSection = document.querySelector('[data-section="email"]');
-                  if (emailSection) {
-                    emailSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="hidden md:inline-flex px-3 py-1.5 bg-white text-black text-xs font-medium rounded-md transition-all duration-200 hover:bg-gray-100"
-              >
-                JOIN WAITLIST
               </button>
             </div>
           </div>
@@ -101,7 +79,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
 
       {/* Hero Content */}
       <div className="relative z-30 h-full flex flex-col max-w-7xl mx-auto pt-20 sm:pt-24 pb-20 sm:pb-32">
-        <div className="px-4 sm:px-6 lg:px-12 w-full flex-1 flex flex-col justify-center">
+        <div className="px-4 sm:px-6 lg:px-12 w-full max-w-7xl flex-1 flex flex-col justify-center">
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2 mb-8 sm:mb-12 px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-fit">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
@@ -109,10 +87,10 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           </div>
           
           {/* Main Headline - Mobile Optimized */}
-          <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight overflow-hidden">
             <span className="gradient-text block">Automate</span>
-            <span className="block overflow-visible">
-              <div className="text-left h-[2.8em] sm:h-[2.8em] w-full overflow-visible text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl" style={{background: 'linear-gradient(to right, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
+            <span className="block w-full max-w-full">
+              <div className="text-left min-h-[2.8em] sm:min-h-[2.8em] w-full max-w-full break-words text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl" style={{background: 'linear-gradient(to right, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
                 {typed}
                 <span className="border-r-2 animate-pulse ml-2 border-blue-500" />
               </div>
@@ -124,10 +102,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
             We build intelligent automation models to create digital workers that do real desktop work, using web browsers and desktop applications.
           </p>
           
-          {/* Your Value Prop */}
-          <div className="text-xl sm:text-xl text-white font-semibold mb-8 sm:mb-12 max-w-6xl">
-            You&apos;re not buying software. You&apos;re buying an agent that gives you back time and money.
-          </div>
+
         </div>
 
         {/* Bottom Content - Positioned at bottom */}
@@ -135,26 +110,10 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           {/* Your Original Buttons - Mobile Optimized */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button 
-              onClick={() => {
-                const contactSection = document.querySelector('[data-section="contact"]');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+              onClick={() => setIsContactModalOpen(true)}
               className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 text-base sm:text-lg"
             >
               Schedule Demo
-            </button>
-            <button 
-              onClick={() => {
-                const emailSection = document.querySelector('[data-section="email"]');
-                if (emailSection) {
-                  emailSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/20 hover:border-white/30 text-white font-semibold rounded-lg transition-all duration-200 hover:bg-white/5 text-base sm:text-lg"
-            >
-              Join Waitlist
             </button>
           </div>
         </div>
@@ -164,9 +123,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 z-10 h-80 w-full bg-gradient-to-b from-transparent to-[#090A0C] pointer-events-none"></div>
       
-      <ScrollArrow onClick={() => {
-        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-      }} />
+
     </ScreenSection>
     </>
   );

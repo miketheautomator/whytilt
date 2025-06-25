@@ -7,7 +7,6 @@ import {
   TechnologySection,
   ToolsSection,
   AIFirstSection,
-  EmailCaptureSection,
   ContactSection,
   Footer
 } from './components';
@@ -115,7 +114,6 @@ export default function Home() {
       <TechnologySection className="h-screen snap-start" data-section="technology" />
       <ToolsSection className="h-screen snap-start" data-section="tools" />
       <AIFirstSection className="h-screen snap-start" data-section="ai-first" />
-      <EmailCaptureSection className="h-screen snap-start" data-section="email" />
       <ContactSection className="h-screen snap-start" data-section="contact" />
       <Footer className="snap-start" />
       
