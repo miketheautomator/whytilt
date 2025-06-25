@@ -12,7 +12,14 @@
       "Bash(npm install:*)",
       "Bash(npm run lint)",
       "Bash(node:*)",
-      "Bash(timeout 10s npm run dev)"
+      "Bash(timeout 10s npm run dev)",
+      "WebFetch(domain:huly.io)",
+      "Bash(npm run dev:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(curl:*)",
+      "Bash(git checkout:*)",
+      "Bash(git reset:*)"
     ],
     "deny": []
   }

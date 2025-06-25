@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "./components/analytics/GoogleAnalytics";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -18,7 +13,6 @@ export const metadata: Metadata = {
   keywords: [
     "automation",
     "AI automation",
-    "personal assistant automation",
     "web automation",
     "data entry automation",
     "scheduling automation",
@@ -82,7 +76,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistMono.variable} antialiased`}
       >
         {gaId && <GoogleAnalytics gaId={gaId} />}
         {children}

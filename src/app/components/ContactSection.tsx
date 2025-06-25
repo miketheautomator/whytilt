@@ -13,21 +13,21 @@ export const ContactSection: FC<ContactSectionProps> = ({ className = '' }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   
   return (
-    <ScreenSection className={`bg-black ${className}`}>
+    <ScreenSection className={`zinc-section-bg ${className}`}>
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-center px-6 sm:px-8 lg:px-12 max-w-6xl py-8 sm:py-12 lg:py-16">
-        <div className="flex items-center gap-3 mb-4 sm:mb-6 justify-center">
-          <span className="inline-block w-8 h-8 bg-white flex items-center justify-center">
-            <span className="text-black font-bold text-2xl flex items-center justify-center w-full h-full">A</span>
+        <div className="flex items-center gap-3 mb-6 sm:mb-8 justify-center">
+          <span className="inline-block w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg">
+            <span className="text-white font-semibold text-2xl flex items-center justify-center w-full h-full">A</span>
           </span>
-          <span className="text-2xl font-bold text-white tracking-tight flex items-end">
+          <span className="text-2xl font-semibold text-white tracking-tight flex items-end">
             Automagic&nbsp;<span className="text-base font-semibold text-white mb-0.5">IT</span>
           </span>
         </div>
         <div className="text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4 sm:mb-6 lg:mb-8">
-            Book a Demo
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.1] text-white mb-6 sm:mb-8 lg:mb-10">
+            Book a <span className="gradient-text">Demo</span>
           </h2>
-          <p className="text-lg sm:text-xl text-zinc-400 max-w-3xl mb-6 sm:mb-8 lg:mb-12 mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mb-6 sm:mb-8 lg:mb-12 mx-auto leading-relaxed">
             Let us show you what your first Agent can do.
           </p>
         </div>
