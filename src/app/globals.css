@@ -306,10 +306,11 @@ code, pre {
 
 /* Scroll to top button visibility */
 .scroll-to-top-btn {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0.5;
+  visibility: visible;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 9999 !important;
+  background: red !important;
 }
 
 .scroll-to-top-btn.show {

@@ -78,12 +78,17 @@ export default function Home() {
     const handleScroll = () => {
       const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
       if (scrollToTopBtn) {
-        // Show button when scrolled past the hero section (first full viewport)
-        if (window.scrollY >= window.innerHeight) {
+        // Show button when scrolled past half of first viewport (hero section)
+        const scrollThreshold = window.innerHeight * 0.5;
+        if (window.scrollY > scrollThreshold) {
           scrollToTopBtn.classList.add('show');
+          console.log('Showing scroll button at scrollY:', window.scrollY, 'threshold:', scrollThreshold);
         } else {
           scrollToTopBtn.classList.remove('show');
+          console.log('Hiding scroll button at scrollY:', window.scrollY, 'threshold:', scrollThreshold);
         }
+      } else {
+        console.log('Scroll button not found in DOM');
       }
     };
 
