@@ -112,7 +112,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           
           {/* Your Value Prop */}
           <div className="text-xl sm:text-xl text-white font-semibold mb-8 sm:mb-12 max-w-2xl">
-            You're not buying software. You're buying an agent that gives you back time and money.
+            You&apos;re not buying software. You&apos;re buying an agent that gives you back time and money.
           </div>
         </div>
 
