@@ -98,7 +98,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight">
             <span className="gradient-text block">Automate</span>
             <span className="gradient-text block overflow-visible">
-              <div className="text-left h-[2.5em] sm:h-[2.5em] w-full max-w-[90vw] md:w-[1000px] lg:w-[1200px] xl:w-[1400px] 2xl:w-[1600px] overflow-visible">
+              <div className="text-left h-[2.5em] sm:h-[2.5em] w-full overflow-visible whitespace-nowrap">
                 {typed}
                 <span className="border-r-2 animate-pulse ml-2 border-blue-500" />
               </div>
@@ -106,7 +106,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           </h1>
           
           {/* Your Original Subtitle */}
-          <p className="text-xl sm:text-xl leading-snug tracking-tight text-gray-300 mb-6 sm:mb-8 max-w-2xl lg:whitespace-nowrap">
+          <p className="text-xl sm:text-xl leading-snug tracking-tight text-gray-300 mb-6 sm:mb-8 max-w-2xl lg:max-w-none">
             We build intelligent automation models to create digital workers that do real desktop work, using web browsers and desktop applications.
           </p>
           
