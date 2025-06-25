@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { ScreenSection } from './ScreenSection';
 import { ContactModal } from './ContactModal';
 
@@ -11,6 +11,25 @@ interface HeroSectionProps {
 
 export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const mainElement = document.querySelector('main');
+      if (mainElement) {
+        // Use viewport height minus some padding to ensure we're past the hero section
+        const heroSectionHeight = window.innerHeight * 0.8; // 80% of viewport height
+        const scrolled = mainElement.scrollTop > heroSectionHeight;
+        setIsScrolled(scrolled);
+      }
+    };
+
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      mainElement.addEventListener('scroll', handleScroll);
+      return () => mainElement.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   return (
     <>
@@ -23,10 +42,14 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
       />
       
       {/* Navigation Bar - Sticky Header */}
-      <div className="sticky top-0 z-50 w-full bg-black/20 backdrop-blur-sm">
-        <div className="py-4 sm:py-6 px-4 sm:px-6 lg:px-12">
+      <div className="sticky top-0 z-50 w-full bg-black/20 backdrop-blur-sm transition-all duration-300">
+        <div className={`px-4 sm:px-6 lg:px-12 transition-all duration-300 ${
+          isScrolled ? 'py-2 sm:py-3' : 'py-4 sm:py-6'
+        }`}>
           <div className="flex items-center justify-between max-w-7xl mx-auto">
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className={`flex items-center gap-2 sm:gap-3 transition-transform duration-300 origin-left ${
+              isScrolled ? 'scale-[0.7]' : 'scale-100'
+            }`}>
               <img 
                 src="/favicon-32x32.png" 
                 alt="Automagic IT Logo" 
@@ -39,7 +62,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
               </span>
             </div>
             
-            <div className="flex items-center gap-2">
+            <div className={`flex items-center gap-2 transition-transform duration-300 origin-right ${
+              isScrolled ? 'scale-[0.7]' : 'scale-100'
+            }`}>
               <a 
                 href="https://github.com/AutomagicIT/the-automator" 
                 target="_blank" 
@@ -124,8 +149,6 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
       
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 z-10 h-80 w-full bg-gradient-to-b from-transparent to-[#090A0C] pointer-events-none"></div>
-      
-
     </ScreenSection>
     </>
   );
