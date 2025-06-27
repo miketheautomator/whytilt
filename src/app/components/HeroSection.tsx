@@ -126,7 +126,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           
           {/* Your Original Subtitle */}
           <p className="text-xl sm:text-xl leading-snug tracking-tight text-gray-300 mb-6 sm:mb-8 max-w-6xl">
-            We build intelligent automation models to create digital workers that do real desktop work, using web browsers and desktop applications.
+            We build desktop automation that works like a human employee - clicking, typing, and navigating applications so you don't have to.
           </p>
           
 

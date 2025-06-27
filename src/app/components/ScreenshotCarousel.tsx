@@ -11,29 +11,34 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
   
   const screenshots = [
     {
-      src: '/screenshots/1.png',
-      alt: 'Automagic IT Interface - Main Dashboard',
-      title: 'AI-Powered Automation Dashboard'
+      src: '/screenshots/0-describe-tasks-in-english.png',
+      alt: 'Describe Tasks in English',
+      title: 'Describe Tasks in English'
     },
     {
-      src: '/screenshots/2.png',
-      alt: 'Automagic IT Interface - Browser Automation',
-      title: 'Browser Task Automation'
+      src: '/screenshots/1-starting-a-task.png',
+      alt: 'Starting a Task',
+      title: 'Starting a Task'
     },
     {
-      src: '/screenshots/3.png',
-      alt: 'Automagic IT Interface - Desktop Automation',
-      title: 'Desktop Application Control'
+      src: '/screenshots/2-navigating-browser.png',
+      alt: 'Navigating Browser',
+      title: 'Navigating Browser'
     },
     {
-      src: '/screenshots/4.png',
-      alt: 'Automagic IT Interface - Analytics',
-      title: 'Real-time Analytics & Monitoring'
+      src: '/screenshots/3-network-and-javascript-assertions.png',
+      alt: 'Network and JavaScript Assertions',
+      title: 'Network and JavaScript Assertions'
     },
     {
-      src: '/screenshots/5.png',
-      alt: 'Automagic IT Interface - Workflow Builder',
-      title: 'Visual Workflow Builder'
+      src: '/screenshots/4-built-in-task-runner.png',
+      alt: 'Built-in Task Runner',
+      title: 'Built-in Task Runner'
+    },
+    {
+      src: '/screenshots/5-customize-layout.png',
+      alt: 'Customize Layout',
+      title: 'Customize Layout'
     }
   ];
 
@@ -63,7 +68,7 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
       {/* Carousel Container */}
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/50 backdrop-blur-sm border border-white/10 shadow-2xl">
         {/* Screenshots */}
-        <div className="relative aspect-video">
+        <div className="relative aspect-[16/10]">
           {screenshots.map((screenshot, index) => (
             <div
               key={index}

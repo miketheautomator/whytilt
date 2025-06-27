@@ -13,14 +13,14 @@ import {
 } from './components';
 
 const TYPED_WORDS = [
-  "Complex website testing",
-  "Functional product testing",
-  "Security and penetration testing",
-  "Analytics tag testing and management",
-  "Stock market research",
-  "Excel and office tasks",
-  "Website repetitive tasks",
-  "Ebay, Etsy, and more"
+  "website testing workflows",
+  "functional product testing", 
+  "security and penetration testing",
+  "Google Analytics tag validation",
+  "stock market research",
+  "Excel and office workflows",
+  "repetitive website tasks",
+  "e-commerce management"
 ];
 
 
