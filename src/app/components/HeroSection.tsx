@@ -90,15 +90,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
     <ScreenSection className={`hero-bg ${className}`}>
       {/* Background Image with Blur and Low Opacity - Hidden on mobile */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className="w-full h-full bg-no-repeat opacity-30 blur-sm hidden md:block"
-          style={{
-            backgroundImage: 'url(/screenshot-1.png)',
-            backgroundSize: '80%',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        ></div>
+
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 hidden md:block"></div>
         <div className="background-glow"></div>
       </div>
