@@ -81,8 +81,8 @@ export const DemoModal: FC<DemoModalProps> = ({ isOpen, onClose }) => {
     <Dialog open={isOpen} onClose={handleClose} className="relative z-50">
       <DialogBackdrop className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
       
-      <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-        <DialogPanel className="max-w-md w-full bg-zinc-900 border border-zinc-700 rounded-xl p-6 shadow-xl">
+      <div className="fixed inset-0 flex w-screen items-center justify-center p-0 sm:p-4">
+        <DialogPanel className="w-full h-full sm:h-auto sm:max-w-md bg-zinc-900 border-0 sm:border border-zinc-700 rounded-none sm:rounded-xl p-6 shadow-xl overflow-y-auto">
           {isSubmitted ? (
             <div className="text-center">
               <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">

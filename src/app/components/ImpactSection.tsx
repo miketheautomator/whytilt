@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { ScreenSection } from './ScreenSection';
-import { ScrollArrow } from './ScrollArrow';
 
 interface ImpactSectionProps {
   className?: string;
@@ -9,7 +8,7 @@ interface ImpactSectionProps {
 export const ImpactSection: FC<ImpactSectionProps> = ({ className = '' }) => {
   return (
     <ScreenSection className={`purple-section-bg ${className}`}>
-      <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 max-w-6xl text-center py-8 sm:py-12 lg:py-16">
+      <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 max-w-6xl text-center py-16 sm:py-20 lg:py-24">
         <div className="inline-flex items-center gap-2 mb-6 sm:mb-8 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
           <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
           <span className="text-white text-sm font-medium">The Impact</span>
@@ -47,10 +46,6 @@ export const ImpactSection: FC<ImpactSectionProps> = ({ className = '' }) => {
         </p>
       </div>
       
-      <ScrollArrow onClick={() => {
-        const nextSection = document.querySelector('[data-section="technology"]');
-        nextSection?.scrollIntoView({ behavior: 'smooth' });
-      }} />
     </ScreenSection>
   );
 };

@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { ScreenSection } from './ScreenSection';
-import { ScrollArrow } from './ScrollArrow';
 
 interface MysterySectionProps {
   className?: string;
@@ -9,20 +8,20 @@ interface MysterySectionProps {
 export const MysterySection: FC<MysterySectionProps> = ({ className = '' }) => {
   return (
     <ScreenSection className={`zinc-section-bg ${className}`}>
-      <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 max-w-6xl text-center py-8 sm:py-12 lg:py-16">
-        <div className="inline-flex items-center gap-2 mb-4 sm:mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
+      <div className="relative z-10 container mx-auto h-full flex flex-col justify-center items-center px-6 sm:px-8 lg:px-12 max-w-6xl text-center py-8">
+        <div className="hidden sm:inline-flex items-center gap-2 mb-3 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
           <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
           <span className="text-white text-sm font-medium">What Is It, Really?</span>
         </div>
         
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold mb-6 sm:mb-8 text-white tracking-tight leading-[1.1]">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold mb-4 sm:mb-6 text-white tracking-tight leading-[1.1]">
           This Is Not an App.
-          <span className="block gradient-text mt-2">
+          <span className="block gradient-text mt-1 sm:mt-2">
             It&apos;s an Employee.
           </span>
         </h2>
         
-        <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 leading-snug tracking-tight max-w-3xl lg:max-w-4xl">
+        <p className="text-sm sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 leading-snug tracking-tight max-w-3xl lg:max-w-4xl">
           Inside every AutomagicIT Agent is a custom-trained 7B vision model that sees your desktop and knows how to get things done.
         </p>
         
@@ -60,10 +59,6 @@ export const MysterySection: FC<MysterySectionProps> = ({ className = '' }) => {
         </div>
       </div>
       
-      <ScrollArrow onClick={() => {
-        const nextSection = document.querySelector('[data-section="impact"]');
-        nextSection?.scrollIntoView({ behavior: 'smooth' });
-      }} />
     </ScreenSection>
   );
 };

@@ -21,7 +21,6 @@ This is a Next.js 15 marketing website for Automagic IT built with the App Route
 ### Component Organization
 - All UI components are in `src/app/components/` with barrel exports via `index.ts`
 - Components follow the pattern: HeroSection, WhyDifferentSection, WhatItCanDoSection, ContactSection, PricingSection, Footer
-- ContactModal is a separate modal component used by ContactSection
 
 ### API Routes
 - Contact form submission handled by `/api/contact/route.ts`

@@ -7,8 +7,7 @@ import {
   ImpactSection,
   TechnologySection,
   ToolsSection,
-  AIFirstSection,
-  ContactSection,
+  DemoSection,
   Footer
 } from './components';
 
@@ -94,7 +93,7 @@ export default function Home() {
   
   return (
     <main 
-      className="relative h-screen overflow-y-scroll snap-mandatory snap-y scroll-smooth"
+      className="relative h-dvh overflow-y-scroll snap-mandatory snap-y scroll-smooth"
       style={{ 
         scrollbarWidth: 'none', 
         msOverflowStyle: 'none', 
@@ -102,15 +101,14 @@ export default function Home() {
         scrollSnapType: 'y mandatory'
       }}
     >
-      <HeroSection typed={typed} className="h-screen snap-start" />
-      <ScreenshotSection className="h-screen snap-start" data-section="screenshots" />
-      <MysterySection className="h-screen snap-start" data-section="mystery" />
-      <ImpactSection className="h-screen snap-start" data-section="impact" />
-      <TechnologySection className="h-screen snap-start" data-section="technology" />
-      <ToolsSection className="h-screen snap-start" data-section="tools" />
-      <AIFirstSection className="h-screen snap-start" data-section="ai-first" />
-      <ContactSection className="h-screen snap-start" data-section="contact" />
-      <Footer className="snap-start" />
+      <HeroSection typed={typed} className="h-dvh snap-start" />
+      <ScreenshotSection className="h-dvh snap-start" data-section="screenshots" />
+      <MysterySection className="h-dvh snap-start" data-section="mystery" />
+      <ImpactSection className="h-dvh snap-start" data-section="impact" />
+      <TechnologySection className="h-dvh snap-start" data-section="technology" />
+      <ToolsSection className="h-dvh snap-start" data-section="tools" />
+      <DemoSection className="h-dvh snap-start" data-section="demo" />
+      <Footer className="h-dvh snap-start" />
       
       {/* Floating scroll to top button - hidden on hero section */}
       <button

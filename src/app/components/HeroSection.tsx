@@ -2,7 +2,7 @@
 
 import { FC, useState, useEffect } from 'react';
 import { ScreenSection } from './ScreenSection';
-import { ContactModal } from './ContactModal';
+import { DemoModal } from './DemoModal';
 
 interface HeroSectionProps {
   typed: string;
@@ -10,7 +10,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,12 +33,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
 
   return (
     <>
-      <ContactModal 
-        isOpen={isContactModalOpen} 
-        onClose={() => setIsContactModalOpen(false)} 
-        onSuccess={() => {
-          // Handle success if needed
-        }}
+      <DemoModal 
+        isOpen={isDemoModalOpen} 
+        onClose={() => setIsDemoModalOpen(false)}
       />
       
       {/* Navigation Bar - Sticky Header */}
@@ -77,8 +74,8 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
                 Star Us
               </a>
               <button 
-                onClick={() => setIsContactModalOpen(true)}
-                className="hidden md:inline-flex px-3 py-1.5 bg-transparent border border-white/30 hover:border-white/40 text-white text-xs font-medium rounded-md transition-all duration-200 hover:bg-white/10"
+                onClick={() => setIsDemoModalOpen(true)}
+                className="inline-flex px-3 py-1.5 bg-transparent border border-white/30 hover:border-white/40 text-white text-xs font-medium rounded-md transition-all duration-200 hover:bg-white/10"
               >
                 BOOK DEMO
               </button>
@@ -129,7 +126,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           {/* Your Original Buttons - Mobile Optimized */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button 
-              onClick={() => setIsContactModalOpen(true)}
+              onClick={() => setIsDemoModalOpen(true)}
               className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 text-base sm:text-lg"
             >
               Schedule Demo
