@@ -92,7 +92,7 @@ export const WaitlistModal: FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
               </div>
               <h3 className="text-xl font-bold text-white mb-2">You&apos;re on the list!</h3>
               <p className="text-zinc-400 mb-6">
-                Thanks for joining our private alpha waitlist. We&apos;ll be in touch soon with next steps.
+                Thanks for joining our waitlist. We&apos;ll be in touch soon with next steps.
               </p>
               <button
                 onClick={handleClose}
@@ -103,7 +103,7 @@ export const WaitlistModal: FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
             </div>
           ) : (
             <>
-              <h3 className="text-xl font-bold text-white mb-2">Join the Alpha Waitlist</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Join the Waitlist</h3>
               <p className="text-zinc-400 mb-6">
                 Be among the first to experience revolutionary automation technology.
               </p>

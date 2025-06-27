@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
           Subject: 'New Waitlist Signup',
           HtmlBody: `
 <h2>New Waitlist Signup</h2>
-<p><strong>List:</strong> Alpha Waitlist</p>
+<p><strong>List:</strong> Waitlist</p>
 <p><strong>Name:</strong> ${firstName}</p>
 <p><strong>Email:</strong> ${email}</p>
 <p><strong>Automation Goals:</strong></p>
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
           TextBody: `
 New Waitlist Signup
 
-List: Alpha Waitlist
+List: Waitlist
 Name: ${firstName}
 Email: ${email}
 Automation Goals: ${automationGoals}

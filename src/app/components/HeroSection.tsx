@@ -110,18 +110,18 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2 mb-8 sm:mb-12 px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-fit">
             <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-white text-xs sm:text-sm font-medium">Early Access • Limited Alpha Testing</span>
+            <span className="text-white text-xs sm:text-sm font-medium">Early Access • Limited Spots</span>
           </div>
           
           {/* Main Headline - Mobile Optimized */}
           <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight overflow-hidden">
             <span className="gradient-text block">Automate</span>
-            <span className="block w-full max-w-full">
-              <div className="text-left min-h-[2.8em] sm:min-h-[2.8em] w-full max-w-full break-words text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl" style={{background: 'linear-gradient(to right, #2563eb, #0d9488)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
+            <div className="block w-full overflow-x-hidden">
+              <div className="text-left min-h-[2.8em] sm:min-h-[2.8em] w-0 min-w-full text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl break-words hyphens-auto" style={{background: 'linear-gradient(to right, #2563eb, #0d9488)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
                 {typed}
                 <span className="border-r-2 animate-pulse ml-2 border-teal-500" />
               </div>
-            </span>
+            </div>
           </h1>
           
           {/* Your Original Subtitle */}
