@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   HeroSection,
+  ScreenshotSection,
   MysterySection,
   ImpactSection,
   TechnologySection,
@@ -109,6 +110,7 @@ export default function Home() {
       }}
     >
       <HeroSection typed={typed} className="h-screen snap-start" />
+      <ScreenshotSection className="h-screen snap-start" data-section="screenshots" />
       <MysterySection className="h-screen snap-start" data-section="mystery" />
       <ImpactSection className="h-screen snap-start" data-section="impact" />
       <TechnologySection className="h-screen snap-start" data-section="technology" />

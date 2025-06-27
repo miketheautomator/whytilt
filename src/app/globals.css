@@ -52,26 +52,28 @@
   --app-border: #e5e7eb;
   --app-border-dark: #374151;
   
-  /* App-specific colors */
-  --app-dark-bg: #090A0C;
-  --app-blue: #478BEB;
-  --app-dark-blue: #3d7eff;
-  --app-orange: #478BEB;
-  --app-text-grey: #C9CBCF;
-  --app-dark-grey: #303236;
-  --app-light-bg: #f6f6f6;
-  --app-gradient-start: #d5d8f6;
-  --app-gradient-end: #fdf7fe;
+  /* App-specific colors - inspired by actual app */
+  --app-dark-bg: #0a0e1a;
+  --app-blue: #2563eb;
+  --app-dark-blue: #1e40af;
+  --app-teal: #0d9488;
+  --app-green: #059669;
+  --app-text-grey: #94a3b8;
+  --app-dark-grey: #1e293b;
+  --app-panel-bg: #0f172a;
+  --app-light-bg: #f8fafc;
+  --app-gradient-start: #2563eb;
+  --app-gradient-end: #0d9488;
   
   /* Text gradients */
-  --text-gradient-blue: linear-gradient(135deg, var(--app-blue), var(--app-dark-blue));
-  --text-gradient-orange: linear-gradient(135deg, var(--app-orange), var(--app-dark-blue));
-  --text-gradient-hero: linear-gradient(to right, white, var(--app-gradient-start), var(--app-gradient-end));
+  --text-gradient-blue: linear-gradient(135deg, var(--app-blue), var(--app-teal));
+  --text-gradient-green: linear-gradient(135deg, var(--app-teal), var(--app-green));
+  --text-gradient-hero: linear-gradient(to right, white, #e2e8f0, #cbd5e1);
   
   /* Background gradients */
-  --bg-gradient-hero: var(--app-dark-bg);
+  --bg-gradient-hero: linear-gradient(135deg, var(--app-dark-bg) 0%, var(--app-panel-bg) 100%);
   --bg-gradient-section: linear-gradient(135deg, var(--app-light-bg) 0%, #ffffff 100%);
-  --bg-gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --bg-gradient-card: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(13, 148, 136, 0.05) 100%);
 }
 
 @theme inline {
@@ -192,7 +194,7 @@ code, pre {
 .hero-bg {
   position: relative;
   overflow: hidden;
-  background: #090A0C;
+  background: var(--bg-gradient-hero);
   height: 100vh;
   min-height: 100vh;
 }
@@ -283,9 +285,9 @@ code, pre {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+    radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(5, 150, 105, 0.06) 0%, transparent 70%);
   mix-blend-mode: lighten;
   z-index: 1;
 }

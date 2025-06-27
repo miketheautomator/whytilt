@@ -13,10 +13,10 @@ export const ContactSection: FC<ContactSectionProps> = ({ className = '' }) => {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   
   return (
-    <ScreenSection className={`zinc-section-bg ${className}`}>
+    <ScreenSection className={`bg-gradient-to-br from-slate-800 to-slate-900 ${className}`}>
       <div className="relative z-10 container mx-auto h-full flex flex-col justify-center px-6 sm:px-8 lg:px-12 max-w-6xl py-8 sm:py-12 lg:py-16">
         <div className="flex items-center gap-3 mb-6 sm:mb-8 justify-center">
-          <span className="inline-block w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg">
+          <span className="inline-block w-8 h-8 bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center rounded-lg">
             <span className="text-white font-semibold text-2xl flex items-center justify-center w-full h-full">A</span>
           </span>
           <span className="text-2xl font-semibold text-white tracking-tight flex items-end">

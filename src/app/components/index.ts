@@ -1,5 +1,7 @@
 export * from './ScreenSection';
 export * from './HeroSection';
+export * from './ScreenshotCarousel';
+export * from './ScreenshotSection';
 export * from './MysterySection';
 export * from './ImpactSection';
 export * from './TechnologySection';

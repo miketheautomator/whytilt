@@ -7,7 +7,7 @@ interface FooterProps {
 
 export const Footer: FC<FooterProps> = ({ className = '' }) => {
   return (
-    <ScreenSection className={`zinc-section-bg h-screen ${className}`}>
+    <ScreenSection className={`bg-gradient-to-br from-slate-900 to-slate-800 h-screen ${className}`}>
       <div className="relative h-full flex items-center justify-center">
         {/* Subtle top border */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
@@ -37,6 +37,10 @@ export const Footer: FC<FooterProps> = ({ className = '' }) => {
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8 border-t border-white/10">
               <p className="text-gray-400 text-sm">
                 © {new Date().getFullYear()} Automagic IT. All rights reserved.
+              </p>
+              
+              <p className="text-gray-400 text-sm flex items-center gap-1">
+                Made with <span className="text-red-500">❤️</span> in SF, USA
               </p>
               
               <div className="flex items-center gap-3">

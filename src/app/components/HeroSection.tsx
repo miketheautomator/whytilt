@@ -117,9 +117,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ typed, className = '' }) => 
           <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight overflow-hidden">
             <span className="gradient-text block">Automate</span>
             <span className="block w-full max-w-full">
-              <div className="text-left min-h-[2.8em] sm:min-h-[2.8em] w-full max-w-full break-words text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl" style={{background: 'linear-gradient(to right, #22c55e, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
+              <div className="text-left min-h-[2.8em] sm:min-h-[2.8em] w-full max-w-full break-words text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl" style={{background: 'linear-gradient(to right, #2563eb, #0d9488)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text'}}>
                 {typed}
-                <span className="border-r-2 animate-pulse ml-2 border-blue-500" />
+                <span className="border-r-2 animate-pulse ml-2 border-teal-500" />
               </div>
             </span>
           </h1>
