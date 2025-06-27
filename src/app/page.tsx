@@ -13,21 +13,14 @@ import {
 } from './components';
 
 const TYPED_WORDS = [
-  "manual QA testing",
-  "Google Analytics audits",
-  "data scraping pipelines",
-  "Excel report generation",
-  "stock research overnight",
-  "form-filling workflows",
-  "tag validation and debugging",
-  "CRM data cleanup",
-  "invoice processing",
-  "endless browser clicks",
-  "vacation planning and booking",
-  "web app regression checks",
-  "PDF extraction and filing",
-  "repetitive admin tasks",
-  "entire offshore workflows",
+  "Complex website testing",
+  "Functional product testing",
+  "Security and penetration testing",
+  "Analytics tag testing and management",
+  "Stock market research",
+  "Excel and office tasks",
+  "Website repetitive tasks",
+  "Ebay, Etsy, and more"
 ];
 
 
