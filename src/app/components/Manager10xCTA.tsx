@@ -25,13 +25,13 @@ export const Manager10xCTA: FC<Manager10xCTAProps> = ({ className = '' }) => {
             Want to amplify your best people? Book a demo.
           </h2>
           
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-12">
             <BookDemoButton 
               onClick={() => setIsDemoModalOpen(true)}
               theme="purple"
             />
-            <div className="text-white/80 text-lg max-w-md">
-              <p className="mb-2">Free for small businesses under $250K revenue. Full source code included.</p>
+            <div className="text-white/80 text-lg max-w-5xl mx-auto px-16 space-y-6 leading-relaxed">
+              <p>Free for small businesses under $250K annual revenue. Full source code included.</p>
               <p>Enterprise pricing negotiated per organization. A founder will personally help you get started.</p>
             </div>
           </div>

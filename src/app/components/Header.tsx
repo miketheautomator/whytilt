@@ -64,7 +64,9 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
             </div>
             
             <div className="flex-1 flex justify-center">
-              <div className="text-center text-white hidden md:block">intelligence + desktop and browser automation &middot; run locally</div>
+              <div className={`text-center text-white hidden md:block transition-transform duration-300 origin-center ${
+                isScrolled ? 'scale-[0.85]' : 'scale-100'
+              }`}>intelligence + desktop and browser automation &middot; run locally</div>
             </div>
             
             <div className={`flex items-center gap-2 transition-transform duration-300 origin-right ${

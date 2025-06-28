@@ -25,14 +25,20 @@ export const WorkerFasterCTA: FC<WorkerFasterCTAProps> = ({ className = '' }) =>
             Ready to move faster? Let&apos;s set it up on your machine.
           </h2>
           
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-12">
             <BookDemoButton 
               onClick={() => setIsDemoModalOpen(true)}
               theme="emerald"
             />
-            <div className="text-white/80 text-lg max-w-md">
-              <p>A founder will personally help you get going and set up Tilt on your machine!</p>
+            <div className="text-white/80 text-lg max-w-5xl mx-auto px-16 space-y-6 leading-relaxed">
+              <p>A founder will personally help you get going and we don&apos;t charge you a penny to start using Tilt!</p>
+              <p>Your only cost is paying for the Anthropic model - as little as 20 cents a task.*</p>
             </div>
+          </div>
+          
+          {/* Footnote */}
+          <div className="absolute bottom-4 left-0 right-0 text-center">
+            <p className="text-white/60 text-sm px-4">* We are launching our own model in a few months to bring the per task cost down even further!</p>
           </div>
         </div>
       </ScreenSection>
