@@ -103,7 +103,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selec
             <div className="relative">
               {/* Prompt */}
               <p className="text-lg sm:text-xl text-white font-semibold mb-4">
-                Let's customize your experience
+                Let&apos;s customize your experience
               </p>
               
               {/* Scroll prompt message - appears above buttons */}
