@@ -42,7 +42,7 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % screenshots.length);
-    }, 4000);
+    }, 6000);
     
     return () => clearInterval(interval);
   }, [screenshots.length]);
