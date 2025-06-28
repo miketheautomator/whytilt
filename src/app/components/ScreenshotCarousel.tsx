@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface ScreenshotCarouselProps {
   className?: string;
@@ -78,11 +79,12 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
                   : 'opacity-0 scale-105'
               }`}
             >
-              <img
+              <Image
                 src={screenshot.src}
                 alt={screenshot.alt}
-                className="w-full h-full object-cover object-center"
-                loading={index === 0 ? 'eager' : 'lazy'}
+                fill
+                className="object-cover object-center"
+                priority={index === 0}
               />
               {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>

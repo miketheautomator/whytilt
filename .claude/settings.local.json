@@ -23,7 +23,8 @@
       "Bash(git merge:*)",
       "Bash(fc-list:*)",
       "Bash(locate:*)",
-      "Bash(npx playwright install:*)"
+      "Bash(npx playwright install:*)",
+      "WebFetch(domain:whytilt.com)"
     ],
     "deny": []
   }

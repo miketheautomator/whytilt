@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useState, useEffect } from 'react';
+import Image from 'next/image';
 import { DemoModal } from './DemoModal';
 
 interface HeaderProps {
@@ -53,7 +54,7 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
                 onClick={() => window.location.href = '/'}
                 className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
               >
-                <img 
+                <Image 
                   src="/android-chrome-192x192.png" 
                   alt="Tilt Logo" 
                   width={64} 

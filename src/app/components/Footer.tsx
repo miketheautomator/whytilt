@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Image from 'next/image';
 import { ScreenSection } from './ScreenSection';
 
 interface FooterProps {
@@ -17,7 +18,7 @@ export const Footer: FC<FooterProps> = ({ className = '' }) => {
             {/* Logo and company info */}
             <div className="flex flex-col items-center space-y-4">
               <div className="flex items-center gap-3">
-                <img 
+                <Image 
                   src="/android-chrome-192x192.png" 
                   alt="Tilt Logo" 
                   width={128} 
