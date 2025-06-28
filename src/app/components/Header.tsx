@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState, useEffect, useRef } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { DemoModal } from './DemoModal';
 
 interface HeaderProps {
