@@ -64,7 +64,7 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
       {/* Carousel Container */}
       <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/50 backdrop-blur-sm border border-white/10 shadow-2xl">
         {/* Screenshots */}
-        <div className="relative" style={{ aspectRatio: '1917/693' }}>
+        <div className="relative aspect-[16/9]">
           {screenshots.map((screenshot, index) => (
             <div
               key={index}
