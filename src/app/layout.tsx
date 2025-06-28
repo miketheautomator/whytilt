@@ -9,21 +9,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Automagic IT - Automate with Intelligence",
+  title: "Tilt - AI that actually does the work",
   keywords: [
     "automation",
     "AI automation",
-    "web automation",
-    "data entry automation",
-    "scheduling automation",
-    "website testing",
-    "intelligent automation",
-    "business automation",
     "task automation",
-    "Automagic IT",
+    "computer automation",
+    "workflow automation",
+    "business productivity",
+    "AI assistant",
+    "digital workforce",
+    "Tilt",
   ],
   description:
-    "Automagic IT automates anything a personal assistant-level employee can do on a computer. Use the web, automate data entry, scheduling, website testing, and more with intelligent automation.",
+    "Tilt automates real computer tasks so your team can stop clicking and start creating. AI that logs in, follows steps, and gets work done.",
   icons: {
     icon: [
       {

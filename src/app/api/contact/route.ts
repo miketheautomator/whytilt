@@ -64,7 +64,7 @@ export async function POST(request: Request) {
     
     const client = new postmark.ServerClient(token);
     
-    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'sales@automagicit.com';
+    const notificationEmail = process.env.NOTIFICATION_EMAIL || 'sales@tilt.com';
     
     const result = await client.sendEmail({
       From: notificationEmail,

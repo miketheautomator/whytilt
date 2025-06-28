@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture Overview
 
-This is a Next.js 15 marketing website for Automagic IT built with the App Router and TypeScript. Key architectural decisions:
+This is a Next.js 15 marketing website for Tilt built with the App Router and TypeScript. Key architectural decisions:
 
 ### Page Structure
 - Single-page application with snap-scroll sections in `src/app/page.tsx`
@@ -24,8 +24,8 @@ This is a Next.js 15 marketing website for Automagic IT built with the App Route
 
 ### API Routes
 - Contact form submission handled by `/api/contact/route.ts`
-- Uses Turbo SMTP service for email delivery
-- Requires `TURBO_CONSUMER_KEY` and `TURBO_CONSUMER_SECRET` environment variables
+- Uses Postmark service for email delivery
+- Requires `POSTMARK_SERVER_TOKEN` environment variable
 
 ### Styling
 - Tailwind CSS with custom scroll behaviors

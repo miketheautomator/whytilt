@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
       if (token) {
         const client = new postmark.ServerClient(token);
         
-        const notificationEmail = process.env.NOTIFICATION_EMAIL || 'sales@automagicit.com';
+        const notificationEmail = process.env.NOTIFICATION_EMAIL || 'sales@tilt.com';
         
         await client.sendEmail({
           From: notificationEmail,

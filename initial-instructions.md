@@ -1,4 +1,4 @@
-AutomagicIT: Time is a Luxury. We Sell It Back to You.
+Tilt: Time is a Luxury. We Sell It Back to You.
 
 We build intelligent digital workers that do real desktop work — navigating browsers, clicking through apps, and finishing tasks you thought only humans could do.
 
@@ -8,7 +8,7 @@ From data entry to testing, stock research to scheduling — our agents work whi
 We’re testing with a handful of select partners. You’re not just trying new software — you’re shaping the future of work.
 What Is It, Really?
 
-Inside every AutomagicIT Agent is a custom-trained 7B vision model that sees your desktop and knows how to get things done.
+Inside every Tilt Agent is a custom-trained 7B vision model that sees your desktop and knows how to get things done.
 
     Works like a person: Sees the screen, clicks buttons, types in forms.
 

@@ -1,98 +1,92 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useState, useRef } from "react";
 import {
+  Header,
   HeroSection,
-  ScreenshotSection,
-  MysterySection,
-  ImpactSection,
-  TechnologySection,
-  ToolsSection,
-  DemoSection,
+  ManagementChoiceSection,
+  WorkerChoiceSection,
+  Manager10xSituation,
+  Manager10xPayoff,
+  Manager10xTasks,
+  Manager10xResults,
+  Manager10xOnboarding,
+  Manager10xDemo,
+  Manager10xCTA,
+  ManagerCostSituation,
+  ManagerCostSolution,
+  ManagerCostTasks,
+  ManagerCostResults,
+  ManagerCostOnboarding,
+  ManagerCostDemo,
+  ManagerCostCTA,
+  WorkerFasterProblem,
+  WorkerFasterUpgrade,
+  WorkerFasterExample,
+  WorkerFasterMeaning,
+  WorkerFasterOnboarding,
+  WorkerFasterDemo,
+  WorkerFasterCTA,
+  WorkerEasierSituation,
+  WorkerEasierRelief,
+  WorkerEasierExample,
+  WorkerEasierFeeling,
+  WorkerEasierOnboarding,
+  WorkerEasierDemo,
+  WorkerEasierCTA,
   Footer
 } from './components';
 
-const TYPED_WORDS = [
-  "website testing workflows",
-  "functional product testing", 
-  "security and penetration testing",
-  "Google Analytics tag validation",
-  "stock market research",
-  "Excel and office workflows",
-  "repetitive website tasks",
-  "e-commerce management"
-];
-
-
-function useTypewriter(
-  words: string[],
-  typingSpeed = 60,
-  deletingSpeed = 30,
-  pause = 1200
-) {
-  const [display, setDisplay] = useState("");
-  const [index, setIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [charIdx, setCharIdx] = useState(0);
-  const timeout = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const currentWord = words[index];
-    if (!isDeleting && charIdx < currentWord.length) {
-      timeout.current = setTimeout(() => {
-        setDisplay(currentWord.slice(0, charIdx + 1));
-        setCharIdx(charIdx + 1);
-      }, typingSpeed);
-    } else if (!isDeleting && charIdx === currentWord.length) {
-      timeout.current = setTimeout(() => setIsDeleting(true), pause);
-    } else if (isDeleting && charIdx > 0) {
-      timeout.current = setTimeout(() => {
-        setDisplay(currentWord.slice(0, charIdx - 1));
-        setCharIdx(charIdx - 1);
-      }, deletingSpeed);
-    } else if (isDeleting && charIdx === 0) {
-      timeout.current = setTimeout(() => {
-        setIsDeleting(false);
-        setIndex((index + 1) % words.length);
-      }, 400);
-    }
-    return () => {
-      if (timeout.current) clearTimeout(timeout.current);
-    };
-  }, [words, index, charIdx, isDeleting, typingSpeed, deletingSpeed, pause]);
-
-  return display;
-}
+type UserPath = 'management-10x' | 'management-cost' | 'worker-faster' | 'worker-easier' | null;
 
 export default function Home() {
-  const typed = useTypewriter(TYPED_WORDS);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
-      if (scrollToTopBtn) {
-        // Show button when scrolled past half of first viewport (hero section)
-        const scrollThreshold = window.innerHeight * 0.5;
-        if (window.scrollY > scrollThreshold) {
-          scrollToTopBtn.classList.add('show');
-          console.log('Showing scroll button at scrollY:', window.scrollY, 'threshold:', scrollThreshold);
-        } else {
-          scrollToTopBtn.classList.remove('show');
-          console.log('Hiding scroll button at scrollY:', window.scrollY, 'threshold:', scrollThreshold);
-        }
-      } else {
-        console.log('Scroll button not found in DOM');
-      }
-    };
+  const [selectedRole, setSelectedRole] = useState<'management' | 'worker' | null>(null);
+  const [finalPath, setFinalPath] = useState<UserPath>(null);
+  const mainRef = useRef<HTMLElement>(null);
+  const scrollToTopBtnRef = useRef<HTMLButtonElement>(null);
 
-    // Call once on mount to set initial state
-    handleScroll();
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleRoleSelection = (role: 'management' | 'worker') => {
+    setSelectedRole(role);
+    // Scroll down one full page (viewport height)
+    setTimeout(() => {
+      if (mainRef.current) {
+        mainRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleManagementChoice = (choice: 'productivity' | 'cost') => {
+    const path = choice === 'productivity' ? 'management-10x' : 'management-cost';
+    setFinalPath(path);
+    // Scroll down one full page (viewport height)
+    setTimeout(() => {
+      if (mainRef.current) {
+        mainRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleWorkerChoice = (choice: 'faster' | 'easier') => {
+    const path = choice === 'faster' ? 'worker-faster' : 'worker-easier';
+    setFinalPath(path);
+    // Scroll down one full page (viewport height)
+    setTimeout(() => {
+      if (mainRef.current) {
+        mainRef.current.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const resetToHero = () => {
+    window.location.reload();
+  };
+  
+  const resetFinalPath = () => {
+    setFinalPath(null);
+  };
   
   return (
     <main 
+      ref={mainRef}
       className="relative h-dvh overflow-y-scroll snap-mandatory snap-y scroll-smooth"
       style={{ 
         scrollbarWidth: 'none', 
@@ -101,23 +95,93 @@ export default function Home() {
         scrollSnapType: 'y mandatory'
       }}
     >
-      <HeroSection typed={typed} className="h-dvh snap-start" />
-      <ScreenshotSection className="h-dvh snap-start" data-section="screenshots" />
-      <MysterySection className="h-dvh snap-start" data-section="mystery" />
-      <ImpactSection className="h-dvh snap-start" data-section="impact" />
-      <TechnologySection className="h-dvh snap-start" data-section="technology" />
-      <ToolsSection className="h-dvh snap-start" data-section="tools" />
-      <DemoSection className="h-dvh snap-start" data-section="demo" />
+      <Header onReset={resetToHero} selectedPath={selectedRole} mainRef={mainRef} />
+      <HeroSection onPathSelect={handleRoleSelection} onReset={resetToHero} selectedPath={selectedRole} mainRef={mainRef} className="h-dvh snap-start" />
+      
+      {/* Choice Sections */}
+      {selectedRole === 'management' && (
+        <ManagementChoiceSection 
+          onChoice={handleManagementChoice} 
+          onReset={resetToHero} 
+          onSwitchPath={resetFinalPath}
+          selectedChoice={finalPath ? (finalPath === 'management-10x' ? 'productivity' : 'cost') : null}
+          className="h-dvh snap-start" 
+          data-section="management-choice" 
+        />
+      )}
+      
+      {selectedRole === 'worker' && (
+        <WorkerChoiceSection 
+          onChoice={handleWorkerChoice} 
+          onReset={resetToHero} 
+          onSwitchPath={resetFinalPath}
+          selectedChoice={finalPath ? (finalPath === 'worker-faster' ? 'faster' : 'easier') : null}
+          className="h-dvh snap-start" 
+          data-section="worker-choice" 
+        />
+      )}
+      
+      {/* Manager Path A: 10x Productivity */}
+      {finalPath === 'management-10x' && (
+        <>
+          <Manager10xSituation className="h-dvh snap-start" data-section="manager-10x-situation" />
+          <Manager10xPayoff className="h-dvh snap-start" data-section="manager-10x-payoff" />
+          <Manager10xTasks className="h-dvh snap-start" data-section="manager-10x-tasks" />
+          <Manager10xResults className="h-dvh snap-start" data-section="manager-10x-results" />
+          <Manager10xOnboarding className="h-dvh snap-start" data-section="manager-10x-onboarding" />
+          <Manager10xDemo className="h-dvh snap-start" data-section="manager-10x-demo" />
+          <Manager10xCTA className="h-dvh snap-start" data-section="manager-10x-cta" />
+        </>
+      )}
+      
+      {/* Manager Path B: Reduce Cost */}
+      {finalPath === 'management-cost' && (
+        <>
+          <ManagerCostSituation className="h-dvh snap-start" data-section="manager-cost-situation" />
+          <ManagerCostSolution className="h-dvh snap-start" data-section="manager-cost-solution" />
+          <ManagerCostTasks className="h-dvh snap-start" data-section="manager-cost-tasks" />
+          <ManagerCostResults className="h-dvh snap-start" data-section="manager-cost-results" />
+          <ManagerCostOnboarding className="h-dvh snap-start" data-section="manager-cost-onboarding" />
+          <ManagerCostDemo className="h-dvh snap-start" data-section="manager-cost-demo" />
+          <ManagerCostCTA className="h-dvh snap-start" data-section="manager-cost-cta" />
+        </>
+      )}
+      
+      {/* Worker Path A: Get More Done, Faster */}
+      {finalPath === 'worker-faster' && (
+        <>
+          <WorkerFasterProblem className="h-dvh snap-start" data-section="worker-faster-problem" />
+          <WorkerFasterUpgrade className="h-dvh snap-start" data-section="worker-faster-upgrade" />
+          <WorkerFasterExample className="h-dvh snap-start" data-section="worker-faster-example" />
+          <WorkerFasterMeaning className="h-dvh snap-start" data-section="worker-faster-meaning" />
+          <WorkerFasterOnboarding className="h-dvh snap-start" data-section="worker-faster-onboarding" />
+          <WorkerFasterDemo className="h-dvh snap-start" data-section="worker-faster-demo" />
+          <WorkerFasterCTA className="h-dvh snap-start" data-section="worker-faster-cta" />
+        </>
+      )}
+      
+      {/* Worker Path B: Same Work, Less Effort */}
+      {finalPath === 'worker-easier' && (
+        <>
+          <WorkerEasierSituation className="h-dvh snap-start" data-section="worker-easier-situation" />
+          <WorkerEasierRelief className="h-dvh snap-start" data-section="worker-easier-relief" />
+          <WorkerEasierExample className="h-dvh snap-start" data-section="worker-easier-example" />
+          <WorkerEasierFeeling className="h-dvh snap-start" data-section="worker-easier-feeling" />
+          <WorkerEasierOnboarding className="h-dvh snap-start" data-section="worker-easier-onboarding" />
+          <WorkerEasierDemo className="h-dvh snap-start" data-section="worker-easier-demo" />
+          <WorkerEasierCTA className="h-dvh snap-start" data-section="worker-easier-cta" />
+        </>
+      )}
+      
+      {/* Footer always shows */}
       <Footer className="h-dvh snap-start" />
       
       {/* Floating scroll to top button - hidden on hero section */}
       <button
+        ref={scrollToTopBtnRef}
         onClick={() => {
-          const heroSection = document.querySelector('main > section:first-child');
-          if (heroSection) {
-            heroSection.scrollIntoView({ behavior: 'smooth' });
-          } else {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (mainRef.current) {
+            mainRef.current.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }}
         className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 w-12 h-12 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:scale-110 shadow-lg scroll-to-top-btn"

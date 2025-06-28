@@ -18,25 +18,22 @@ export const Footer: FC<FooterProps> = ({ className = '' }) => {
             <div className="flex flex-col items-center space-y-4">
               <div className="flex items-center gap-3">
                 <img 
-                  src="/favicon-32x32.png" 
-                  alt="Automagic IT Logo" 
-                  width={32} 
-                  height={32}
+                  src="/android-chrome-192x192.png" 
+                  alt="Tilt Logo" 
+                  width={64} 
+                  height={64}
                   className="w-8 h-8"
                 />
-                <span className="text-xl font-bold text-white tracking-tight">
-                  Automagic IT
-                </span>
               </div>
               <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">
-                We use machine learning and computer using agents to make brittle, expensive, and complex web application and analytic tag testing a thing of the past.
+                Tilt uses AI agents to complete real computer tasks across your tools—just like a person would. Stop clicking, start creating.
               </p>
             </div>
             
             {/* Simple footer info */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8 border-t border-white/10">
               <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Automagic IT. All rights reserved.
+                © {new Date().getFullYear()} Tilt. All rights reserved.
               </p>
               
               <p className="text-gray-400 text-sm flex items-center gap-1">

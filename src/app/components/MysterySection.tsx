@@ -22,7 +22,7 @@ export const MysterySection: FC<MysterySectionProps> = ({ className = '' }) => {
         </h2>
         
         <p className="text-sm sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 leading-snug tracking-tight max-w-3xl lg:max-w-4xl">
-          Inside every AutomagicIT Agent is a custom-trained 7B vision model that sees your desktop and knows how to get things done.
+          Inside every Tilt Agent is a custom-trained 7B vision model that sees your desktop and knows how to get things done.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl">
