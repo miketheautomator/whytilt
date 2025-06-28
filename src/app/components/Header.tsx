@@ -47,19 +47,24 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
         }`}>
           <div className="flex items-center justify-between max-w-7xl mx-auto">
             <div className={`flex items-center gap-2 sm:gap-3 transition-transform duration-300 origin-left ${
-              isScrolled ? 'scale-[0.7]' : 'scale-100'
+              isScrolled ? 'scale-[0.85]' : 'scale-100'
             }`}>
-              <img 
-                src="/android-chrome-192x192.png" 
-                alt="Tilt Logo" 
-                width={64} 
-                height={64}
-                className="w-6 h-6 sm:w-8 sm:h-8"
-              />
+              <button 
+                onClick={() => window.location.href = '/'}
+                className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
+              >
+                <img 
+                  src="/android-chrome-192x192.png" 
+                  alt="Tilt Logo" 
+                  width={64} 
+                  height={64}
+                  className="w-10 h-10 sm:w-12 sm:h-12"
+                />
+              </button>
             </div>
             
             <div className="flex-1 flex justify-center">
-              <div className="text-center text-white">intelligence + desktop and browser automation &middot; run locally</div>
+              <div className="text-center text-white hidden md:block">intelligence + desktop and browser automation &middot; run locally</div>
             </div>
             
             <div className={`flex items-center gap-2 transition-transform duration-300 origin-right ${
@@ -82,6 +87,7 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
             </div>
           </div>
         </div>
+        
       </div>
     </>
   );

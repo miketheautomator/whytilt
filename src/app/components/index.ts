@@ -42,6 +42,7 @@ export * from './WorkerEasierCTA';
 
 // Shared Components
 export * from './SharedDemoSection';
+export * from './BookDemoButton';
 
 export * from './Footer';
 export * from './ConfirmationModal';

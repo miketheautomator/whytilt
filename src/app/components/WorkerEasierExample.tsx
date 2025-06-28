@@ -18,7 +18,7 @@ export const WorkerEasierExample: FC<WorkerEasierExampleProps> = ({ className = 
         <div className="max-w-5xl mx-auto mb-12">
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 text-left">
             <p className="text-xl text-gray-300 italic">
-              &quot;Check out a product between $200–$500 using this info, and send screenshots.&quot;
+              &quot;Go to the homepage, click through the signup flow, and make sure the thank-you page shows the xdm._experience tag in the network inspector&quot;
             </p>
           </div>
         </div>

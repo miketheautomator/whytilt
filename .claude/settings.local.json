@@ -19,7 +19,10 @@
       "Bash(cp:*)",
       "Bash(curl:*)",
       "Bash(git checkout:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git merge:*)",
+      "Bash(fc-list:*)",
+      "Bash(locate:*)"
     ],
     "deny": []
   }

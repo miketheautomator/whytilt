@@ -90,6 +90,7 @@
   --font-custom-bolder: 'CustomFont-Bolder', ui-sans-serif, system-ui, sans-serif;
   --font-custom-boldest: 'CustomFont-Boldest', ui-sans-serif, system-ui, sans-serif;
   --font-custom-mono: 'CustomFont-Mono', ui-monospace, monospace;
+  --font-heading: var(--font-contrail-one), 'CustomFont-Boldest', ui-sans-serif, system-ui, sans-serif;
   
   /* Custom utilities */
   --color-app-dark: var(--app-dark);
@@ -153,6 +154,11 @@ small {
 
 code, pre {
   font-family: 'CustomFont-Mono', ui-monospace, monospace;
+}
+
+/* Button font styling */
+button {
+  font-family: var(--font-contrail-one), 'CustomFont', ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Gradient text utilities */

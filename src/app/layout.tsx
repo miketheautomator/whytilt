@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Geist_Mono, Contrail_One } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "./components/analytics/GoogleAnalytics";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const contrailOne = Contrail_One({
+  variable: "--font-contrail-one",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -78,7 +84,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
       </head>
       <body
-        className={`${geistMono.variable} antialiased`}
+        className={`${geistMono.variable} ${contrailOne.variable} antialiased`}
       >
         {gaId && <GoogleAnalytics gaId={gaId} />}
         {children}

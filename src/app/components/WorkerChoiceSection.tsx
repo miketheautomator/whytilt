@@ -11,7 +11,7 @@ interface WorkerChoiceSectionProps {
   className?: string;
 }
 
-export const WorkerChoiceSection: FC<WorkerChoiceSectionProps> = ({ onChoice, onReset, onSwitchPath, selectedChoice, className = '' }) => {
+export const WorkerChoiceSection: FC<WorkerChoiceSectionProps> = ({ onChoice, onSwitchPath, selectedChoice, className = '' }) => {
   return (
     <ScreenSection className={`bg-gradient-to-br from-teal-900 via-emerald-900 to-teal-800 ${className}`}>
       <div className="relative z-30 h-full flex flex-col justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
@@ -49,14 +49,6 @@ export const WorkerChoiceSection: FC<WorkerChoiceSectionProps> = ({ onChoice, on
               className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg transition-all duration-200 hover:scale-105"
             >
               Switch Path
-            </button>
-          )}
-          {onReset && (
-            <button 
-              onClick={onReset}
-              className="text-white/70 hover:text-white underline transition-colors duration-200"
-            >
-              ← Back to role selection
             </button>
           )}
         </div>

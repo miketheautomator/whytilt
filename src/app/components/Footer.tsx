@@ -20,9 +20,9 @@ export const Footer: FC<FooterProps> = ({ className = '' }) => {
                 <img 
                   src="/android-chrome-192x192.png" 
                   alt="Tilt Logo" 
-                  width={64} 
-                  height={64}
-                  className="w-8 h-8"
+                  width={128} 
+                  height={128}
+                  className="w-16 h-16 sm:w-20 sm:h-20"
                 />
               </div>
               <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">

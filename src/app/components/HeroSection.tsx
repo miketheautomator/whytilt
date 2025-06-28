@@ -14,6 +14,7 @@ interface HeroSectionProps {
 export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selectedPath, className = '', mainRef }) => {
   const [showScrollPrompt, setShowScrollPrompt] = useState(false);
   const [pulseButtons, setPulseButtons] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const scrollToTopBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -22,6 +23,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selec
       if (mainElement) {
         const heroSectionHeight = window.innerHeight * 0.8;
         const scrollTop = mainElement.scrollTop;
+        
+        // Track scroll state for tagline visibility
+        setIsScrolled(scrollTop > heroSectionHeight * 0.3);
         
         // If user tries to scroll past hero without selecting a path
         if (scrollTop > heroSectionHeight * 0.4 && !selectedPath) {
@@ -59,6 +63,12 @@ export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selec
 
   return (
     <ScreenSection className={`hero-bg ${className}`}>
+      {/* Mobile Tagline - Absolutely positioned under header, no background */}
+      <div className={`absolute top-16 left-0 right-0 z-40 text-center text-white/90 text-sm py-2 px-4 md:hidden transition-all duration-300 ${
+        isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      }`}>
+        intelligence + desktop and browser automation · run locally
+      </div>
       {/* Background Image with Blur and Low Opacity - Hidden on mobile */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 hidden md:block"></div>

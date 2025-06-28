@@ -3,6 +3,7 @@
 import { FC, useState } from 'react';
 import { ScreenSection } from './ScreenSection';
 import { DemoModal } from './DemoModal';
+import { BookDemoButton } from './BookDemoButton';
 
 interface WorkerEasierCTAProps {
   className?: string;
@@ -24,12 +25,15 @@ export const WorkerEasierCTA: FC<WorkerEasierCTAProps> = ({ className = '' }) =>
             Want to automate the parts you hate? Book a demo.
           </h2>
           
-          <button 
-            onClick={() => setIsDemoModalOpen(true)}
-            className="mx-auto px-12 py-6 bg-white text-teal-900 font-bold rounded-lg text-xl transition-all duration-200 hover:shadow-lg hover:shadow-white/25 hover:scale-105"
-          >
-            Book a Demo
-          </button>
+          <div className="flex flex-col items-center gap-4">
+            <BookDemoButton 
+              onClick={() => setIsDemoModalOpen(true)}
+              theme="teal"
+            />
+            <div className="text-white/80 text-lg max-w-md">
+              <p>A founder will personally help you get going and set up Tilt on your machine!</p>
+            </div>
+          </div>
         </div>
       </ScreenSection>
     </>

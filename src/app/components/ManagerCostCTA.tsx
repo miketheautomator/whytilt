@@ -3,6 +3,7 @@
 import { FC, useState } from 'react';
 import { ScreenSection } from './ScreenSection';
 import { DemoModal } from './DemoModal';
+import { BookDemoButton } from './BookDemoButton';
 
 interface ManagerCostCTAProps {
   className?: string;
@@ -24,12 +25,16 @@ export const ManagerCostCTA: FC<ManagerCostCTAProps> = ({ className = '' }) => {
             Show your board the future of lean operations.
           </h2>
           
-          <button 
-            onClick={() => setIsDemoModalOpen(true)}
-            className="mx-auto px-12 py-6 bg-white text-gray-900 font-bold rounded-lg text-xl transition-all duration-200 hover:shadow-lg hover:shadow-white/25 hover:scale-105"
-          >
-            Book a Demo
-          </button>
+          <div className="flex flex-col items-center gap-4">
+            <BookDemoButton 
+              onClick={() => setIsDemoModalOpen(true)}
+              theme="slate"
+            />
+            <div className="text-white/80 text-lg max-w-md">
+              <p className="mb-2">Free for small businesses under $250K revenue. Full source code included.</p>
+              <p>Enterprise pricing negotiated per organization. A founder will personally help you get started.</p>
+            </div>
+          </div>
         </div>
       </ScreenSection>
     </>
