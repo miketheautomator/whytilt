@@ -86,6 +86,18 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
               >
                 BOOK DEMO
               </button>
+              <a 
+                href="https://github.com/WhyTilt/tilt-app" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-transparent text-white text-xs rounded-md transition-all duration-200 hover:bg-white/10"
+                style={{ fontFamily: 'var(--font-contrail-one), sans-serif' }}
+              >
+                <svg aria-hidden="true" height="12" viewBox="0 0 16 16" version="1.1" width="12" className="text-yellow-400" fill="currentColor">
+                  <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"></path>
+                </svg>
+                <span className="hidden sm:inline">Give us a star</span><span className="sm:hidden">Star us</span>
+              </a>
             </div>
           </div>
         </div>
