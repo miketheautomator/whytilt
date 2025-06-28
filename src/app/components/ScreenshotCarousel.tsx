@@ -12,34 +12,29 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
   
   const screenshots = [
     {
-      src: '/screenshots/0-describe-tasks-in-english.png',
-      alt: 'Describe Tasks in English',
-      title: 'Describe Tasks in English'
+      src: '/screenshots/1-describe-tasks-in-plain-english.png',
+      alt: 'Describe Tasks in Plain English',
+      title: 'Describe Tasks in Plain English'
     },
     {
-      src: '/screenshots/1-starting-a-task.png',
-      alt: 'Starting a Task',
-      title: 'Starting a Task'
-    },
-    {
-      src: '/screenshots/2-navigating-browser.png',
-      alt: 'Navigating Browser',
-      title: 'Navigating Browser'
-    },
-    {
-      src: '/screenshots/3-network-and-javascript-assertions.png',
-      alt: 'Network and JavaScript Assertions',
-      title: 'Network and JavaScript Assertions'
-    },
-    {
-      src: '/screenshots/4-built-in-task-runner.png',
+      src: '/screenshots/2-builtin-task-runner.png',
       alt: 'Built-in Task Runner',
       title: 'Built-in Task Runner'
     },
     {
-      src: '/screenshots/5-customize-layout.png',
-      alt: 'Customize Layout',
-      title: 'Customize Layout'
+      src: '/screenshots/3-agent-is-starting.png',
+      alt: 'Agent is Starting',
+      title: 'Agent is Starting'
+    },
+    {
+      src: '/screenshots/4-it-adapts-on-its-own.png',
+      alt: 'It Adapts on Its Own',
+      title: 'It Adapts on Its Own'
+    },
+    {
+      src: '/screenshots/5-task-completes-with-pass-fail.png',
+      alt: 'Task Completes with Pass/Fail',
+      title: 'Task Completes with Pass/Fail'
     }
   ];
 
