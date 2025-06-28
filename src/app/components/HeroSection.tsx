@@ -91,13 +91,9 @@ export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selec
           
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl leading-relaxed text-gray-300 mb-8 sm:mb-12 max-w-5xl">
-            Tilt is a digital worker that handles real computer tasks in the browser and on the desktop—just like a person would. No code. No scripts. Just done.
+            Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.
           </p>
           
-          {/* Prompt */}
-          <p className="text-lg sm:text-xl text-white font-semibold mb-8 sm:mb-12">
-            Who are you, and what are you trying to do?
-          </p>
         </div>
 
         {/* Bottom Content - Positioned at bottom */}
@@ -105,6 +101,11 @@ export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selec
           {/* Path Selection Buttons - Only show when no path is selected */}
           {!selectedPath && (
             <div className="relative">
+              {/* Prompt */}
+              <p className="text-lg sm:text-xl text-white font-semibold mb-4">
+                Let's customize your experience
+              </p>
+              
               {/* Scroll prompt message - appears above buttons */}
               {showScrollPrompt && (
                 <div className="text-left mb-4">
