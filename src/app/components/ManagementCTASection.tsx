@@ -21,7 +21,7 @@ export const ManagementCTASection: FC<ManagementCTASectionProps> = ({ className 
       <ScreenSection className={`bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 ${className}`}>
         <div className="relative z-30 h-full flex flex-col justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-8 sm:mb-12 leading-tight text-white">
-            Augment your people or reduce your headcount. Either way—start today.
+            Augment your people or reduce your headcount. Either way - start today.
           </h2>
           
           <button 

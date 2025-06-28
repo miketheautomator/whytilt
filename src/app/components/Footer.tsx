@@ -26,7 +26,7 @@ export const Footer: FC<FooterProps> = ({ className = '' }) => {
                 />
               </div>
               <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">
-                Tilt uses AI agents to complete real computer tasks across your tools—just like a person would. Stop clicking, start creating.
+                Tilt uses AI agents to complete real computer tasks across your tools - just like a person would. Stop clicking, start creating.
               </p>
             </div>
             

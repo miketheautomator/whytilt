@@ -19,7 +19,7 @@ export const WorkerPainSection: FC<WorkerPainSectionProps> = ({ className = '' }
           <div className="text-xl sm:text-2xl leading-relaxed text-gray-300 max-w-4xl mx-auto space-y-4">
             <p><strong className="text-white">But you are.</strong></p>
             <p>
-              You click through forms, screenshot flows, check analytics tags, QA test features, and repeat the same 20 browser steps daily. Tilt takes that off your plate—without needing code, scripts, or IT.
+              You click through forms, screenshot flows, check analytics tags, QA test features, and repeat the same 20 browser steps daily. Tilt takes that off your plate - without needing code, scripts, or IT.
             </p>
           </div>
         </div>

@@ -36,7 +36,7 @@ export const WorkerSolutionSection: FC<WorkerSolutionSectionProps> = ({ classNam
             </div>
             
             <p className="text-xl sm:text-2xl leading-relaxed text-gray-300 text-center">
-              Tilt runs the browser like you would—clicks, scrolls, checks, logs, done.
+              Tilt runs the browser like you would - clicks, scrolls, checks, logs, done.
             </p>
           </div>
         </div>

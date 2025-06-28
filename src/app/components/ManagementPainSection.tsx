@@ -17,7 +17,7 @@ export const ManagementPainSection: FC<ManagementPainSectionProps> = ({ classNam
           </h2>
           
           <p className="text-xl sm:text-2xl leading-relaxed text-gray-300 max-w-4xl mx-auto">
-            Your best people spend hours every week testing sites, checking tags, filling out reports, clicking through browser flows. That&apos;s not strategy—that&apos;s busywork. Tilt takes it off their plate.
+            Your best people spend hours every week testing sites, checking tags, filling out reports, clicking through browser flows. That&apos;s not strategy - that&apos;s busywork. Tilt takes it off their plate.
           </p>
         </div>
       </div>

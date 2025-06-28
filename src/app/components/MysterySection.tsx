@@ -44,7 +44,7 @@ export const MysterySection: FC<MysterySectionProps> = ({ className = '' }) => {
               </svg>
             </div>
             <h3 className="text-white font-semibold text-lg sm:text-xl mb-3">Runs anywhere</h3>
-            <p className="text-gray-300 text-sm sm:text-base">Dockerized virtual desktop — deploy on Mac, Windows, Linux, or private cloud</p>
+            <p className="text-gray-300 text-sm sm:text-base">Dockerized virtual desktop  -  deploy on Mac, Windows, Linux, or private cloud</p>
           </div>
           
           <div className="modern-card p-6 sm:p-8 text-center">

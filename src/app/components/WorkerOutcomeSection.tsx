@@ -32,7 +32,7 @@ export const WorkerOutcomeSection: FC<WorkerOutcomeSectionProps> = ({ className 
                   Want to finish on time without burning out?
                 </h3>
                 <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-                  Tilt handles the grunt work so you can breathe—and still crush your numbers.
+                  Tilt handles the grunt work so you can breathe - and still crush your numbers.
                 </p>
               </div>
             </div>
