@@ -15,7 +15,8 @@ const contrailOne = Contrail_One({
 });
 
 export const metadata: Metadata = {
-  title: "Tilt - AI that actually does the work",
+  metadataBase: new URL('https://whytilt.com'),
+  title: "Tilt - Real intelligence. Real desktop. Real work.",
   keywords: [
     "automation",
     "AI automation",
@@ -28,7 +29,31 @@ export const metadata: Metadata = {
     "Tilt",
   ],
   description:
-    "Tilt automates real computer tasks so your team can stop clicking and start creating. AI that logs in, follows steps, and gets work done.",
+    "Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.",
+  openGraph: {
+    title: "Tilt - Real intelligence. Real desktop. Real work.",
+    description: "Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.",
+    url: "https://whytilt.com",
+    siteName: "Tilt",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Tilt - Real intelligence. Real desktop. Real work.",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tilt - Real intelligence. Real desktop. Real work.",
+    description: "Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.",
+    images: ["/og-image.png"],
+    creator: "@tiltapp",
+    site: "@tiltapp",
+  },
   icons: {
     icon: [
       {
