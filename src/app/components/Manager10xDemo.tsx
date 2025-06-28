@@ -31,7 +31,7 @@ export const Manager10xDemo: FC<Manager10xDemoProps> = ({ className = '' }) => {
         </div>
         
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          <span className="text-white font-semibold">Real browser. Real clicks. Real results.</span> 
+          <span className="text-white font-semibold">Real desktop. Real clicks. Real results.</span> 
           Watch your team get 10x more done while focusing on what matters.
         </p>
       </div>

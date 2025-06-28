@@ -31,7 +31,7 @@ export const WorkerEasierDemo: FC<WorkerEasierDemoProps> = ({ className = '' }) 
         </div>
         
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          <span className="text-white font-semibold">Real browser. Real clicks. Real relief.</span> 
+          <span className="text-white font-semibold">Real desktop. Real clicks. Real relief.</span> 
           Watch the boring stuff get done while you focus on better things.
         </p>
       </div>

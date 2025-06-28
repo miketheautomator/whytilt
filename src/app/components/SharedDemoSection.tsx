@@ -34,7 +34,7 @@ export const SharedDemoSection: FC<SharedDemoSectionProps> = ({ className = '', 
         </div>
         
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          <span className="text-white font-semibold">Real browser. Real clicks. Real output.</span> 
+          <span className="text-white font-semibold">Real desktop. Real clicks. Real output.</span> 
           {isManagement 
             ? " Just like your QA, ops, or growth person would do."
             : " See Tilt complete a task in under 2 minutes."

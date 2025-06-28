@@ -19,7 +19,7 @@ export const ManagementOutcomeSection: FC<ManagementOutcomeSectionProps> = ({ cl
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
-                <h3 className="text-white font-semibold text-xl mb-2">Functional tests in real browsers</h3>
+                <h3 className="text-white font-semibold text-xl mb-2">Functional tests in Real desktops</h3>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6">
                 <h3 className="text-white font-semibold text-xl mb-2">GTM and analytics tag validation</h3>

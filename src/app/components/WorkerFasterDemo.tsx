@@ -31,7 +31,7 @@ export const WorkerFasterDemo: FC<WorkerFasterDemoProps> = ({ className = '' }) 
         </div>
         
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          <span className="text-white font-semibold">Real browser. Real clicks. Real speed.</span> 
+          <span className="text-white font-semibold">Real desktop. Real clicks. Real speed.</span> 
           Watch tasks get completed in minutes, not hours.
         </p>
       </div>

@@ -86,12 +86,12 @@ export const HeroSection: FC<HeroSectionProps> = ({ onPathSelect, onReset, selec
           
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight text-white max-w-6xl">
-            Real intelligence. Real browser. Real work.
+            Real intelligence. Real desktop. Real work.
           </h1>
           
           {/* Subtitle */}
           <p className="text-xl sm:text-2xl leading-relaxed text-gray-300 mb-8 sm:mb-12 max-w-5xl">
-            Tilt is a digital worker that handles real computer tasks in the browser—just like a person would. No code. No scripts. Just done.
+            Tilt is a digital worker that handles real computer tasks in the browser and on the desktop—just like a person would. No code. No scripts. Just done.
           </p>
           
           {/* Prompt */}

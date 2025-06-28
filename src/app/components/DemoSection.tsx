@@ -40,7 +40,7 @@ export const DemoSection: FC<DemoSectionProps> = ({ className = '' }) => {
           </div>
           
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl">
-            <span className="text-white font-semibold">Real browser. Real clicks. Real output.</span> Just like your QA, ops, or growth person would do.
+            <span className="text-white font-semibold">Real desktop. Real clicks. Real output.</span> Just like your QA, ops, or growth person would do.
           </p>
         </div>
       </ScreenSection>

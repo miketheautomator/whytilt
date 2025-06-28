@@ -31,7 +31,7 @@ export const ManagerCostDemo: FC<ManagerCostDemoProps> = ({ className = '' }) =>
         </div>
         
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-          <span className="text-white font-semibold">Real browser. Real clicks. Real savings.</span> 
+          <span className="text-white font-semibold">Real desktop. Real clicks. Real savings.</span> 
           See how to maintain quality while reducing operational costs.
         </p>
       </div>
