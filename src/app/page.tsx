@@ -1,40 +1,43 @@
 "use client";
 import { useState, useRef } from "react";
-import {
-  Header,
-  HeroSection,
-  ManagementChoiceSection,
-  WorkerChoiceSection,
-  Manager10xSituation,
-  Manager10xPayoff,
-  Manager10xTasks,
-  Manager10xResults,
-  Manager10xOnboarding,
-  Manager10xDemo,
-  Manager10xCTA,
-  ManagerCostSituation,
-  ManagerCostSolution,
-  ManagerCostTasks,
-  ManagerCostResults,
-  ManagerCostOnboarding,
-  ManagerCostDemo,
-  ManagerCostCTA,
-  WorkerFasterProblem,
-  WorkerFasterUpgrade,
-  WorkerFasterExample,
-  WorkerFasterMeaning,
-  WorkerFasterOnboarding,
-  WorkerFasterDemo,
-  WorkerFasterCTA,
-  WorkerEasierSituation,
-  WorkerEasierRelief,
-  WorkerEasierExample,
-  WorkerEasierFeeling,
-  WorkerEasierOnboarding,
-  WorkerEasierDemo,
-  WorkerEasierCTA,
-  Footer
-} from './components';
+// Shared components
+import { Header } from './shared/layout/header';
+import { HeroSection } from './shared/hero';
+import { Footer } from './shared/layout/footer';
+
+// Manager components
+import { ManagementChoiceSection } from './manager/choice/section';
+import { Manager10xSituation } from './manager/tenfold/situation';
+import { Manager10xPayoff } from './manager/tenfold/payoff';
+import { Manager10xTasks } from './manager/tenfold/tasks';
+import { Manager10xResults } from './manager/tenfold/results';
+import { Manager10xOnboarding } from './manager/tenfold/onboarding';
+import { Manager10xDemo } from './manager/tenfold/demo';
+import { Manager10xCTA } from './manager/tenfold/cta';
+import { ManagerCostSituation } from './manager/cost/situation';
+import { ManagerCostSolution } from './manager/cost/solution';
+import { ManagerCostTasks } from './manager/cost/tasks';
+import { ManagerCostResults } from './manager/cost/results';
+import { ManagerCostOnboarding } from './manager/cost/onboarding';
+import { ManagerCostDemo } from './manager/cost/demo';
+import { ManagerCostCTA } from './manager/cost/cta';
+
+// Worker components
+import { WorkerChoiceSection } from './worker/choice/section';
+import { WorkerFasterProblem } from './worker/faster/problem';
+import { WorkerFasterUpgrade } from './worker/faster/upgrade';
+import { WorkerFasterExample } from './worker/faster/example';
+import { WorkerFasterMeaning } from './worker/faster/meaning';
+import { WorkerFasterOnboarding } from './worker/faster/onboarding';
+import { WorkerFasterDemo } from './worker/faster/demo';
+import { WorkerFasterCTA } from './worker/faster/cta';
+import { WorkerEasierSituation } from './worker/easier/situation';
+import { WorkerEasierRelief } from './worker/easier/relief';
+import { WorkerEasierExample } from './worker/easier/example';
+import { WorkerEasierFeeling } from './worker/easier/feeling';
+import { WorkerEasierOnboarding } from './worker/easier/onboarding';
+import { WorkerEasierDemo } from './worker/easier/demo';
+import { WorkerEasierCTA } from './worker/easier/cta';
 
 type UserPath = 'management-10x' | 'management-cost' | 'worker-faster' | 'worker-easier' | null;
 

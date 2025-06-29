@@ -24,7 +24,11 @@
       "Bash(fc-list:*)",
       "Bash(locate:*)",
       "Bash(npx playwright install:*)",
-      "WebFetch(domain:whytilt.com)"
+      "WebFetch(domain:whytilt.com)",
+      "Bash(mv:*)",
+      "Bash(pkill:*)",
+      "Bash(true)",
+      "Bash(npm run lint:*)"
     ],
     "deny": []
   }
