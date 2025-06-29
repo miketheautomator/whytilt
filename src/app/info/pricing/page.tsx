@@ -8,66 +8,29 @@ export default function PricingPage() {
     <>
       {/* Hero Section */}
       <Section background="primary" baseColor="purple">
-        {/* Background Image with Blur and Low Opacity */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
-          <div className="background-glow-purple"></div>
-        </div>
-        
-        {/* Hero Content - EXACT homepage structure */}
-        <div className="relative z-30 h-full flex flex-col max-w-7xl mx-auto pt-20 sm:pt-24 pb-20 sm:pb-32">
-          <div className="px-4 sm:px-6 lg:px-12 w-full max-w-7xl flex-1 flex flex-col justify-center">
-            {/* Status Badge - EXACT homepage styling */}
-            <div className="inline-flex items-center gap-2 mb-8 sm:mb-12 px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-fit">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <span className="text-white text-xs sm:text-sm font-medium">Simple Pricing • No Hidden Fees</span>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 leading-tight text-white">
+            Pricing
+          </h1>
+          
+          <h2 className="text-xl sm:text-2xl text-zinc-400 mb-8 text-center">
+            Simple, transparent pricing for everyone, big and small.
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-zinc-800/30 border border-zinc-600/30 rounded-lg p-8">
+              <h3 className="text-xl font-bold text-white mb-2">Small Business</h3>
+              <p className="text-sm text-zinc-300 mb-4">Under $250K revenue</p>
+              <p className="text-zinc-300">Pay only AI model costs. Zero licensing fees.</p>
             </div>
             
-            {/* Main Headline - EXACT homepage typography */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight text-white max-w-6xl">
-              Pricing
-            </h1>
-            
-            {/* Subtitle - EXACT homepage styling */}
-            <p className="text-xl sm:text-2xl leading-relaxed text-gray-300 mb-8 sm:mb-12 max-w-5xl">
-              Simple, transparent pricing for everyone, big and small.
-            </p>
-            
-          </div>
-
-          {/* Bottom Content - Pricing info positioned like homepage buttons */}
-          <div className="px-4 sm:px-6 lg:px-12 w-full">
-            <div className="relative">
-              {/* Pricing Cards - styled like homepage buttons but with content */}
-              <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
-                  <h3 className="text-xl font-bold text-white mb-2">Small Business</h3>
-                  <p className="text-sm text-gray-300 mb-4">Under $250K revenue</p>
-                  <p className="text-white">Pay only AI model costs. Zero licensing fees.</p>
-                </div>
-                
-                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
-                  <h3 className="text-xl font-bold text-white mb-2">Enterprise</h3>
-                  <p className="text-sm text-gray-300 mb-4">Over $250K revenue</p>
-                  <p className="text-white">Free for one year. Then per-seat licensing.</p>
-                </div>
-              </div>
-              
-              {/* Additional info - compact and clean */}
-              <div className="text-center mt-8 pt-6 border-t border-white/20 max-w-4xl">
-                <p className="text-gray-300 mb-3">
-                  AI model costs: pennies for simple tasks, dollars for complex workflows.
-                </p>
-                <p className="text-sm text-gray-400">
-                  While in beta Anthropic provides the model inference and billing, but our model will be launching soon and will be 20% the cost of Anthropic&apos;s Sonnet 4.
-                </p>
-              </div>
+            <div className="bg-zinc-800/30 border border-zinc-600/30 rounded-lg p-8">
+              <h3 className="text-xl font-bold text-white mb-2">Enterprise</h3>
+              <p className="text-sm text-zinc-300 mb-4">Over $250K revenue</p>
+              <p className="text-zinc-300">Free for one year. Then per-seat licensing.</p>
             </div>
           </div>
         </div>
-        
-        {/* Bottom gradient fade - matching homepage */}
-        <div className="absolute bottom-0 left-0 z-10 h-80 w-full bg-gradient-to-b from-transparent to-[#090A0C] pointer-events-none"></div>
       </Section>
 
       {/* Licensing Details */}
