@@ -205,6 +205,15 @@ button {
   min-height: 100vh;
 }
 
+/* Purple hero background for pricing */
+.hero-bg-purple {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #475569 75%, #0f172a 100%);
+  height: 100vh;
+  min-height: 100vh;
+}
+
 /* Dark zinc section background */
 .zinc-section-bg {
   position: relative;
@@ -294,6 +303,21 @@ button {
     radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
     radial-gradient(ellipse at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(5, 150, 105, 0.06) 0%, transparent 70%);
+  mix-blend-mode: lighten;
+  z-index: 1;
+}
+
+/* Purple background glow for pricing */
+.background-glow-purple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(79, 70, 229, 0.04) 0%, transparent 70%);
   mix-blend-mode: lighten;
   z-index: 1;
 }

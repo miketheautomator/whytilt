@@ -1,4 +1,4 @@
-import { Hero } from '@/app/shared/info/hero';
+import { ScreenSection } from '@/app/shared/screen-section';
 import { PricingGrid } from '@/app/shared/info/pricing-grid'; 
 import { LicensingCards } from '@/app/shared/info/licensing-cards';
 import { Comparison } from '@/app/shared/info/comparison';
@@ -8,38 +8,69 @@ import { Content } from '@/app/shared/info/content';
 export default function PricingPage() {
   return (
     <>
-      {/* Hero Section */}
-      <Section background="primary" baseColor="purple">
-        <Hero 
-          title="Pricing"
-          subtitle="Simple, transparent pricing for everyone, big and small."
-        >
-          <PricingGrid 
-            title=""
-            items={[
-              {
-                title: "Small Business",
-                subtitle: "Under $250K revenue",
-                description: "Pay only AI model costs.\nZero licensing fees."
-              },
-              {
-                title: "Enterprise", 
-                subtitle: "Over $250K revenue",
-                description: "Free for one year.\nThen per-seat licensing."
-              }
-            ]}
-          />
-          
-          <div className="text-center mt-16 pt-8 border-t border-zinc-700">
-            <p className="text-zinc-400 mb-4">
-              AI model costs: pennies for simple tasks, dollars for complex workflows.
+      {/* Hero Section - Matching homepage structure */}
+      <ScreenSection className="hero-bg-purple">
+        {/* Background Image with Blur and Low Opacity */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
+          <div className="background-glow-purple"></div>
+        </div>
+        
+        {/* Hero Content - EXACT homepage structure */}
+        <div className="relative z-30 h-full flex flex-col max-w-7xl mx-auto pt-20 sm:pt-24 pb-20 sm:pb-32">
+          <div className="px-4 sm:px-6 lg:px-12 w-full max-w-7xl flex-1 flex flex-col justify-center">
+            {/* Status Badge - EXACT homepage styling */}
+            <div className="inline-flex items-center gap-2 mb-8 sm:mb-12 px-3 sm:px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full w-fit">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <span className="text-white text-xs sm:text-sm font-medium">Simple Pricing • No Hidden Fees</span>
+            </div>
+            
+            {/* Main Headline - EXACT homepage typography */}
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold mb-6 sm:mb-8 leading-[1.1] tracking-tight text-white max-w-6xl">
+              Pricing
+            </h1>
+            
+            {/* Subtitle - EXACT homepage styling */}
+            <p className="text-xl sm:text-2xl leading-relaxed text-gray-300 mb-8 sm:mb-12 max-w-5xl">
+              Simple, transparent pricing for everyone, big and small.
             </p>
-            <p className="text-sm text-zinc-500">
-              While in beta Anthropic provides the model inference and billing, but our model will be launching soon and will be 20% the cost of Anthropic&apos;s Sonnet 4.
-            </p>
+            
           </div>
-        </Hero>
-      </Section>
+
+          {/* Bottom Content - Pricing info positioned like homepage buttons */}
+          <div className="px-4 sm:px-6 lg:px-12 w-full">
+            <div className="relative">
+              {/* Pricing Cards - styled like homepage buttons but with content */}
+              <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-white mb-2">Small Business</h3>
+                  <p className="text-sm text-gray-300 mb-4">Under $250K revenue</p>
+                  <p className="text-white">Pay only AI model costs. Zero licensing fees.</p>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-white mb-2">Enterprise</h3>
+                  <p className="text-sm text-gray-300 mb-4">Over $250K revenue</p>
+                  <p className="text-white">Free for one year. Then per-seat licensing.</p>
+                </div>
+              </div>
+              
+              {/* Additional info - compact and clean */}
+              <div className="text-center mt-8 pt-6 border-t border-white/20 max-w-4xl">
+                <p className="text-gray-300 mb-3">
+                  AI model costs: pennies for simple tasks, dollars for complex workflows.
+                </p>
+                <p className="text-sm text-gray-400">
+                  While in beta Anthropic provides the model inference and billing, but our model will be launching soon and will be 20% the cost of Anthropic&apos;s Sonnet 4.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom gradient fade - matching homepage */}
+        <div className="absolute bottom-0 left-0 z-10 h-80 w-full bg-gradient-to-b from-transparent to-[#090A0C] pointer-events-none"></div>
+      </ScreenSection>
 
       {/* Licensing Details */}
       <Section background="secondary" baseColor="purple">
