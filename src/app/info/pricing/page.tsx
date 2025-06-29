@@ -1,4 +1,3 @@
-import { ScreenSection } from '@/app/shared/screen-section';
 import { LicensingCards } from '@/app/shared/info/licensing-cards';
 import { Comparison } from '@/app/shared/info/comparison';
 import { Section } from '@/app/shared/info/section';
@@ -7,8 +6,8 @@ import { Content } from '@/app/shared/info/content';
 export default function PricingPage() {
   return (
     <>
-      {/* Hero Section - Matching homepage structure */}
-      <ScreenSection className="hero-bg-purple">
+      {/* Hero Section */}
+      <Section background="primary" baseColor="purple">
         {/* Background Image with Blur and Low Opacity */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div>
@@ -69,7 +68,7 @@ export default function PricingPage() {
         
         {/* Bottom gradient fade - matching homepage */}
         <div className="absolute bottom-0 left-0 z-10 h-80 w-full bg-gradient-to-b from-transparent to-[#090A0C] pointer-events-none"></div>
-      </ScreenSection>
+      </Section>
 
       {/* Licensing Details */}
       <Section background="secondary" baseColor="purple">
@@ -172,6 +171,7 @@ export default function PricingPage() {
           </div>
         </Content>
       </Section>
+
     </>
   );
 }

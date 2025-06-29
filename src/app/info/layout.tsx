@@ -24,7 +24,7 @@ export default function InfoLayout({
     >
       <Header onReset={() => {}} selectedPath={null} mainRef={mainRef} />
       {children}
-      <Footer />
+      <Footer className="h-dvh snap-start" />
     </main>
   );
 }
