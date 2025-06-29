@@ -34,11 +34,11 @@ export const Section: FC<SectionProps> = ({
     } else if (baseColor === 'purple') {
       switch (background) {
         case 'primary':
-          return 'bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900';
+          return 'bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900';
         case 'secondary':
-          return 'bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900';
+          return 'bg-gradient-to-br from-purple-950 via-slate-950 to-gray-950';
         case 'tertiary':
-          return 'bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900';
+          return 'bg-gradient-to-br from-gray-950 via-purple-950 to-slate-950';
       }
     } else if (baseColor === 'orange') {
       switch (background) {
