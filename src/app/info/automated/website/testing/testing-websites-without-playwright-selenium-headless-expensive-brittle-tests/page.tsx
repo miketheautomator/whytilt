@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { CostLicensingSection } from '@/app/shared/cost-licensing-section';
 import { Hero } from '@/app/shared/info/hero';
 import { ProblemGrid } from '@/app/shared/info/problem-grid';
 import { Section } from '@/app/shared/info/section';
