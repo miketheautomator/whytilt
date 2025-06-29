@@ -9,7 +9,7 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section background="primary">
+      <Section background="primary" baseColor="purple">
         <Hero 
           title="Pricing"
           subtitle="Simple, transparent pricing for everyone, big and small."
@@ -42,12 +42,12 @@ export default function PricingPage() {
       </Section>
 
       {/* Licensing Details */}
-      <Section background="secondary">
+      <Section background="secondary" baseColor="purple">
         <LicensingCards title="Licensing that makes sense." />
       </Section>
 
       {/* Open Source Benefits */}
-      <Section background="tertiary">
+      <Section background="tertiary" baseColor="purple">
         <Content title="Open Source Advantages">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8">
@@ -86,7 +86,7 @@ export default function PricingPage() {
       </Section>
 
       {/* Compare vs Traditional */}
-      <Section background="secondary">
+      <Section background="secondary" baseColor="purple">
         <Content>
           <Comparison 
             title="Compare the True Cost"
@@ -126,7 +126,7 @@ export default function PricingPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section background="primary">
+      <Section background="primary" baseColor="purple">
         <Content maxWidth="wide" className="text-center">
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-12 sm:mb-16 leading-tight text-white">
             Want to amplify your best people? Book a demo.

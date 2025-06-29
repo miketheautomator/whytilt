@@ -16,11 +16,11 @@ export const Section: FC<SectionProps> = ({
     if (baseColor === 'blue') {
       switch (background) {
         case 'primary':
-          return 'bg-gradient-to-br from-zinc-900 via-blue-950/30 to-zinc-900';
+          return 'bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800';
         case 'secondary':
-          return 'bg-gradient-to-br from-zinc-800 via-blue-950/20 to-zinc-800';
+          return 'bg-gradient-to-br from-blue-900 via-slate-900 to-gray-900';
         case 'tertiary':
-          return 'bg-gradient-to-br from-zinc-700 via-blue-950/25 to-zinc-700';
+          return 'bg-gradient-to-br from-gray-900 via-blue-900 to-slate-900';
       }
     } else if (baseColor === 'green') {
       switch (background) {
@@ -34,11 +34,11 @@ export const Section: FC<SectionProps> = ({
     } else if (baseColor === 'purple') {
       switch (background) {
         case 'primary':
-          return 'bg-gradient-to-br from-zinc-900 via-purple-950/30 to-zinc-900';
+          return 'bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900';
         case 'secondary':
-          return 'bg-gradient-to-br from-zinc-800 via-purple-950/20 to-zinc-800';
+          return 'bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900';
         case 'tertiary':
-          return 'bg-gradient-to-br from-zinc-700 via-purple-950/25 to-zinc-700';
+          return 'bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900';
       }
     } else if (baseColor === 'orange') {
       switch (background) {
@@ -52,7 +52,7 @@ export const Section: FC<SectionProps> = ({
     }
     
     // Default fallback
-    return 'bg-gradient-to-br from-zinc-900 via-blue-950/30 to-zinc-900';
+    return 'bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-800';
   };
 
   return (
