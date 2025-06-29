@@ -28,7 +28,8 @@
       "Bash(mv:*)",
       "Bash(pkill:*)",
       "Bash(true)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Contrail_One } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "./shared/analytics";
+import { createMetadata } from "./shared/metadata";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -15,54 +16,64 @@ const contrailOne = Contrail_One({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://whytilt.com'),
-  title: "Tilt - Real intelligence. Real desktop. Real work.",
-  keywords: [
-    "website usability testing",
-    "functional web testing",
-    "web testing automation",
-    "analytics tag testing",
-    "GTM tag validation",
-    "browser automation testing",
-    "automation",
-    "AI automation",
-    "task automation",
-    "computer automation",
-    "workflow automation",
-    "business productivity",
-    "AI assistant",
-    "digital workforce",
-    "desktop automation",
-    "QA automation",
-    "functional testing",
-    "Tilt",
-  ],
-  description:
-    "Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.",
-  openGraph: {
+  ...createMetadata({
     title: "Tilt - Real intelligence. Real desktop. Real work.",
     description: "Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.",
-    url: "https://whytilt.com",
-    siteName: "Tilt",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Tilt - Real intelligence. Real desktop. Real work.",
-      },
+    keywords: [
+      "website usability testing",
+      "functional web testing", 
+      "web testing automation",
+      "analytics tag testing",
+      "GTM tag validation",
+      "browser automation testing",
+      "automation",
+      "AI automation",
+      "task automation", 
+      "computer automation",
+      "workflow automation",
+      "business productivity",
+      "AI assistant",
+      "digital workforce",
+      "desktop automation",
+      "QA automation",
+      "functional testing",
+      "Tilt",
     ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tilt - Real intelligence. Real desktop. Real work.",
-    description: "Tilt is a digital worker that handles real computer tasks in the browser and on the desktop - just like a person would. No code. No scripts. Just done.",
-    images: ["/og-image.png"],
-    creator: "@tiltapp",
-    site: "@tiltapp",
-  },
+    url: "https://whytilt.com",
+    ldJsonType: "SoftwareApplication",
+    ldJsonData: {
+      "@type": "SoftwareApplication",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: ["Windows", "macOS", "Linux"],
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        eligibleRegion: "US"
+      },
+      creator: {
+        "@type": "Organization",
+        name: "Tilt",
+        url: "https://whytilt.com",
+        logo: "https://whytilt.com/android-chrome-192x192.png",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "San Francisco",
+          addressRegion: "CA",
+          addressCountry: "US"
+        }
+      },
+      featureList: [
+        "Website usability testing automation",
+        "Functional web testing",
+        "Analytics tag validation",
+        "GTM tag testing", 
+        "Browser automation",
+        "Desktop task automation",
+        "No-code automation platform"
+      ]
+    }
+  }),
   icons: {
     icon: [
       {

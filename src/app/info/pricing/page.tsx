@@ -1,5 +1,4 @@
 import { ScreenSection } from '@/app/shared/screen-section';
-import { PricingGrid } from '@/app/shared/info/pricing-grid'; 
 import { LicensingCards } from '@/app/shared/info/licensing-cards';
 import { Comparison } from '@/app/shared/info/comparison';
 import { Section } from '@/app/shared/info/section';
