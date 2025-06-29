@@ -8,12 +8,12 @@ interface LicensingCardsProps {
 export const LicensingCards: FC<LicensingCardsProps> = ({ title }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-      <h2 className="text-4xl sm:text-6xl font-bold mb-20 leading-tight text-white">
+      <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 sm:mb-8 md:mb-12 lg:mb-20 leading-tight text-white">
         {title}
       </h2>
       
-      <div className="grid md:grid-cols-2 gap-16">
-        <div className="bg-zinc-900/30 border border-zinc-600/30 rounded-2xl p-10">
+      <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-16">
+        <div className="bg-zinc-900/30 border border-zinc-600/30 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10">
           <div className="inline-block px-4 py-2 bg-zinc-500/20 text-zinc-200 text-sm font-semibold rounded-full mb-6">
             ALWAYS FREE
           </div>
@@ -37,7 +37,7 @@ export const LicensingCards: FC<LicensingCardsProps> = ({ title }) => {
           </div>
         </div>
         
-        <div className="bg-zinc-900/30 border border-zinc-600/30 rounded-2xl p-10">
+        <div className="bg-zinc-900/30 border border-zinc-600/30 rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10">
           <div className="inline-block px-4 py-2 bg-zinc-500/20 text-zinc-200 text-sm font-semibold rounded-full mb-6">
             1 YEAR FREE
           </div>

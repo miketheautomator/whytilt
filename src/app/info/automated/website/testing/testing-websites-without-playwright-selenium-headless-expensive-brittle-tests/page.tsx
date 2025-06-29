@@ -42,44 +42,44 @@ export default function WebsiteTestingWithoutBrittleToolsPage() {
       {/* Solution Section */}
       <Section background="tertiary" baseColor="indigo">
         <Content title="Tilt: Vision-Based Website Testing That Actually Works" className="text-center">
-          <p className="text-xl text-zinc-300 mb-16 max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-zinc-300 mb-6 sm:mb-8 md:mb-12 lg:mb-16 max-w-4xl mx-auto leading-relaxed">
             Tilt can actually SEE your website and navigate it using a real browser on a real desktop using a mouse and keyboard - just like a real customer would.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-              <div className="w-16 h-16 bg-zinc-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="grid md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+            <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+              <div className="hidden sm:flex w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-zinc-500 rounded-full items-center justify-center mx-auto mb-4 md:mb-6">
+                <svg className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Vision AI That Actually Sees</h3>
-              <p className="text-zinc-300">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-3 md:mb-4">Vision AI That Actually Sees</h3>
+              <p className="text-xs sm:text-sm md:text-base text-zinc-300 leading-relaxed">
                 Our powerful vision model sees your website like a human does - identifying buttons, forms, and content visually, not through fragile DOM selectors.
               </p>
             </div>
             
-            <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-              <div className="w-16 h-16 bg-zinc-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+              <div className="hidden sm:flex w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-zinc-400 rounded-full items-center justify-center mx-auto mb-4 md:mb-6">
+                <svg className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Plain English Instructions</h3>
-              <p className="text-zinc-300">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-3 md:mb-4">Plain English Instructions</h3>
+              <p className="text-xs sm:text-sm md:text-base text-zinc-300 leading-relaxed">
                 Write tests in plain English. No code, no selectors, no technical syntax. Just describe what you want tested like you&apos;re talking to a person.
               </p>
             </div>
             
-            <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-              <div className="w-16 h-16 bg-zinc-300 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+              <div className="hidden sm:flex w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-zinc-300 rounded-full items-center justify-center mx-auto mb-4 md:mb-6">
+                <svg className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Intelligent & Adaptive</h3>
-              <p className="text-zinc-300">
+              <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-2 sm:mb-3 md:mb-4">Intelligent & Adaptive</h3>
+              <p className="text-xs sm:text-sm md:text-base text-zinc-300 leading-relaxed">
                 Tilt overcomes popups, changed text, moved buttons, network errors, and even whole site redesigns. It&apos;s an intelligent agent, not a brittle script.
               </p>
             </div>

@@ -41,34 +41,34 @@ export default function PricingPage() {
       {/* Open Source Benefits */}
       <Section background="tertiary" baseColor="purple">
         <Content title="Open Source Advantages">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Enterprise Security & Auditing</h3>
-                <p className="text-zinc-300 leading-relaxed">
+          <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-12">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
+              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4">Enterprise Security & Auditing</h3>
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
                   Open source allows enterprise companies to audit the code. Install on-premises so sensitive data never leaves your infrastructure. No need to trust us with your data.
                 </p>
               </div>
               
-              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Full Source Code Access</h3>
-                <p className="text-zinc-300 leading-relaxed">
+              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4">Full Source Code Access</h3>
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
                   Complete transparency - see exactly how Tilt works, modify it for your needs, and never worry about vendor lock-in or discontinued support.
                 </p>
               </div>
             </div>
             
-            <div className="space-y-8">
-              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">No Licensing Restrictions</h3>
-                <p className="text-zinc-300 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
+              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4">No Licensing Restrictions</h3>
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
                   Deploy anywhere - on-premises, cloud, or hybrid. Scale without per-seat fees (first year). Your infrastructure, your control.
                 </p>
               </div>
               
-              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-white mb-4">Future-Proof Investment</h3>
-                <p className="text-zinc-300 leading-relaxed">
+              <div className="bg-zinc-600/50 backdrop-blur-sm border border-zinc-500/50 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4">Future-Proof Investment</h3>
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
                   Our upcoming proprietary model will be faster and cheaper than current options. Early adopters benefit from improved economics.
                 </p>
               </div>
@@ -120,15 +120,15 @@ export default function PricingPage() {
       {/* CTA Section */}
       <Section background="primary" baseColor="purple">
         <Content maxWidth="wide" className="text-center">
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-12 sm:mb-16 leading-tight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 sm:mb-12 md:mb-16 leading-tight text-white">
             Want to amplify your best people? Book a demo.
           </h2>
           
-          <div className="flex flex-col items-center gap-12">
+          <div className="flex flex-col items-center gap-8 sm:gap-12">
             <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-black text-lg font-semibold rounded-lg hover:bg-zinc-200 transition-colors">
               Book a Demo
             </button>
-            <div className="text-zinc-300 text-lg max-w-5xl mx-auto px-16 leading-relaxed">
+            <div className="text-zinc-300 text-lg max-w-5xl mx-auto px-4 sm:px-8 md:px-16 leading-relaxed">
               <p>A founder will personally help you get started.</p>
             </div>
           </div>

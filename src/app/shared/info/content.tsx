@@ -22,7 +22,7 @@ export const Content: FC<ContentProps> = ({
   return (
     <div className={`${maxWidthClasses[maxWidth]} mx-auto px-4 sm:px-6 lg:px-12 ${className}`}>
       {title && (
-        <h2 className="text-3xl sm:text-5xl font-bold mb-12 text-white text-center">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-12 text-white text-center">
           {title}
         </h2>
       )}
