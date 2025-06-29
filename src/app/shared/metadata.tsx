@@ -97,7 +97,7 @@ export function createLdJson(config: TiltMetadataConfig) {
     case 'Organization':
       structuredData = {
         ...structuredData,
-        logo: `${mergedConfig.url}/android-chrome-192x192.png`,
+        logo: `${mergedConfig.url}/logo-bg.png`,
         sameAs: [
           'https://github.com/WhyTilt/tilt-app',
         ],
