@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         "@type": "Organization",
         name: "Tilt",
         url: "https://whytilt.com",
-        logo: "https://whytilt.com/android-chrome-192x192.png",
+        logo: "https://whytilt.com/brand-logo.png",
         address: {
           "@type": "PostalAddress",
           addressLocality: "San Francisco",
@@ -147,7 +147,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 "name": "Tilt",
                 "url": "https://whytilt.com",
-                "logo": "https://whytilt.com/logo.png",
+                "logo": "https://whytilt.com/brand-logo.png",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "San Francisco",
