@@ -97,7 +97,7 @@ export function createLdJson(config: TiltMetadataConfig) {
     case 'Organization':
       structuredData = {
         ...structuredData,
-        logo: `${mergedConfig.url}/logo-bg.png`,
+        logo: `${mergedConfig.url}/brand-logo.png`,
         sameAs: [
           'https://github.com/WhyTilt/tilt-app',
         ],
@@ -131,7 +131,7 @@ export function createLdJson(config: TiltMetadataConfig) {
           '@type': 'Organization',
           name: 'Tilt', 
           url: mergedConfig.url,
-          logo: `${mergedConfig.url}/android-chrome-192x192.png`
+          logo: `${mergedConfig.url}/brand-logo.png`
         },
         featureList: [
           'Website usability testing automation',
@@ -153,7 +153,7 @@ export function createLdJson(config: TiltMetadataConfig) {
           '@type': 'Organization',
           name: 'Tilt',
           url: mergedConfig.url,
-          logo: `${mergedConfig.url}/android-chrome-192x192.png`
+          logo: `${mergedConfig.url}/brand-logo.png`
         },
         breadcrumb: {
           '@type': 'BreadcrumbList',

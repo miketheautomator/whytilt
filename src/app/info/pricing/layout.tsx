@@ -26,7 +26,7 @@ export const metadata = createMetadata({
       '@type': 'Organization',
       name: 'Tilt',
       url: 'https://whytilt.com',
-      logo: 'https://whytilt.com/android-chrome-192x192.png',
+      logo: 'https://whytilt.com/brand-logo.png',
       offers: [
         {
           '@type': 'Offer',
