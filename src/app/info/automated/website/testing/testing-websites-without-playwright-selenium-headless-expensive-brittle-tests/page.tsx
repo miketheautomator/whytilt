@@ -27,7 +27,7 @@ export default function WebsiteTestingWithoutBrittleToolsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section background="primary" baseColor="blue">
+      <Section background="primary" baseColor="indigo">
         <Hero 
           title="Testing Websites Without Playwright, Selenium & Expensive Brittle DOM Tests"
           subtitle="Stop wasting time fighting with DOM selectors that break every deployment. Tilt tests your website the way real customers use it - with vision AI that actually sees your site."
@@ -35,7 +35,7 @@ export default function WebsiteTestingWithoutBrittleToolsPage() {
       </Section>
 
       {/* Problem Section */}
-      <Section background="secondary" baseColor="blue">
+      <Section background="secondary" baseColor="indigo">
         <ProblemGrid 
           title="The Problem with Current Testing Tools"
           items={[
@@ -60,7 +60,7 @@ export default function WebsiteTestingWithoutBrittleToolsPage() {
       </Section>
 
       {/* Solution Section */}
-      <Section background="tertiary" baseColor="blue">
+      <Section background="tertiary" baseColor="indigo">
         <Content title="Tilt: Vision-Based Website Testing That Actually Works" className="text-center">
           <p className="text-xl text-zinc-300 mb-16 max-w-4xl mx-auto">
             Tilt can actually SEE your website and navigate it using a real browser on a real desktop using a mouse and keyboard - just like a real customer would.
@@ -108,7 +108,7 @@ export default function WebsiteTestingWithoutBrittleToolsPage() {
       </Section>
 
       {/* Example Section */}
-      <Section background="secondary" baseColor="blue">
+      <Section background="secondary" baseColor="indigo">
         <Content title="Real Browser Testing in Plain English">
           <div className="bg-zinc-700/50 backdrop-blur-sm border border-zinc-600/50 rounded-lg p-8 mb-12">
             <h3 className="text-2xl font-bold text-white mb-6">Instead of This Brittle Code:</h3>
@@ -136,7 +136,7 @@ await page.waitForSelector('.success-message-container');
       </Section>
 
       {/* Features Section */}
-      <Section background="tertiary" baseColor="blue">
+      <Section background="tertiary" baseColor="indigo">
         <Content title="How Tilt Tests Your Website">
           <div className="space-y-12">
             <div className="flex flex-col md:flex-row items-center gap-8">
@@ -185,7 +185,7 @@ await page.waitForSelector('.success-message-container');
       </Section>
 
       {/* Custom Tools Ecosystem Section */}
-      <Section background="tertiary" baseColor="blue">
+      <Section background="tertiary" baseColor="indigo">
         <Content title="Custom Tools for Real Computer Work" className="text-center">
           <p className="text-xl text-zinc-300 mb-16 max-w-4xl mx-auto">
             Tilt uses a comprehensive toolkit to operate computers, browsers, databases, and any system you need. Build custom tools or use our extensive library to handle any task.
@@ -238,7 +238,7 @@ await page.waitForSelector('.success-message-container');
       </Section>
 
       {/* Custom Extensions Section */}
-      <Section background="secondary" baseColor="blue">
+      <Section background="secondary" baseColor="indigo">
         <Content title="Extend Tilt for Your Specific Needs" className="text-center">
           <p className="text-xl text-zinc-300 mb-16 max-w-4xl mx-auto">
             Since Tilt is open source, you can write custom tools or we can build them for you. Integrate with any website, API, database, or MCP server your testing requires.
@@ -307,7 +307,7 @@ await page.waitForSelector('.success-message-container');
       </Section>
 
       {/* White Glove Onboarding */}
-      <Section background="secondary" baseColor="blue">
+      <Section background="secondary" baseColor="indigo">
         <Content title="White-Glove Setup. Guaranteed Success.">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-zinc-700/50 backdrop-blur-sm border border-zinc-600/50 rounded-lg p-8">
@@ -345,7 +345,7 @@ await page.waitForSelector('.success-message-container');
 
 
       {/* CTA Section */}
-      <Section background="primary" baseColor="blue">
+      <Section background="primary" baseColor="indigo">
         <Content>
           <div className="text-center">
             <h2 className="text-4xl sm:text-5xl font-bold mb-8 text-white">
