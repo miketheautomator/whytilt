@@ -34,7 +34,7 @@ export const Section: FC<SectionProps> = ({
     } else if (baseColor === 'purple') {
       switch (background) {
         case 'primary':
-          return 'bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900';
+          return 'bg-gradient-to-br from-black via-purple-950 to-gray-950';
         case 'secondary':
           return 'bg-gradient-to-br from-purple-950 via-slate-950 to-gray-950';
         case 'tertiary':
