@@ -60,11 +60,11 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
   };
 
   return (
-    <div className={`relative w-screen -mx-4 sm:-mx-6 lg:-mx-12 flex flex-col items-center justify-center ${className}`}>
+    <div className={`relative w-full max-w-5xl mx-auto px-4 flex flex-col items-center justify-center ${className}`}>
       {/* Carousel Container */}
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/50 via-blue-900/30 to-purple-900/40 backdrop-blur-sm border border-white/10 shadow-2xl w-[1365px] h-[773px] scale-50 sm:scale-60 md:scale-70">
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/50 via-blue-900/30 to-purple-900/40 backdrop-blur-sm border border-white/10 shadow-2xl w-full aspect-[16/9]">
         {/* Screenshots */}
-        <div className="relative w-[1365px] h-[773px]">
+        <div className="relative w-full h-full">
           {screenshots.map((screenshot, index) => (
             <div
               key={index}
