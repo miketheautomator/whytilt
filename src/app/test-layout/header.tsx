@@ -32,11 +32,12 @@ export function Header({ containerRef }: HeaderProps) {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-black/80 transition-all duration-300 ${
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled ? "py-1" : "py-4"
       }`}
       style={{
-        height: scrolled ? '40px' : 'auto'
+        height: scrolled ? '40px' : 'auto',
+        backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.2)' : 'rgba(0, 0, 0, 0.8)'
       }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 transition-all duration-300">
