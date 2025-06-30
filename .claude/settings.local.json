@@ -29,7 +29,11 @@
       "Bash(pkill:*)",
       "Bash(true)",
       "Bash(npm run lint:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(sed:*)",
+      "Bash(for file in /home/miketheautomator/dev/tilt/www/src/app/test-layout/{demo,onboarding,savings,capabilities,hero,licensing,page,pricing}.tsx)",
+      "Bash(do sed -i 's|from \"\"./section\"\"|from \"\"./section\"\"|g' \"$file\")",
+      "Bash(done)"
     ],
     "deny": []
   }

@@ -5,50 +5,50 @@ export function SavingsContent() {
     <>
       <Section.Heading>Save Time & Money</Section.Heading>
       <Section.Subheading>Reduce costs while improving speed and reliability</Section.Subheading>
-      <div className="mt-12 grid md:grid-cols-2 gap-8">
-        <div className="text-left">
-          <h3 className="text-2xl font-bold text-white mb-4">Before Tilt</h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-center gap-3">
-              <span className="text-red-400">✗</span>
-              Hours of manual repetitive work
+      <Section.Grid cols="2">
+        <Section.Box>
+          <Section.Heading>Before Tilt</Section.Heading>
+          <Section.List variant="none">
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="x" color="red" />
+              <Section.Text size="sm">Hours of manual repetitive work</Section.Text>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="text-red-400">✗</span>
-              Expensive developer time for test maintenance
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="x" color="red" />
+              <Section.Text size="sm">Expensive developer time for test maintenance</Section.Text>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="text-red-400">✗</span>
-              Human errors and inconsistency
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="x" color="red" />
+              <Section.Text size="sm">Human errors and inconsistency</Section.Text>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="text-red-400">✗</span>
-              Brittle automation that breaks frequently
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="x" color="red" />
+              <Section.Text size="sm">Brittle automation that breaks frequently</Section.Text>
             </li>
-          </ul>
-        </div>
-        <div className="text-left">
-          <h3 className="text-2xl font-bold text-white mb-4">With Tilt</h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-center gap-3">
-              <span className="text-green-400">✓</span>
-              Tasks completed in minutes, not hours
+          </Section.List>
+        </Section.Box>
+        <Section.Box>
+          <Section.Heading>With Tilt</Section.Heading>
+          <Section.List variant="none">
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="check" color="green" />
+              <Section.Text size="sm">Tasks completed in minutes, not hours</Section.Text>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="text-green-400">✓</span>
-              80-95% reduction in testing costs
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="check" color="green" />
+              <Section.Text size="sm">80-95% reduction in testing costs</Section.Text>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="text-green-400">✓</span>
-              Perfect consistency and accuracy
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="check" color="green" />
+              <Section.Text size="sm">Perfect consistency and accuracy</Section.Text>
             </li>
-            <li className="flex items-center gap-3">
-              <span className="text-green-400">✓</span>
-              Intelligent automation that adapts to changes
+            <li className="flex items-center gap-2 sm:gap-3">
+              <Section.Icon type="check" color="green" />
+              <Section.Text size="sm">Intelligent automation that adapts to changes</Section.Text>
             </li>
-          </ul>
-        </div>
-      </div>
+          </Section.List>
+        </Section.Box>
+      </Section.Grid>
     </>
   );
 }

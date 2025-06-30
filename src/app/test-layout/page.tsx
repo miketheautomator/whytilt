@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import { Section } from "./section";
@@ -10,11 +10,23 @@ import { SavingsContent } from "./savings";
 import { PricingContent } from "./pricing";
 import { LicensingContent } from "./licensing";
 import { OnboardingContent } from "./onboarding";
+import { DemoRequestContent } from "./demo-request";
 
 export default function Page() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isIPhone, setIsIPhone] = useState(false);
 
   useEffect(() => {
+    // Detect iPhone
+    const detectIPhone = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOS = /iphone|ipod/.test(userAgent);
+      const hasHomeIndicator = window.innerHeight > 750; // Rough check for newer iPhones
+      return isIOS && hasHomeIndicator;
+    };
+
+    setIsIPhone(detectIPhone());
+
     if (containerRef.current) {
       containerRef.current.scrollTop = 0;
     }
@@ -28,38 +40,43 @@ export default function Page() {
       <Header containerRef={containerRef} />
 
       {/* Hero */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <HeroContent />
       </Section>
 
       {/* Demo */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <DemoContent />
       </Section>
 
       {/* What can it do */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <CapabilitiesContent />
       </Section>
 
       {/* How can it save me time and money */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <SavingsContent />
       </Section>
 
       {/* Pricing */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <PricingContent />
       </Section>
 
       {/* Licensing */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <LicensingContent />
       </Section>
 
       {/* Request a white glove onboarding */}
-      <Section>
+      <Section isIPhone={isIPhone}>
         <OnboardingContent />
+      </Section>
+
+      {/* Demo Request */}
+      <Section isIPhone={isIPhone}>
+        <DemoRequestContent />
       </Section>
 
       <Footer />
