@@ -3,11 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Section } from '@/app/shared/section';
 
-interface FooterProps {
-  className?: string;
-}
+interface FooterProps {}
 
-export const Footer: FC<FooterProps> = ({ className = '' }) => {
+export const Footer: FC<FooterProps> = () => {
   return (
     <Section>
       {/* Subtle top border */}

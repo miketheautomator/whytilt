@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import SplitText from '@/app/shared/react-bits/TextAnimations/SplitText/SplitText';
 
 interface SectionHeadingProps {
   children: ReactNode;
@@ -9,7 +8,7 @@ interface SectionHeadingProps {
   size?: 'xl' | 'lg' | 'md' | 'sm';
 }
 
-export function SectionHeading({ children, hero = false, card = false, noAnimation = false, size }: SectionHeadingProps) {
+export function SectionHeading({ children, hero = false, card = false, size }: SectionHeadingProps) {
   let textSize;
   
   if (size) {
@@ -35,9 +34,6 @@ export function SectionHeading({ children, hero = false, card = false, noAnimati
     textSize = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl";
   }
   
-  // Extract text content if it's a simple string inside JSX
-  const textContent = typeof children === 'string' ? children : 
-    (React.isValidElement(children) ? null : String(children));
 
   // Temporarily disable SplitText to fix scroll issues
   return <h1 className={`${textSize} text-white mb-4 leading-snug font-bold max-w-6xl`} style={{ fontFamily: 'Oswald, ui-sans-serif, system-ui, sans-serif' }}>{children}</h1>;

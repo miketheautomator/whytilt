@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 
 interface SectionButtonProps {
   children: ReactNode;
@@ -10,7 +10,6 @@ interface SectionButtonProps {
 }
 
 export function SectionButton({ children, onClick, href, variant = 'primary', full = false, className }: SectionButtonProps) {
-  const [isHovered, setIsHovered] = useState(false);
 
   const variantClasses = {
     primary: "bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/25",

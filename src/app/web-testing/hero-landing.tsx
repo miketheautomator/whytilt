@@ -1,6 +1,5 @@
 import { Section } from "@/app/shared/section";
 import { DemoButton } from "@/app/shared/demo-button";
-import SplitText from "@/app/shared/react-bits/TextAnimations/SplitText/SplitText";
 
 interface HeroProps {
   primaryText: string;
@@ -10,10 +9,7 @@ interface HeroProps {
   audience: 'enterprise' | 'small-business' | 'professionals';
 }
 
-export function Hero({ primaryText, secondaryText, tertiaryText, description, audience }: HeroProps) {
-  const handleAnimationComplete = () => {
-    console.log('Hero headline animation complete!');
-  };
+export function Hero({ primaryText, secondaryText, tertiaryText, description }: HeroProps) {
 
   return (
     <>

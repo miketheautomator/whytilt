@@ -19,7 +19,7 @@ interface SectionProps {
   isHero?: boolean;
 }
 
-export function Section({ children, isIPhone, isHero }: SectionProps) {
+export function Section({ children, isIPhone }: SectionProps) {
   return (
     <section 
       className="snap-start h-screen w-full flex items-center justify-center relative overflow-hidden" 

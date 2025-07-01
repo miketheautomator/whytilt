@@ -6,7 +6,6 @@ import { Section } from '@/app/shared/section';
 import { Hero } from './hero-landing';
 import { OnboardingContent } from '@/app/shared/onboarding';
 import { DemoRequestContent } from '@/app/shared/demo-request';
-import { DemoButton } from '@/app/shared/demo-button';
 import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
 
