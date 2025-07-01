@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Section } from '@/app/shared/section';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface FooterProps {}
 
 export const Footer: FC<FooterProps> = () => {
