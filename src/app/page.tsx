@@ -120,7 +120,7 @@ export default function Page() {
 
       {/* Demo Request */}
       <Section isIPhone={isIPhone}>
-        <DemoRequestContent />
+        <DemoRequestContent theme="homepage" />
       </Section>
 
         <Footer />
