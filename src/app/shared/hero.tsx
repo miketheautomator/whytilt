@@ -1,5 +1,4 @@
 import { Section } from "./section";
-import SplitText from "@/app/shared/react-bits/TextAnimations/SplitText/SplitText";
 
 interface HeroContentProps {
   onRoleSelection: (role: 'management' | 'worker') => void;
@@ -9,9 +8,6 @@ interface HeroContentProps {
 
 export function HeroContent({ }: HeroContentProps) {
   
-  const handleAnimationComplete = () => {
-    console.log('Hero headline animation complete!');
-  };
 
   return (
     <>
@@ -23,9 +19,9 @@ export function HeroContent({ }: HeroContentProps) {
         </Section.Heading>
       </div>
       
-      <Section.Subheading>
-They use a real desktop, mouse, and computer and can see the screen, just like a human does. They operate on a vision action model. "My goal is X, I see Y, I should do Z."
-      </Section.Subheading>
+      <Section.Text size="lg">
+They use a real desktop, mouse, and computer and can see the screen, just like a human does. They operate on a vision action model. &quot;My goal is X, I see Y, I should do Z.&quot;
+      </Section.Text>
     </>
   );
 }

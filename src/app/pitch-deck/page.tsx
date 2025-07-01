@@ -73,17 +73,13 @@ export default function PitchDeckPage() {
       } else {
         setError('Invalid password');
       }
-    } catch (error) {
+    } catch {
       setError('Authentication failed');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem('pitch-deck-auth');
-    setIsAuthenticated(false);
-  };
 
   if (!isAuthenticated) {
     return (
@@ -140,7 +136,7 @@ export default function PitchDeckPage() {
               </div>
 
               {error && (
-                <div className="text-red-400 text-sm text-center">{error}</div>
+                <Section.Text className="text-red-400 text-sm ">{error}</Section.Text>
               )}
 
               <button
@@ -204,7 +200,7 @@ export default function PitchDeckPage() {
             </div>
             
             <Section.Card className="mb-6">
-              <div className="text-yellow-400 font-bold text-xl mb-4">At a typical SaaS company:</div>
+              <Section.Text className="text-yellow-400 font-bold mb-4">At a typical SaaS company:</Section.Text>
               <Section.List variant="bullet">
                 <li>Engineers maintain hundreds of DOM-based test scripts in Selenium, Playwright, or Cypress</li>
                 <li>A minor UI tweak — like a class name change — can break dozens of tests overnight</li>
@@ -214,17 +210,17 @@ export default function PitchDeckPage() {
             </Section.Card>
             
             <Section.Card className="mb-6">
-              <div className="text-yellow-400 font-bold text-xl mb-4">💸 This costs:</div>
+              <Section.Text className="text-yellow-400 font-bold mb-4">💸 This costs:</Section.Text>
               <Section.List variant="bullet">
                 <li><span className="text-yellow-400 font-bold">$135K–$175K/year per QA engineer</span> — much of it wasted on maintenance</li>
-                <li>Enterprises spend <span className="text-yellow-400 font-bold">$20B+/year globally</span> on test automation tools and labor that still can't emulate users</li>
+                <li>Enterprises spend <span className="text-yellow-400 font-bold">$20B+/year globally</span> on test automation tools and labor that still can&apos;t emulate users</li>
                 <li>And only <span className="text-yellow-400 font-bold">11% of companies</span> reach fully automated testing — most give up trying</li>
               </Section.List>
             </Section.Card>
             
             <div className="text-center">
               <Section.Text size="lg" className="font-bold">
-                We're simulating humans through code — when we could <span className="text-yellow-400">Tilt</span> all of this on its head
+                We&apos;re simulating humans through code — when we could <span className="text-yellow-400">Tilt</span> all of this on its head
                 and automate like real customers: visually, intelligently.
               </Section.Text>
             </div>
@@ -236,12 +232,12 @@ export default function PitchDeckPage() {
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-8">
               <Section.Heading size="xl">📊 The Market</Section.Heading>
-              <Section.Text size="lg">Companies spend billions trying to automate software workflows — and it's not working.</Section.Text>
+              <Section.Text size="lg">Companies spend billions trying to automate software workflows — and it&apos;s not working.</Section.Text>
             </div>
             
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
-                <Section.Text size="lg" className="font-bold text-yellow-400 mb-4">Market Size</Section.Text>
+                <Section.Text className="font-bold text-yellow-400 mb-4">Market Size</Section.Text>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <span className="text-yellow-400 text-2xl font-bold mr-4">$41.7B</span>
@@ -258,7 +254,7 @@ export default function PitchDeckPage() {
                 </div>
                 
                 <div className="mt-6">
-                  <div className="text-yellow-400 font-bold text-lg mb-3">🎯 Tilt's Wedge</div>
+                  <Section.Text className="text-yellow-400 font-bold mb-3">🎯 Tilt&apos;s Wedge</Section.Text>
                   <Section.List variant="none">
                     <li><span className="text-yellow-400 font-semibold">Target:</span> SaaS companies with $250K+ in revenue</li>
                     <li><span className="text-yellow-400 font-semibold">Buyer:</span> Internal QA and ops teams</li>
@@ -268,7 +264,7 @@ export default function PitchDeckPage() {
               </Section.Card>
               
               <Section.Card>
-                <Section.Text size="lg" className="font-bold text-yellow-400 mb-4">Market Layers</Section.Text>
+                <Section.Text className="font-bold text-yellow-400 mb-4">Market Layers</Section.Text>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="text-yellow-400 font-semibold">TAM</span>
@@ -285,7 +281,7 @@ export default function PitchDeckPage() {
                 </div>
                 
                 <div>
-                  <div className="text-yellow-400 font-bold text-lg mb-3">⚡ Why Now?</div>
+                  <Section.Text className="text-yellow-400 font-bold mb-3">⚡ Why Now?</Section.Text>
                   <Section.List variant="bullet">
                     <li>AI vision + reasoning is now fast, accurate, and production-ready</li>
                     <li>Engineering fatigue from maintaining flaky tests and bots</li>
@@ -307,20 +303,20 @@ export default function PitchDeckPage() {
             
             <Section.Card className="mb-6">
               <div className="text-center">
-                <div className="text-yellow-400 text-lg font-bold mb-3">
+                <Section.Text className="text-yellow-400 font-bold mb-3">
                   No DOM selectors. No code. No brittle scripts.
-                </div>
+                </Section.Text>
                 <Section.Text>Just plain language:</Section.Text>
                 <div className="bg-gray-900/50 rounded-lg p-4 mt-3 italic text-yellow-400">
-                  "Test the checkout flow and confirm the price is $19.99"<br/>
-                  "Log in and download today's report from each account"
+                  &quot;Test the checkout flow and confirm the price is $19.99&quot;<br/>
+                  &quot;Log in and download today&apos;s report from each account&quot;
                 </div>
               </div>
             </Section.Card>
             
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-4">How it works:</div>
+                <Section.Text className="text-yellow-400 font-bold mb-4">How it works:</Section.Text>
                 <Section.List variant="bullet">
                   <li><span className="text-yellow-400 font-semibold">Sees the screen like a human</span>—using a vision model</li>
                   <li><span className="text-yellow-400 font-semibold">Understands plain English</span>—via a language model</li>
@@ -330,7 +326,7 @@ export default function PitchDeckPage() {
               </Section.Card>
               
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-4">Built for:</div>
+                <Section.Text className="text-yellow-400 font-bold mb-4">Built for:</Section.Text>
                 <Section.List variant="none">
                   <li><span className="text-yellow-400 font-semibold">QA teams:</span> End-to-end, visual tests that survive UI changes</li>
                   <li><span className="text-yellow-400 font-semibold">Ops teams:</span> Cross-app automation without brittle RPA</li>
@@ -342,7 +338,7 @@ export default function PitchDeckPage() {
             
             <div className="text-center mt-6">
               <Section.Text size="lg" className="font-bold">
-                <span className="text-yellow-400">Tilt</span> doesn't automate code. It automates people work.
+                <span className="text-yellow-400">Tilt</span> doesn&apos;t automate code. It automates people work.
               </Section.Text>
             </div>
           </Section>
@@ -358,7 +354,7 @@ export default function PitchDeckPage() {
             
             <Section.Grid cols="2" responsive={true} gap="md">
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-3">🪝 Year 1: Trojan Horse Entry</div>
+                <Section.Text className="text-yellow-400 font-bold ">🪝 Year 1: Trojan Horse Entry</Section.Text>
                 <Section.List variant="bullet">
                   <li><span className="text-yellow-400 font-semibold">No per-seat fees</span> — teams install freely</li>
                   <li>Monetize <span className="text-yellow-400 font-semibold">task execution</span> — $0.05–$1.00 per run</li>
@@ -366,8 +362,8 @@ export default function PitchDeckPage() {
                 </Section.List>
                 
                 <div className="bg-gray-900/50 rounded-lg p-3 mt-3">
-                  <div className="text-yellow-400 font-bold mb-2">Revenue (Monthly)</div>
-                  <div className="space-y-1 text-sm">
+                  <Section.Text className="">Revenue (Monthly)</Section.Text>
+                  <div className="space-y-1">
                     <div className="flex justify-between">
                       <span>50 copies:</span>
                       <span className="text-yellow-400 font-semibold">$750 - $150K</span>
@@ -381,7 +377,7 @@ export default function PitchDeckPage() {
               </Section.Card>
               
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-3">🧠 Year 2: Seat-Based Licensing</div>
+                <Section.Text className="text-yellow-400 font-bold ">🧠 Year 2: Seat-Based Licensing</Section.Text>
                 <Section.List variant="bullet">
                   <li><span className="text-yellow-400 font-semibold">Tilt self-reports</span> deployments across teams</li>
                   <li>Installs convert to <span className="text-yellow-400 font-semibold">per-seat licenses</span> ($1,000+/year)</li>
@@ -389,8 +385,8 @@ export default function PitchDeckPage() {
                 </Section.List>
                 
                 <div className="bg-gray-900/50 rounded-lg p-3 mt-3">
-                  <div className="text-yellow-400 font-bold mb-2">License Revenue (Annual)</div>
-                  <div className="space-y-1 text-sm">
+                  <Section.Text className="">License Revenue (Annual)</Section.Text>
+                  <div className="space-y-1">
                     <div className="flex justify-between">
                       <span>50 seats:</span>
                       <span className="text-yellow-400 font-semibold">$50K + usage</span>
@@ -422,12 +418,12 @@ export default function PitchDeckPage() {
             
             <Section.Grid cols="2" responsive={true} gap="md">
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-3">👥 Inside Champions</div>
+                <Section.Text className="text-yellow-400 font-bold ">👥 Inside Champions</Section.Text>
                 <Section.Text size="sm" className="mb-4">
                   We built Tilt after interviewing internal QA engineers at large companies — the exact people now piloting our early builds.
                 </Section.Text>
                 
-                <div className="text-yellow-400 font-bold text-lg mb-3">🚪 Entry: Team-Level Pilots</div>
+                <Section.Text className="text-yellow-400 font-bold ">🚪 Entry: Team-Level Pilots</Section.Text>
                 <Section.List variant="bullet">
                   <li>Tilt is installed via <span className="text-yellow-400 font-semibold">Docker</span> — works on Mac, Windows, Linux</li>
                   <li><span className="text-yellow-400 font-semibold">No setup time</span>, no security review blockers</li>
@@ -436,14 +432,14 @@ export default function PitchDeckPage() {
               </Section.Card>
               
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-3">📈 Expansion Through Usage</div>
+                <Section.Text className="text-yellow-400 font-bold ">📈 Expansion Through Usage</Section.Text>
                 <Section.List variant="bullet">
                   <li>Teams integrate Tilt into daily automation workflows</li>
                   <li>Testing UIs, validating events (Google Analytics), visual test queues</li>
                   <li><span className="text-yellow-400 font-semibold">Spreads from 1 engineer to 10+</span> organically</li>
                 </Section.List>
                 
-                <div className="text-yellow-400 font-bold text-lg mb-3 mt-4">🔄 Lock-In via Embedded Workflow</div>
+                <Section.Text className="text-yellow-400 font-bold ">🔄 Lock-In via Embedded Workflow</Section.Text>
                 <Section.List variant="bullet">
                   <li>By Year 2, <span className="text-yellow-400 font-semibold">Tilt is entrenched</span></li>
                   <li>Teams depend on it, removing it <span className="text-yellow-400 font-semibold">breaks processes</span></li>
@@ -454,10 +450,10 @@ export default function PitchDeckPage() {
             
             <div className="mt-6">
               <Section.Card>
-                <div className="text-yellow-400 font-bold text-lg mb-3">The Pain Point We Solve</div>
+                <Section.Text className="text-yellow-400 font-bold ">The Pain Point We Solve</Section.Text>
                 <Section.Text size="sm" className="italic">
-                  "Google Analytics tag and event testing for 8 brands takes 10 engineers all day to run by hand. 
-                  Our automated test suite breaks every time another team changes the design even a little."
+                  &quot;Google Analytics tag and event testing for 8 brands takes 10 engineers all day to run by hand. 
+                  Our automated test suite breaks every time another team changes the design even a little.&quot;
                 </Section.Text>
                 <Section.Text size="sm" className="text-yellow-400 font-semibold mt-2">— Our inside champions at 3 large companies</Section.Text>
               </Section.Card>
@@ -470,12 +466,12 @@ export default function PitchDeckPage() {
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-6">
               <Section.Heading size="xl">🛡 The Moat</Section.Heading>
-              <Section.Text size="lg">Tilt's defensibility comes from three compounding advantages:</Section.Text>
+              <Section.Text size="lg">Tilt&apos;s defensibility comes from three compounding advantages:</Section.Text>
             </div>
             
             <Section.Grid cols="3" responsive={true} gap="md">
               <Section.Card>
-                <div className="text-white font-bold text-lg mb-3">Architecture Advantage</div>
+                <Section.Text className="text-white font-bold ">Architecture Advantage</Section.Text>
                 <Section.List variant="none">
                   <li>Tilt is built to <span className="text-yellow-400 font-semibold">act like a person, not code</span>.</li>
                   <li><span className="text-yellow-400 font-semibold">Cross-platform, self-healing vision agents</span> emulate users—not brittle scripts.</li>
@@ -485,7 +481,7 @@ export default function PitchDeckPage() {
               </Section.Card>
               
               <Section.Card>
-                <div className="text-white font-bold text-lg mb-3">Intelligence Flywheel</div>
+                <Section.Text className="text-white font-bold ">Intelligence Flywheel</Section.Text>
                 <Section.List variant="none">
                   <li>Every task generates data: <span className="text-yellow-400 font-semibold">how humans describe work, what succeeds visually, and how agents recover from failure</span>.</li>
                   <li>Tilt continuously learns from real-world execution, building a <span className="text-yellow-400 font-semibold">unique, human-labeled task graph</span> that accelerates automation quality and speed.</li>
@@ -493,10 +489,10 @@ export default function PitchDeckPage() {
               </Section.Card>
               
               <Section.Card>
-                <div className="text-white font-bold text-lg mb-3">Embedded Distribution</div>
+                <Section.Text className="text-white font-bold ">Embedded Distribution</Section.Text>
                 <Section.List variant="none">
                   <li>Tilt installs <span className="text-yellow-400 font-semibold">frictionlessly inside teams</span>.</li>
-                  <li>By the time licensing starts, it's already <span className="text-yellow-400 font-semibold">embedded in CI, QA, and ops workflows</span>.</li>
+                  <li>By the time licensing starts, it&apos;s already <span className="text-yellow-400 font-semibold">embedded in CI, QA, and ops workflows</span>.</li>
                   <li>Removing Tilt means <span className="text-yellow-400 font-semibold">disrupting daily operations</span>—making it sticky and hard to displace.</li>
                   <li><span className="text-yellow-400 font-semibold">Open source transparency builds trust</span>; model lock ensures we own the core revenue stream.</li>
                 </Section.List>
@@ -525,42 +521,42 @@ export default function PitchDeckPage() {
             
             <div className="mb-6">
               <div className="text-center mb-6">
-                <div className="text-white font-bold text-2xl mb-4">🪜 Our 3-Phase Path to Dominance</div>
+                <Section.Text className="text-white font-bold ">🪜 Our 3-Phase Path to Dominance</Section.Text>
               </div>
               
               <div className="space-y-4">
                 <Section.Card className="border-l-4 border-yellow-400">
-                  <div className="text-yellow-400 font-bold text-lg mb-2">1. SaaS Footprint (Now)</div>
+                  <Section.Text className="text-yellow-400 font-bold ">1. SaaS Footprint (Now)</Section.Text>
                   <Section.Text size="sm">Desktop-first, Docker-deployable agents</Section.Text>
-                  <div className="text-sm text-gray-300 space-y-1 mt-2">
-                    <div>→ Fast installs, low cost, easy adoption</div>
-                    <div>→ No cloud hosting required = <span className="text-yellow-400 font-semibold">profitable from day one</span></div>
-                  </div>
+                  <Section.List variant="none" className="mt-2">
+                    <li>→ Fast installs, low cost, easy adoption</li>
+                    <li>→ No cloud hosting required = <span className="text-yellow-400 font-semibold">profitable from day one</span></li>
+                  </Section.List>
                 </Section.Card>
                 
                 <Section.Card className="border-l-4 border-yellow-400">
-                  <div className="text-yellow-400 font-bold text-lg mb-2">2. Transactional Platform (Next)</div>
+                  <Section.Text className="text-yellow-400 font-bold ">2. Transactional Platform (Next)</Section.Text>
                   <Section.Text size="sm">We host the model. Every task run = revenue.</Section.Text>
-                  <div className="text-sm text-gray-300 space-y-1 mt-2">
-                    <div>→ Usage-based pricing aligns with customer value</div>
-                    <div>→ First-party inference = <span className="text-yellow-400 font-semibold">high-margin, recurring revenue</span></div>
-                  </div>
+                  <Section.List variant="none" className="mt-2">
+                    <li>→ Usage-based pricing aligns with customer value</li>
+                    <li>→ First-party inference = <span className="text-yellow-400 font-semibold">high-margin, recurring revenue</span></li>
+                  </Section.List>
                 </Section.Card>
                 
                 <Section.Card className="border-l-4 border-yellow-400">
-                  <div className="text-yellow-400 font-bold text-lg mb-2">3. Agent Tool Marketplace (Future)</div>
+                  <Section.Text className="text-yellow-400 font-bold ">3. Agent Tool Marketplace (Future)</Section.Text>
                   <Section.Text size="sm">Agents gain superpowers via plugins and tools</Section.Text>
-                  <div className="text-sm text-gray-300 space-y-1 mt-2">
-                    <div>→ Think Zapier for vision agents: extract data, access systems, customize workflows</div>
-                    <div>→ We monetize the ecosystem — <span className="text-yellow-400 font-semibold">30% of every tool sold</span></div>
-                  </div>
+                  <Section.List variant="none" className="mt-2">
+                    <li>→ Think Zapier for vision agents: extract data, access systems, customize workflows</li>
+                    <li>→ We monetize the ecosystem — <span className="text-yellow-400 font-semibold">30% of every tool sold</span></li>
+                  </Section.List>
                 </Section.Card>
               </div>
             </div>
             
             <div className="text-center">
               <Section.Text className="font-bold">
-                We don't just automate software. We automate <span className="text-yellow-400 font-semibold">how people use software</span> — visually, intelligently, across everything.
+                We don&apos;t just automate software. We automate <span className="text-yellow-400 font-semibold">how people use software</span> — visually, intelligently, across everything.
               </Section.Text>
             </div>
           </Section>
@@ -583,24 +579,24 @@ export default function PitchDeckPage() {
                   <div className="w-12 h-12 bg-yellow-600 rounded-full mx-auto mb-2 flex items-center justify-center">
                     <span className="text-xl font-bold text-white">R</span>
                   </div>
-                  <div className="text-yellow-400 font-bold mb-1">👤 Ryan [Last Name]</div>
+                  <Section.Text className="">👤 Ryan [Last Name]</Section.Text>
                   <Section.Text size="sm">Enterprise team leader, deep operational experience, degree in Brain Science</Section.Text>
-                  <div className="text-yellow-400 font-semibold text-xs">Enterprise strategy, customer development, GTM</div>
+                  <Section.Text className="text-yellow-400 font-semibold ">Enterprise strategy, customer development, GTM</Section.Text>
                 </div>
                 
                 <div className="space-y-2">
                   <div>
-                    <div className="text-white font-bold text-sm mb-1">Greatest Achievement:</div>
-                    <div className="text-gray-300 italic bg-gray-900/40 rounded-lg p-2 text-xs">
+                    <Section.Text className="text-white font-bold ">Greatest Achievement:</Section.Text>
+                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
                       [Ryan fills this in — ideally something that demonstrates leadership, large-scale responsibility, or cross-functional execution]
-                    </div>
+                    </Section.Text>
                   </div>
                   
                   <div>
-                    <div className="text-white font-bold text-sm mb-1">Why Ryan is the perfect partner for Mike:</div>
-                    <div className="text-gray-300 italic bg-gray-900/40 rounded-lg p-2 text-xs">
-                      [Ryan's POV: why the partnership works and what Mike uniquely brings to the table]
-                    </div>
+                    <Section.Text className="text-white font-bold ">Why Ryan is the perfect partner for Mike:</Section.Text>
+                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
+                      [Ryan&apos;s POV: why the partnership works and what Mike uniquely brings to the table]
+                    </Section.Text>
                   </div>
                 </div>
               </Section.Card>
@@ -610,24 +606,24 @@ export default function PitchDeckPage() {
                   <div className="w-12 h-12 bg-yellow-600 rounded-full mx-auto mb-2 flex items-center justify-center">
                     <span className="text-xl font-bold text-white">M</span>
                   </div>
-                  <div className="text-yellow-400 font-bold mb-1">👤 Mike [Last Name]</div>
+                  <Section.Text className="">👤 Mike [Last Name]</Section.Text>
                   <Section.Text size="sm">Veteran systems architect, autodidact, 25+ years solving hard tech problems</Section.Text>
-                  <div className="text-yellow-400 font-semibold text-xs">Product vision, architecture, model orchestration</div>
+                  <Section.Text className="text-yellow-400 font-semibold ">Product vision, architecture, model orchestration</Section.Text>
                 </div>
                 
                 <div className="space-y-2">
                   <div>
-                    <div className="text-white font-bold text-sm mb-1">Greatest Achievement:</div>
-                    <div className="text-gray-300 italic bg-gray-900/40 rounded-lg p-2 text-xs">
+                    <Section.Text className="text-white font-bold ">Greatest Achievement:</Section.Text>
+                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
                       [Mike fills this in — ideally something showing creativity, scale, or key technical breakthroughs]
-                    </div>
+                    </Section.Text>
                   </div>
                   
                   <div>
-                    <div className="text-white font-bold text-sm mb-1">Why Mike is the perfect partner for Ryan:</div>
-                    <div className="text-gray-300 italic bg-gray-900/40 rounded-lg p-2 text-xs">
-                      [Mike's POV: why the partnership works and what Ryan enables]
-                    </div>
+                    <Section.Text className="text-white font-bold ">Why Mike is the perfect partner for Ryan:</Section.Text>
+                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
+                      [Mike&apos;s POV: why the partnership works and what Ryan enables]
+                    </Section.Text>
                   </div>
                 </div>
               </Section.Card>
@@ -635,22 +631,14 @@ export default function PitchDeckPage() {
             
             <div className="text-center">
               <Section.Card>
-                <div className="text-white font-bold text-lg mb-2">🤝 Why This Team Will Win</div>
+                <Section.Text className="text-white font-bold ">🤝 Why This Team Will Win</Section.Text>
                 <Section.Text size="sm">Together, we combine...</Section.Text>
                 
                 <Section.Grid cols="4" responsive={true} gap="sm" className="mt-3 mb-3">
-                  <div className="text-center">
-                    <div className="text-yellow-400 font-bold text-xs">Real pain, from inside the enterprise</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-yellow-400 font-bold text-xs">Unmatched technical firepower</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-yellow-400 font-bold text-xs">Trust from pilot customers</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-yellow-400 font-bold text-xs">A shared obsession with making intelligent automation usable by anyone</div>
-                  </div>
+                  <Section.Text className="text-yellow-400 font-bold text-center">Real pain, from inside the enterprise</Section.Text>
+                  <Section.Text className="text-yellow-400 font-bold text-center">Unmatched technical firepower</Section.Text>
+                  <Section.Text className="text-yellow-400 font-bold text-center">Trust from pilot customers</Section.Text>
+                  <Section.Text className="text-yellow-400 font-bold text-center">A shared obsession with making intelligent automation usable by anyone</Section.Text>
                 </Section.Grid>
                 
                 <div className="bg-gray-900/40 rounded-lg p-3">
@@ -669,7 +657,7 @@ export default function PitchDeckPage() {
             <div className="text-center mb-8">
               <Section.Heading size="xl">💸 The Ask</Section.Heading>
               <Section.Text size="lg" className="text-yellow-400 font-bold">
-                We're raising $25K for 3%<br/>
+                We&apos;re raising $25K for 3%<br/>
                 to fund our next critical milestone:
               </Section.Text>
             </div>
@@ -677,14 +665,14 @@ export default function PitchDeckPage() {
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
                 <div className="space-y-6">
-                  <div className="text-green-400 font-bold text-lg mb-3">✅ Already Completed</div>
+                  <Section.Text className="text-green-400 font-bold ">✅ Already Completed</Section.Text>
                   <Section.List>
                     <li>Built the product (cross-platform vision-action agent)</li>
                     <li>Built the website and pitch deck</li>
                     <li>Have inside champions at 3 enterprise orgs</li>
                   </Section.List>
                   
-                  <div className="text-yellow-400 font-bold text-lg mb-3">🔜 Next 90 Days</div>
+                  <Section.Text className="text-yellow-400 font-bold ">🔜 Next 90 Days</Section.Text>
                   <Section.List>
                     <li>Launch 3 pilots (enterprise, SMB, individual users)</li>
                     <li>Build hosted inference pipeline</li>
@@ -696,13 +684,13 @@ export default function PitchDeckPage() {
               
               <Section.Card>
                 <div className="space-y-6">
-                  <div className="text-blue-400 font-bold text-lg mb-3">🚧 Cap Table Now</div>
+                  <Section.Text className="text-blue-400 font-bold ">🚧 Cap Table Now</Section.Text>
                   <div className="bg-gray-900/40 rounded-lg p-4 space-y-2">
                     <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Valuation:</span> $75K</Section.Text>
                     <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Founders:</span> 50 / 50 split</Section.Text>
                   </div>
                   
-                  <div className="text-green-400 font-bold text-lg mb-3">📈 Post-Raise</div>
+                  <Section.Text className="text-green-400 font-bold ">📈 Post-Raise</Section.Text>
                   <div className="bg-gray-900/40 rounded-lg p-4 space-y-2">
                     <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Valuation:</span> $100K</Section.Text>
                     <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Ownership:</span> 48.5% / 48.5% / 3% (investor)</Section.Text>
