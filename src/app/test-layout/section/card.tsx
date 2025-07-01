@@ -4,9 +4,11 @@ interface SectionCardProps {
   children: ReactNode;
   variant?: 'default' | 'outlined';
   padding?: 'sm' | 'md' | 'lg';
+  className?: string;
+  onClick?: () => void;
 }
 
-export function SectionCard({ children, variant = 'default', padding = 'md' }: SectionCardProps) {
+export function SectionCard({ children, variant = 'default', padding = 'md', className = '', onClick }: SectionCardProps) {
   const variantClasses = {
     default: "bg-zinc-800/30 border border-zinc-600/30",
     outlined: "border border-zinc-600/50"
@@ -19,7 +21,10 @@ export function SectionCard({ children, variant = 'default', padding = 'md' }: S
   };
   
   return (
-    <div className={`${variantClasses[variant]} ${paddingClasses[padding]} rounded-lg w-full min-w-0 overflow-hidden space-y-2 sm:space-y-3`}>
+    <div 
+      className={`${variantClasses[variant]} ${paddingClasses[padding]} rounded-lg w-full min-w-0 overflow-hidden space-y-2 sm:space-y-3 ${className}`}
+      onClick={onClick}
+    >
       {children}
     </div>
   );

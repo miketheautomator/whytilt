@@ -1,14 +1,14 @@
 import { Section } from "./section";
 import SplitText from "../../TextAnimations/SplitText/SplitText";
 
-interface HeroContentProps {
-  onRoleSelection: (role: 'management' | 'worker') => void;
-  selectedRole: 'management' | 'worker' | null;
-  onReset: () => void;
+interface HeroProps {
+  primaryText: string;
+  secondaryText: string;
+  description: string;
+  audience: 'enterprise' | 'small-business' | 'professionals';
 }
 
-export function HeroContent({ }: HeroContentProps) {
-  
+export function Hero({ primaryText, secondaryText, description, audience }: HeroProps) {
   const handleAnimationComplete = () => {
     console.log('Hero headline animation complete!');
   };
@@ -19,7 +19,7 @@ export function HeroContent({ }: HeroContentProps) {
         <Section.Heading hero>
           <div>
             <SplitText
-              text="The first AI that"
+              text={primaryText}
               className=""
               delay={30}
               duration={0.3}
@@ -34,7 +34,7 @@ export function HeroContent({ }: HeroContentProps) {
             />
             <br />
             <SplitText
-              text="sees your screen."
+              text={secondaryText}
               className=""
               delay={30}
               duration={0.3}
@@ -52,8 +52,16 @@ export function HeroContent({ }: HeroContentProps) {
       </div>
       
       <Section.Subheading>
-        Tilt uses vision AI to control browsers and desktop apps like a human would. No brittle selectors, no breaking when websites change. Just plain English instructions that work anywhere.
+        {description}
       </Section.Subheading>
+      
+      <div className="mt-8 sm:mt-12">
+        <Section.Button>
+          {audience === 'enterprise' ? 'Schedule Enterprise Demo' : 
+           audience === 'small-business' ? 'Get Started Today' : 
+           'Get Started'}
+        </Section.Button>
+      </div>
     </>
   );
 }

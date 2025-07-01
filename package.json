@@ -11,8 +11,10 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "canvas-confetti": "^1.9.3",
+    "gsap": "^3.13.0",
     "mongodb": "^6.17.0",
     "next": "15.3.3",
+    "ogl": "^1.0.11",
     "postmark": "^4.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
