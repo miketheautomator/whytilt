@@ -1,4 +1,5 @@
 import { Section } from "@/app/shared/section";
+import { DemoButton } from "@/app/shared/demo-button";
 
 export function DemoRequestSmallBusiness() {
   return (
@@ -16,7 +17,7 @@ export function DemoRequestSmallBusiness() {
         </Section.List>
       </div>
       <div className="mt-8 sm:mt-12">
-        <Section.Button variant="green">Book your demo</Section.Button>
+        <DemoButton theme="small-business">Book your demo</DemoButton>
       </div>
     </>
   );
