@@ -1,37 +1,86 @@
 'use client';
-
-import { useState, FC, useEffect, useRef } from 'react';
-import { Dialog, DialogPanel, DialogBackdrop } from '@headlessui/react';
+import { useState } from 'react';
 import confetti from 'canvas-confetti';
+import facts from './facts.json';
 
 interface DemoModalProps {
   isOpen: boolean;
   onClose: () => void;
+  theme: keyof typeof facts.themes;
 }
 
-export const DemoModal: FC<DemoModalProps> = ({ isOpen, onClose }) => {
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
-  const [automationGoals, setAutomationGoals] = useState('');
+export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
+  const [formData, setFormData] = useState({
+    name: '',
+    revenue: '',
+    employees: '',
+    automation: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState('');
-  const firstInputRef = useRef<HTMLInputElement>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  useEffect(() => {
-    if (isOpen && !isSubmitted) {
-      // Use a small delay to ensure the modal is fully rendered
-      const timer = setTimeout(() => {
-        firstInputRef.current?.focus();
-      }, 100);
-      return () => clearTimeout(timer);
+  const themeData = facts.themes[theme];
+  const primaryColor = themeData.primary;
+
+  const revenueOptions = [
+    'Under $100K',
+    '$100K - $250K',
+    '$250K - $500K',
+    '$500K - $1M',
+    '$1M - $5M',
+    '$5M - $10M',
+    'Over $10M'
+  ];
+
+  const employeeOptions = [
+    '1-5 employees',
+    '6-10 employees',
+    '11-25 employees',
+    '26-50 employees',
+    '51-100 employees',
+    '101-250 employees',
+    '250+ employees'
+  ];
+
+  const getThemeClasses = () => {
+    switch (primaryColor) {
+      case 'blue':
+        return {
+          button: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
+          border: 'border-blue-500',
+          gradient: 'from-blue-900/50 via-blue-800/30 to-blue-900/50'
+        };
+      case 'purple':
+        return {
+          button: 'bg-purple-600 hover:bg-purple-700 focus:ring-purple-500',
+          border: 'border-purple-500',
+          gradient: 'from-purple-900/50 via-purple-800/30 to-purple-900/50'
+        };
+      case 'green':
+        return {
+          button: 'bg-green-600 hover:bg-green-700 focus:ring-green-500',
+          border: 'border-green-500',
+          gradient: 'from-green-900/50 via-green-800/30 to-green-900/50'
+        };
+      default:
+        return {
+          button: 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500',
+          border: 'border-blue-500',
+          gradient: 'from-blue-900/50 via-blue-800/30 to-blue-900/50'
+        };
     }
-  }, [isOpen, isSubmitted]);
+  };
+
+  const themeClasses = getThemeClasses();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!formData.name || !formData.revenue || !formData.employees || !formData.automation) {
+      return;
+    }
+
     setIsSubmitting(true);
-    setError('');
 
     try {
       const response = await fetch('/api/demo', {
@@ -39,149 +88,164 @@ export const DemoModal: FC<DemoModalProps> = ({ isOpen, onClose }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ firstName, email, automationGoals }),
+        body: JSON.stringify({
+          name: formData.name,
+          revenue: formData.revenue,
+          employees: formData.employees,
+          automation: formData.automation,
+          theme: theme
+        }),
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong');
-      }
-
-      setIsSubmitted(true);
-      setFirstName('');
-      setEmail('');
-      setAutomationGoals('');
-      
-      // Trigger confetti on success
-      setTimeout(() => {
+      if (response.ok) {
+        // Throw confetti
         confetti({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 }
         });
-      }, 100);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
+        
+        setIsSuccess(true);
+      } else {
+        throw new Error('Failed to submit');
+      }
+    } catch (error) {
+      console.error('Error submitting demo request:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleClose = () => {
-    setIsSubmitted(false);
-    setError('');
-    setFirstName('');
-    setEmail('');
-    setAutomationGoals('');
+    setFormData({ name: '', revenue: '', employees: '', automation: '' });
+    setIsSuccess(false);
     onClose();
   };
 
+  if (!isOpen) return null;
+
   return (
-    <Dialog open={isOpen} onClose={handleClose} className="relative z-50">
-      <DialogBackdrop className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Overlay */}
+      <div 
+        className={`absolute inset-0 bg-gradient-to-br ${themeClasses.gradient} backdrop-blur-sm`}
+        onClick={handleClose}
+      />
       
-      <div className="fixed inset-0 flex w-screen items-center justify-center p-0 sm:p-4">
-        <DialogPanel className="w-full h-full sm:h-auto sm:max-w-md bg-zinc-900 border-0 sm:border border-zinc-700 rounded-none sm:rounded-xl p-6 shadow-xl overflow-y-auto">
-          {isSubmitted ? (
-            <div className="text-center">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Schedule demo confirmation</h3>
-              <p className="text-zinc-400 mb-6">
-                Thanks for your interest! We&apos;ll contact you soon to schedule your personalized demo.
-              </p>
+      {/* Modal */}
+      <div className={`relative bg-zinc-900/95 backdrop-blur-md rounded-2xl border ${themeClasses.border} shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto`}>
+        {!isSuccess ? (
+          <form onSubmit={handleSubmit} className="p-8">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-3xl font-bold text-white">Request Demo</h2>
               <button
+                type="button"
                 onClick={handleClose}
-                className="w-full bg-[color:var(--accent)] text-white font-semibold py-3 px-4 rounded-lg hover:bg-[color:var(--accent)]/90 transition-colors"
+                className="text-gray-400 hover:text-white text-2xl"
               >
-                Close
+                ×
               </button>
             </div>
-          ) : (
-            <>
-              <h3 className="text-xl font-bold text-white mb-2">Schedule a Demo</h3>
-              <p className="text-zinc-400 mb-6">
-                Get a personalized demonstration of our automation technology.
+
+            <div className="space-y-6">
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                  Your Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-opacity-50"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              {/* Revenue */}
+              <div>
+                <label htmlFor="revenue" className="block text-sm font-medium text-white mb-2">
+                  Annual Revenue *
+                </label>
+                <select
+                  id="revenue"
+                  required
+                  value={formData.revenue}
+                  onChange={(e) => setFormData({ ...formData, revenue: e.target.value })}
+                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-opacity-50"
+                >
+                  <option value="">Select revenue range</option>
+                  {revenueOptions.map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Employee Count */}
+              <div>
+                <label htmlFor="employees" className="block text-sm font-medium text-white mb-2">
+                  Employee Count *
+                </label>
+                <select
+                  id="employees"
+                  required
+                  value={formData.employees}
+                  onChange={(e) => setFormData({ ...formData, employees: e.target.value })}
+                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-opacity-50"
+                >
+                  <option value="">Select employee count</option>
+                  {employeeOptions.map((option) => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Automation Question */}
+              <div>
+                <label htmlFor="automation" className="block text-sm font-medium text-white mb-2">
+                  What would you automate away if you could? *
+                </label>
+                <textarea
+                  id="automation"
+                  required
+                  rows={6}
+                  value={formData.automation}
+                  onChange={(e) => setFormData({ ...formData, automation: e.target.value })}
+                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-opacity-50 resize-none"
+                  placeholder="Describe the repetitive tasks, manual processes, or workflows you'd love to automate..."
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting || !formData.name || !formData.revenue || !formData.employees || !formData.automation}
+                className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${themeClasses.button}`}
+              >
+                {isSubmitting ? 'Sending...' : 'Request Demo'}
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div className="p-8 text-center">
+            <div className="mb-6">
+              <div className="text-6xl mb-4">🎉</div>
+              <h2 className="text-3xl font-bold text-white mb-4">Demo Requested!</h2>
+              <p className="text-gray-300 text-lg">
+                Thanks for your interest! A founder will contact you within 24 hours to schedule your personalized demo.
               </p>
-              
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-zinc-300 mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    ref={firstInputRef}
-                    id="firstName"
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-[color:var(--accent)] focus:ring-1 focus:ring-[color:var(--accent)]"
-                    placeholder="Enter your first name"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-zinc-300 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-[color:var(--accent)] focus:ring-1 focus:ring-[color:var(--accent)]"
-                    placeholder="Enter your email"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="automationGoals" className="block text-sm font-medium text-zinc-300 mb-2">
-                    What do you want to automate? *
-                  </label>
-                  <textarea
-                    id="automationGoals"
-                    value={automationGoals}
-                    onChange={(e) => setAutomationGoals(e.target.value)}
-                    required
-                    rows={4}
-                    className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-zinc-400 focus:outline-none focus:border-[color:var(--accent)] focus:ring-1 focus:ring-[color:var(--accent)] resize-vertical"
-                    placeholder="Describe the tasks or processes you'd like to automate..."
-                  />
-                </div>
-
-                {error && (
-                  <div className="text-red-400 text-sm bg-red-400/10 border border-red-400/20 rounded-lg p-3">
-                    {error}
-                  </div>
-                )}
-
-                <div className="flex gap-3">
-                  <button
-                    type="button"
-                    onClick={handleClose}
-                    className="flex-1 bg-zinc-800 text-zinc-300 font-semibold py-3 px-4 rounded-lg hover:bg-zinc-700 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex-1 bg-[color:var(--accent)] text-white font-semibold py-3 px-4 rounded-lg hover:bg-[color:var(--accent)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Request Demo'}
-                  </button>
-                </div>
-              </form>
-            </>
-          )}
-        </DialogPanel>
+            </div>
+            <button
+              onClick={handleClose}
+              className={`py-3 px-8 rounded-lg font-semibold text-white transition-all duration-200 ${themeClasses.button}`}
+            >
+              Close
+            </button>
+          </div>
+        )}
       </div>
-    </Dialog>
+    </div>
   );
-};
+}

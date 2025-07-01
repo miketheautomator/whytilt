@@ -2,10 +2,10 @@ import { Section } from "./section";
 
 export function OnboardingContent() {
   return (
-    <div className="text-center">
+    <div>
       <Section.Heading>White Glove Onboarding</Section.Heading>
       <Section.Subheading>A founder will personally help you get started</Section.Subheading>
-      <div className="mt-12 max-w-2xl mx-auto">
+      <div className="mt-12 max-w-2xl">
         <div className="bg-zinc-800/30 border border-zinc-600/30 rounded-lg p-8">
           <h3 className="text-xl font-bold text-white mb-6">What's Included:</h3>
           <ul className="space-y-3 text-gray-300 mb-8 text-left">

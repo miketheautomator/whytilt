@@ -43,6 +43,50 @@
       },
       "accent": "teal-400",
       "button": "teal-600"
+    },
+    "automated-testing": {
+      "primary": "blue",
+      "gradient": ["#3B82F6", "#1E40AF", "#1E3A8A"],
+      "background": {
+        "dark": "#1E293B",
+        "medium": "#334155",
+        "light": "#475569"
+      },
+      "accent": "blue-400",
+      "button": "blue-600"
+    },
+    "usability-testing": {
+      "primary": "purple",
+      "gradient": ["#8B5CF6", "#7C3AED", "#5B21B6"],
+      "background": {
+        "dark": "#1E1B3A",
+        "medium": "#2D2A54",
+        "light": "#3730A3"
+      },
+      "accent": "purple-400",
+      "button": "purple-600"
+    },
+    "analytics-testing": {
+      "primary": "green",
+      "gradient": ["#10B981", "#059669", "#064E3B"],
+      "background": {
+        "dark": "#0F2027",
+        "medium": "#1F2937",
+        "light": "#374151"
+      },
+      "accent": "green-400",
+      "button": "green-600"
+    },
+    "data-entry": {
+      "primary": "blue",
+      "gradient": ["#3B82F6", "#1E40AF", "#1E3A8A"],
+      "background": {
+        "dark": "#1E293B",
+        "medium": "#334155",
+        "light": "#475569"
+      },
+      "accent": "blue-400",
+      "button": "blue-600"
     }
   },
   "pricing": {

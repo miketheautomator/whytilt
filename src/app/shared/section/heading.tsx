@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import SplitText from '@/app/shared/components/TextAnimations/SplitText/SplitText';
+import SplitText from '@/app/shared/react-bits/TextAnimations/SplitText/SplitText';
 
 interface SectionHeadingProps {
   children: ReactNode;

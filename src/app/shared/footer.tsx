@@ -2,9 +2,49 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export function Footer() {
+interface FooterProps {
+  theme?: 'blue' | 'green' | 'purple' | 'automated-testing' | 'usability-testing' | 'analytics-testing';
+}
+
+export function Footer({ theme = 'blue' }: FooterProps) {
+  const getThemeGradient = () => {
+    switch (theme) {
+      case 'automated-testing':
+        return 'bg-gradient-to-b from-slate-900 via-blue-950/50 to-slate-900';
+      case 'usability-testing':
+        return 'bg-gradient-to-b from-slate-900 via-purple-950/50 to-slate-900';
+      case 'analytics-testing':
+        return 'bg-gradient-to-b from-slate-900 via-green-950/50 to-slate-900';
+      case 'green':
+        return 'bg-gradient-to-b from-slate-900 via-green-950/50 to-slate-900';
+      case 'purple':
+        return 'bg-gradient-to-b from-slate-900 via-purple-950/50 to-slate-900';
+      case 'blue':
+      default:
+        return 'bg-gradient-to-b from-slate-900 via-blue-950/50 to-slate-900';
+    }
+  };
+
+  const getThemeHoverColor = () => {
+    switch (theme) {
+      case 'automated-testing':
+        return 'hover:text-blue-400';
+      case 'usability-testing':
+        return 'hover:text-purple-400';
+      case 'analytics-testing':
+        return 'hover:text-green-400';
+      case 'green':
+        return 'hover:text-green-400';
+      case 'purple':
+        return 'hover:text-purple-400';
+      case 'blue':
+      default:
+        return 'hover:text-blue-400';
+    }
+  };
+
   return (
-    <footer className="snap-start h-screen w-full bg-gradient-to-b from-slate-900 via-purple-950/50 to-slate-900 flex flex-col items-center justify-center text-center px-4">
+    <footer className={`snap-start h-screen w-full ${getThemeGradient()} flex flex-col items-center justify-center text-center px-4`}>
       <div className="max-w-7xl w-full space-y-8">
         <div className="mb-6 flex justify-center">
           <Link href="/" className="hover:opacity-80 transition-opacity">
@@ -22,13 +62,13 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Audiences</h3>
             <div className="space-y-2">
-              <Link href="/enterprise" className="block text-gray-400 hover:text-white transition-colors">
+              <Link href="/enterprise" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
                 Enterprise
               </Link>
-              <Link href="/small-business" className="block text-gray-400 hover:text-white transition-colors">
+              <Link href="/small-business" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
                 Small Business
               </Link>
-              <Link href="/professionals" className="block text-gray-400 hover:text-white transition-colors">
+              <Link href="/professionals" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
                 Professionals
               </Link>
             </div>
@@ -38,14 +78,14 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Capabilities</h3>
             <div className="space-y-2">
-              <Link href="/web-testing" className="block text-gray-400 hover:text-white transition-colors">
-                Website Testing
+              <Link href="/automated-testing" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+                Website Automated Testing
               </Link>
-              <Link href="/data-entry" className="block text-gray-400 hover:text-white transition-colors">
-                Data Entry
+              <Link href="/usability-testing" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+                Website Usability Testing
               </Link>
-              <Link href="/desktop-automation" className="block text-gray-400 hover:text-white transition-colors">
-                Desktop Automation
+              <Link href="/analytics-testing" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+                Google Analytics Testing
               </Link>
             </div>
           </div>
@@ -54,13 +94,13 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Company</h3>
             <div className="space-y-2">
-              <Link href="/" className="block text-gray-400 hover:text-white transition-colors">
+              <Link href="/" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
                 Home
               </Link>
-              <a href="mailto:hello@tilt.dev" className="block text-gray-400 hover:text-white transition-colors">
+              <a href="mailto:hello@tilt.dev" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
                 Contact
               </a>
-              <a href="https://github.com/tilt-dev" target="_blank" rel="noopener noreferrer" className="block text-gray-400 hover:text-white transition-colors">
+              <a href="https://github.com/tilt-dev" target="_blank" rel="noopener noreferrer" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
                 GitHub
               </a>
             </div>

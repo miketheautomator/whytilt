@@ -1,29 +1,79 @@
 'use client';
 import { useRef } from 'react';
-import { Header } from '@/app/shared/layout/header';
-import { Footer } from '@/app/shared/layout/footer';
-import Aurora from '@/app/shared/components/Backgrounds/Aurora/Aurora';
+import { Header } from '@/app/shared/header';
+import { Footer } from '@/app/shared/footer';
+import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import { Section } from '@/app/shared/section';
+import { DemoButton } from '@/app/shared/demo-button';
 
 export default function DataEntryPage() {
   const mainRef = useRef<HTMLElement>(null);
   
   return (
     <>
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          background: `
+            linear-gradient(135deg, #0a0e1a 0%, #0f172a 100%),
+            radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(5, 150, 105, 0.06) 0%, transparent 70%)
+          `
+        }}
+      />
       <div className="fixed inset-0 z-0" style={{ opacity: 0.6 }}>
-        <Aurora colorStops={["#059669", "#0D9488", "#0F172A"]} />
+        <Aurora
+          colorStops={["#5227FF", "#1E40AF", "#0F172A"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.5}
+        />
       </div>
-      <main 
+      <div className="fixed inset-0 z-0" style={{ opacity: 0.25 }}>
+        <PixelBackground
+          gap={8}
+          speed={60}
+          colors="#5227FF,#3B82F6,#1E3A8A"
+          autoStart={true}
+        />
+      </div>
+
+      {/* Scrolling Content Container */}
+      <div
         ref={mainRef}
-        className="relative h-dvh overflow-y-scroll snap-mandatory snap-y scroll-smooth z-10"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth text-white relative z-10"
       >
-        <Header onReset={() => {}} selectedPath={null} mainRef={mainRef} />
+        <Header containerRef={mainRef} />
         
-        <section className="flex flex-col items-center justify-center h-dvh snap-start text-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-zinc-900/50 to-zinc-800/30">
-          <Section.Heading>Intelligent Data Entry</Section.Heading>
-          <Section.Subheading>Fill forms, extract data, and validate information across any system</Section.Subheading>
-          
+        <Section>
+          <div className="text-left">
+            <div className="mt-8 sm:mt-12">
+              <Section.Heading hero>
+                Automate Data Entry<br />
+                Across Any System
+              </Section.Heading>
+            </div>
+            
+            <Section.Subheading>
+              Fill forms, extract data, and validate information with intelligent digital workers that see and interact with any application like a human does.
+            </Section.Subheading>
+            
+            <div className="mt-8 sm:mt-12">
+              <Section.ButtonGroup>
+                <DemoButton theme="data-entry">
+                  See It In Action
+                </DemoButton>
+                <Section.Button href="/contact" variant="secondary">
+                  Get Started
+                </Section.Button>
+              </Section.ButtonGroup>
+            </div>
+          </div>
+        </Section>
+
+        <Section>
           <Section.Grid cols="2" gap="lg">
             <Section.Card padding="lg">
               <Section.Heading card>Cross-System Data Transfer</Section.Heading>
@@ -45,10 +95,10 @@ export default function DataEntryPage() {
               <Section.Text>Navigate multi-step processes, handle conditional logic, and manage exceptions automatically.</Section.Text>
             </Section.Card>
           </Section.Grid>
-        </section>
+        </Section>
 
-        <Footer />
-      </main>
+        <Footer theme="blue" />
+      </div>
     </>
   );
 }

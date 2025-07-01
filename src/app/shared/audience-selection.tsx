@@ -38,7 +38,7 @@ export function AudienceSelection() {
           </div>
           <Section.Heading card>Reclaim Your Time</Section.Heading>
           <Section.Text className="mb-12">Automate the boring stuff and focus on creative work. Simple setup, no coding required.</Section.Text>
-          <div className="absolute bottom-6 right-6 text-pink-400 group-hover:text-pink-300 transition-colors">
+          <div className="absolute bottom-6 right-6 text-teal-400 group-hover:text-teal-300 transition-colors">
             Learn more →
           </div>
         </Section.Card>

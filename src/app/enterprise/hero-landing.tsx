@@ -1,5 +1,5 @@
 import { Section } from "@/app/shared/section";
-import SplitText from "@/app/shared/components/TextAnimations/SplitText/SplitText";
+import SplitText from "@/app/shared/react-bits/TextAnimations/SplitText/SplitText";
 
 interface HeroProps {
   primaryText: string;

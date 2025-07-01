@@ -10,8 +10,8 @@ import { CapabilitiesContent } from "@/app/shared/capabilities";
 import { PricingContent } from "@/app/shared/pricing";
 import { OnboardingContent } from "@/app/shared/onboarding";
 import { DemoRequestContent } from "@/app/shared/demo-request";
-import PixelBackground from "@/app/shared/components/Backgrounds/PixelBackground/PixelBackground";
-import Aurora from "@/app/shared/components/Backgrounds/Aurora/Aurora";
+import PixelBackground from "@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground";
+import Aurora from "@/app/shared/react-bits/Backgrounds/Aurora/Aurora";
 
 export default function Page() {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -8,8 +8,8 @@ import { SavingsContent } from '@/app/shared/savings';
 import { PricingSmallBusiness } from './pricing-small-business';
 import { OnboardingContent } from '@/app/shared/onboarding';
 import { DemoRequestSmallBusiness } from './demo-request-small-business';
-import PixelBackground from '@/app/shared/components/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/components/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function SmallBusinessPage() {
   const containerRef = useRef<HTMLDivElement>(null);

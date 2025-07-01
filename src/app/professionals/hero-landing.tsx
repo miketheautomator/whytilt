@@ -1,5 +1,6 @@
 import { Section } from "@/app/shared/section";
-import SplitText from "@/app/shared/components/TextAnimations/SplitText/SplitText";
+import { DemoButton } from "@/app/shared/demo-button";
+import SplitText from "@/app/shared/react-bits/TextAnimations/SplitText/SplitText";
 
 interface HeroProps {
   primaryText: string;
@@ -56,11 +57,11 @@ export function Hero({ primaryText, secondaryText, description, audience }: Hero
       </Section.Subheading>
       
       <div className="mt-8 sm:mt-12">
-        <Section.Button variant={audience === 'enterprise' ? 'blue' : audience === 'small-business' ? 'green' : 'teal'}>
+        <DemoButton theme={audience === 'enterprise' ? 'enterprise' : audience === 'small-business' ? 'small-business' : 'professionals'}>
           {audience === 'enterprise' ? 'Schedule Enterprise Demo' : 
            audience === 'small-business' ? 'Get Started Today' : 
            'Get Started'}
-        </Section.Button>
+        </DemoButton>
       </div>
     </>
   );

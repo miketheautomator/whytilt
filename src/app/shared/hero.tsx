@@ -1,5 +1,5 @@
 import { Section } from "./section";
-import SplitText from "@/app/shared/components/TextAnimations/SplitText/SplitText";
+import SplitText from "@/app/shared/react-bits/TextAnimations/SplitText/SplitText";
 
 interface HeroContentProps {
   onRoleSelection: (role: 'management' | 'worker') => void;
@@ -17,7 +17,9 @@ export function HeroContent({ }: HeroContentProps) {
     <>
       <div className="mt-8 sm:mt-12">
         <Section.Heading hero>
-          We build intelligent digital workers that can get real work done.
+          We build intelligent<br />
+          digital workers that can<br />
+          get real work done.
         </Section.Heading>
       </div>
       

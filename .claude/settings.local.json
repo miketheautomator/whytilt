@@ -33,7 +33,9 @@
       "Bash(sed:*)",
       "Bash(for file in /home/miketheautomator/dev/tilt/www/src/app/test-layout/{demo,onboarding,savings,capabilities,hero,licensing,page,pricing}.tsx)",
       "Bash(do sed -i 's|from \"\"./section\"\"|from \"\"./section\"\"|g' \"$file\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(git rm:*)",
+      "Bash(touch:*)"
     ],
     "deny": []
   }

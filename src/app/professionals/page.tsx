@@ -7,8 +7,8 @@ import { Hero } from './hero-landing';
 import { OnboardingContent } from '@/app/shared/onboarding';
 import { PricingProfessionals } from './pricing-professionals';
 import { DemoRequestProfessionals } from './demo-request-professionals';
-import PixelBackground from '@/app/shared/components/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/components/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function ProfessionalsPage() {
   const containerRef = useRef<HTMLDivElement>(null);

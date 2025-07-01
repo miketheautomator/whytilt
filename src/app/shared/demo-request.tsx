@@ -1,6 +1,15 @@
 import { Section } from "./section";
+import { DemoButton } from "./demo-button";
+import facts from "./facts.json";
 
-export function DemoRequestContent() {
+interface DemoRequestContentProps {
+  theme: keyof typeof facts.themes;
+}
+
+export function DemoRequestContent({ theme }: DemoRequestContentProps) {
+  if (!theme) {
+    throw new Error('DemoRequestContent requires a theme prop');
+  }
   return (
     <>
       <Section.Heading>Request your personalized installation and demo today.</Section.Heading>
@@ -16,7 +25,7 @@ export function DemoRequestContent() {
         </Section.List>
       </div>
       <div className="mt-8 sm:mt-12">
-        <Section.Button variant="purple">Book your demo</Section.Button>
+        <DemoButton theme={theme}>Book your demo</DemoButton>
       </div>
     </>
   );

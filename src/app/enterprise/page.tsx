@@ -11,8 +11,8 @@ import { PricingEnterprise } from './pricing-enterprise';
 import { LicensingContent } from '@/app/shared/licensing';
 import { OnboardingContent } from '@/app/shared/onboarding';
 import { DemoRequestEnterprise } from './demo-request-enterprise';
-import PixelBackground from '@/app/shared/components/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/components/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function EnterprisePage() {
   const containerRef = useRef<HTMLDivElement>(null);

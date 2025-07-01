@@ -6,8 +6,9 @@ import { Section } from '@/app/shared/section';
 import { Hero } from './hero-landing';
 import { OnboardingContent } from '@/app/shared/onboarding';
 import { DemoRequestContent } from '@/app/shared/demo-request';
-import PixelBackground from '@/app/shared/components/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/components/Backgrounds/Aurora/Aurora';
+import { DemoButton } from '@/app/shared/demo-button';
+import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function WebsiteTestingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,8 +67,9 @@ export default function WebsiteTestingPage() {
 
         <Section isIPhone={isIPhone} isHero={true}>
           <Hero 
-            primaryText="Testing Websites Without"
-            secondaryText="Brittle DOM Tests"
+            primaryText="Testing Websites"
+            secondaryText="Without Brittle"
+            tertiaryText="DOM Tests"
             description="Stop wasting time fighting with DOM selectors that break every deployment. Tilt tests your website the way real customers use it - with vision AI that actually sees your site."
             audience="enterprise"
           />
@@ -154,7 +156,7 @@ export default function WebsiteTestingPage() {
         </Section>
 
         <Section isIPhone={isIPhone}>
-          <DemoRequestContent />
+          <DemoRequestContent theme="automated-testing" />
         </Section>
 
         <Footer />

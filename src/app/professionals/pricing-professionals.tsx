@@ -3,10 +3,10 @@ import { NonEnterprisePricingCard, PricingHeader } from "@/app/shared/pricing-sh
 
 export function PricingProfessionals() {
   return (
-    <div className="text-center">
+    <div className="text-left">
       <Section.Heading>Simple Pricing</Section.Heading>
       <PricingHeader />
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-start mt-8">
         <div className="max-w-md">
           <NonEnterprisePricingCard audience="professionals" />
         </div>
