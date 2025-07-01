@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Section } from '../../test-layout/section';
+import { Section } from '@/app/shared/section';
 
 interface FooterProps {
   className?: string;

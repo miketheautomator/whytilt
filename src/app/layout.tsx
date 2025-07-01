@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Contrail_One } from "next/font/google";
+import { Geist_Mono, Contrail_One, Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "./shared/analytics";
 import { createMetadata, LdJsonScript } from "./shared/metadata";
@@ -13,6 +13,18 @@ const contrailOne = Contrail_One({
   variable: "--font-contrail-one",
   subsets: ["latin"],
   weight: "400",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -155,7 +167,7 @@ export default function RootLayout({
         }} />
       </head>
       <body
-        className={`${geistMono.variable} ${contrailOne.variable} antialiased`}
+        className={`${geistMono.variable} ${contrailOne.variable} ${inter.variable} ${oswald.variable} antialiased`}
       >
         {gaId && <GoogleAnalytics gaId={gaId} />}
         {children}

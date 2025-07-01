@@ -90,7 +90,8 @@
   --font-custom-bolder: 'CustomFont-Bolder', ui-sans-serif, system-ui, sans-serif;
   --font-custom-boldest: 'CustomFont-Boldest', ui-sans-serif, system-ui, sans-serif;
   --font-custom-mono: 'CustomFont-Mono', ui-monospace, monospace;
-  --font-heading: var(--font-contrail-one), 'CustomFont-Boldest', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-oswald), 'CustomFont-Boldest', ui-sans-serif, system-ui, sans-serif;
+  --font-oswald: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
   
   /* Custom utilities */
   --color-app-dark: var(--app-dark);
@@ -113,23 +114,23 @@ body {
 
 /* HTML Element Font Assignments */
 h1 {
-  font-family: 'CustomFont-Boldest', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 900;
+  font-family: var(--font-oswald), ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
 }
 
 h2 {
-  font-family: 'CustomFont-Bolder', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
 }
 
 h3, h4 {
-  font-family: 'CustomFont-Bold', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
 }
 
 h5, h6 {
-  font-family: 'CustomFont-Bold', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
 }
 
 em, i {
@@ -158,7 +159,8 @@ code, pre {
 
 /* Button font styling */
 button {
-  font-family: var(--font-contrail-one), 'CustomFont', ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-oswald), 'CustomFont', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
 }
 
 /* Gradient text utilities */
