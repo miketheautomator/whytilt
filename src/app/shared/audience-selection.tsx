@@ -15,7 +15,9 @@ export function AudienceSelection() {
             <Section.Badge>ENTERPRISE</Section.Badge>
           </div>
           <Section.Heading card>50x Production</Section.Heading>
-          <Section.Text className="mb-12">Scale operations without scaling workforce. Get enterprise security, white-glove onboarding, and priority support.</Section.Text>
+          <div className="mb-12">
+            <Section.Text>Scale operations without scaling workforce. Get enterprise security, white-glove onboarding, and priority support.</Section.Text>
+          </div>
           <div className="absolute bottom-6 right-6 text-blue-400 group-hover:text-blue-300 transition-colors">
             Learn more →
           </div>
@@ -26,7 +28,9 @@ export function AudienceSelection() {
             <Section.Badge>SMALL BUSINESS</Section.Badge>
           </div>
           <Section.Heading card>Scale Smarter</Section.Heading>
-          <Section.Text className="mb-12">Grow without growing headaches. Zero licensing fees forever, pay only for what you use.</Section.Text>
+          <div className="mb-12">
+            <Section.Text>Grow without growing headaches. Zero licensing fees forever, pay only for what you use.</Section.Text>
+          </div>
           <div className="absolute bottom-6 right-6 text-green-400 group-hover:text-green-300 transition-colors">
             Learn more →
           </div>
@@ -37,7 +41,9 @@ export function AudienceSelection() {
             <Section.Badge>PROFESSIONALS</Section.Badge>
           </div>
           <Section.Heading card>Reclaim Your Time</Section.Heading>
-          <Section.Text className="mb-12">Automate the boring stuff and focus on creative work. Simple setup, no coding required.</Section.Text>
+          <div className="mb-12">
+            <Section.Text>Automate the boring stuff and focus on creative work. Simple setup, no coding required.</Section.Text>
+          </div>
           <div className="absolute bottom-6 right-6 text-teal-400 group-hover:text-teal-300 transition-colors">
             Learn more →
           </div>

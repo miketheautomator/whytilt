@@ -226,7 +226,7 @@ export default function PixelBackground({
       const pixel = pixelsRef.current[i];
       // Update pixel opacity based on mouse position
       pixel.updateOpacity(mouseRef.current.x, mouseRef.current.y);
-      // @ts-ignore
+      // @ts-expect-error Dynamic method call on pixel object
       pixel[fnName]();
       if (!pixel.isIdle) {
         allIdle = false;

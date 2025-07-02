@@ -9,7 +9,9 @@ export function UseCasesEnterprise() {
       <Section.Grid cols="2" gap="lg">
         <Section.Card padding="lg">
           <Section.Heading card>Quality Assurance Testing</Section.Heading>
-          <Section.Text className="mb-4">Automate comprehensive testing across multiple browsers and environments. Catch bugs before customers do.</Section.Text>
+          <div className="mb-4">
+            <Section.Text>Automate comprehensive testing across multiple browsers and environments. Catch bugs before customers do.</Section.Text>
+          </div>
           <Section.List variant="none">
             <li className="flex items-center gap-2">
               <Section.Icon type="check" color="blue" />
@@ -28,7 +30,9 @@ export function UseCasesEnterprise() {
 
         <Section.Card padding="lg">
           <Section.Heading card>Data Migration & Validation</Section.Heading>
-          <Section.Text className="mb-4">Move data between systems safely and verify accuracy at enterprise scale.</Section.Text>
+          <div className="mb-4">
+            <Section.Text>Move data between systems safely and verify accuracy at enterprise scale.</Section.Text>
+          </div>
           <Section.List variant="none">
             <li className="flex items-center gap-2">
               <Section.Icon type="check" color="blue" />
@@ -47,7 +51,9 @@ export function UseCasesEnterprise() {
 
         <Section.Card padding="lg">
           <Section.Heading card>Compliance & Reporting</Section.Heading>
-          <Section.Text className="mb-4">Generate compliance reports and audit trails automatically across all systems.</Section.Text>
+          <div className="mb-4">
+            <Section.Text>Generate compliance reports and audit trails automatically across all systems.</Section.Text>
+          </div>
           <Section.List variant="none">
             <li className="flex items-center gap-2">
               <Section.Icon type="check" color="blue" />
@@ -66,7 +72,9 @@ export function UseCasesEnterprise() {
 
         <Section.Card padding="lg">
           <Section.Heading card>Manual Process Automation</Section.Heading>
-          <Section.Text className="mb-4">Automate repetitive clicking and typing that employees do manually in browsers and desktop apps.</Section.Text>
+          <div className="mb-4">
+            <Section.Text>Automate repetitive clicking and typing that employees do manually in browsers and desktop apps.</Section.Text>
+          </div>
           <Section.List variant="none">
             <li className="flex items-center gap-2">
               <Section.Icon type="check" color="blue" />

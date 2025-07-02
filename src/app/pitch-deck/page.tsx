@@ -39,7 +39,7 @@ export default function PitchDeckPage() {
     // Keyboard navigation
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isAuthenticated) return;
-      
+
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault();
         setCurrentSlide(prev => Math.min(prev + 1, 8)); // 9 slides total (0, 1, 2, 3, 4, 5, 6, 7, 8)
@@ -84,7 +84,7 @@ export default function PitchDeckPage() {
   if (!isAuthenticated) {
     return (
       <div className="h-screen w-screen relative">
-        <div 
+        <div
           className="fixed inset-0 z-0"
           style={{
             background: `
@@ -136,7 +136,9 @@ export default function PitchDeckPage() {
               </div>
 
               {error && (
-                <Section.Text className="text-red-400 text-sm ">{error}</Section.Text>
+                <div className="text-red-400 text-sm">
+                  <Section.Text>{error}</Section.Text>
+                </div>
               )}
 
               <button
@@ -156,7 +158,7 @@ export default function PitchDeckPage() {
   return (
     <div className="h-screen w-screen relative">
       {/* Static Background Layers - Outside scroll container */}
-      <div 
+      <div
         className="fixed inset-0 z-0"
         style={{
           background: `
@@ -195,35 +197,29 @@ export default function PitchDeckPage() {
           /* The Problem */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-8">
-              <Section.Heading size="xl">❌ The Problem</Section.Heading>
-              <Section.Text size="lg">QA test automation is fundamentally broken — it tests code, not what real users see.</Section.Text>
+              <Section.Heading size="lg">❌ The Problem</Section.Heading>
+              <Section.Text size="lg">QA test automation is fundamentally broken and expensive</Section.Text>
             </div>
-            
+
             <Section.Card className="mb-6">
-              <Section.Text className="text-yellow-400 font-bold mb-4">At a typical SaaS company:</Section.Text>
+              <div className="text-yellow-400 font-bold mb-4"><Section.Text>At a typical SaaS company:</Section.Text></div>
               <Section.List variant="bullet">
-                <li>Engineers maintain hundreds of DOM-based test scripts in Selenium, Playwright, or Cypress</li>
+                <li>Engineers maintain hundreds of DOM-based test scripts in headless systems</li>
                 <li>A minor UI tweak — like a class name change — can break dozens of tests overnight</li>
-                <li>QA teams spend <span className="text-yellow-400 font-bold">40%+ of their time</span> fixing brittle scripts instead of finding real bugs</li>
-                <li>Bugs still slip through, causing delayed releases, outages, and lost revenue</li>
+                <li>QA teams spend up to <span className="text-yellow-400 font-bold">40%+ of their time</span> fixing brittle scripts</li>
+                <li>If only there was a way to just use plan english and fully autonomous intelligent testing</li>
               </Section.List>
             </Section.Card>
-            
+
             <Section.Card className="mb-6">
-              <Section.Text className="text-yellow-400 font-bold mb-4">💸 This costs:</Section.Text>
+              <div className="text-yellow-400 font-bold mb-4"><Section.Text>💸 This costs:</Section.Text></div>
               <Section.List variant="bullet">
-                <li><span className="text-yellow-400 font-bold">$135K–$175K/year per QA engineer</span> — much of it wasted on maintenance</li>
-                <li>Enterprises spend <span className="text-yellow-400 font-bold">$20B+/year globally</span> on test automation tools and labor that still can&apos;t emulate users</li>
+                <li><span className="text-yellow-400 font-bold">$65k-$120k/year per QA engineer</span> — much of it wasted on maintenance</li>
+                <li>Enterprises spend <span className="text-yellow-400 font-bold">$20B+/year globally</span> on test automation tools and labor</li>
+                <li>Many companies still rely heavily on manual testing <span className="text-yellow-400 font-bold">due to test complexity</span> and exploratory needs.</li>
                 <li>And only <span className="text-yellow-400 font-bold">11% of companies</span> reach fully automated testing — most give up trying</li>
               </Section.List>
             </Section.Card>
-            
-            <div className="text-center">
-              <Section.Text size="lg" className="font-bold">
-                We&apos;re simulating humans through code — when we could <span className="text-yellow-400">Tilt</span> all of this on its head
-                and automate like real customers: visually, intelligently.
-              </Section.Text>
-            </div>
           </Section>
         )}
 
@@ -231,13 +227,13 @@ export default function PitchDeckPage() {
           /* The Market */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-8">
-              <Section.Heading size="xl">📊 The Market</Section.Heading>
+              <Section.Heading size="lg">📊 The Market</Section.Heading>
               <Section.Text size="lg">Companies spend billions trying to automate software workflows — and it&apos;s not working.</Section.Text>
             </div>
-            
+
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
-                <Section.Text className="font-bold text-yellow-400 mb-4">Market Size</Section.Text>
+                <div className="font-bold text-yellow-400 mb-4"><Section.Text>Market Size</Section.Text></div>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <span className="text-yellow-400 text-2xl font-bold mr-4">$41.7B</span>
@@ -248,13 +244,13 @@ export default function PitchDeckPage() {
                     <Section.Text size="sm">Robotic Process Automation (RPA) market (2025)</Section.Text>
                   </div>
                   <div className="flex items-start">
-                    <span className="text-yellow-400 text-2xl font-bold mr-4">100,000+</span>
+                    <span className="text-yellow-400 text-2xl font-bold mr-4">40,000+</span>
                     <Section.Text size="sm">orgs with internal QA & ops teams struggling to scale automation</Section.Text>
                   </div>
                 </div>
-                
+
                 <div className="mt-6">
-                  <Section.Text className="text-yellow-400 font-bold mb-3">🎯 Tilt&apos;s Wedge</Section.Text>
+                  <div className="text-yellow-400 font-bold mb-3"><Section.Text>🎯 Tilt&apos;s Wedge</Section.Text></div>
                   <Section.List variant="none">
                     <li><span className="text-yellow-400 font-semibold">Target:</span> SaaS companies with $250K+ in revenue</li>
                     <li><span className="text-yellow-400 font-semibold">Buyer:</span> Internal QA and ops teams</li>
@@ -262,9 +258,9 @@ export default function PitchDeckPage() {
                   </Section.List>
                 </div>
               </Section.Card>
-              
+
               <Section.Card>
-                <Section.Text className="font-bold text-yellow-400 mb-4">Market Layers</Section.Text>
+                <div className="font-bold text-yellow-400 mb-4"><Section.Text>Market Layers</Section.Text></div>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="text-yellow-400 font-semibold">TAM</span>
@@ -272,16 +268,16 @@ export default function PitchDeckPage() {
                   </div>
                   <div className="flex justify-between items-start">
                     <span className="text-yellow-400 font-semibold">SAM</span>
-                    <Section.Text size="sm" className="text-right">~$5–10B (QA + internal ops in mid-market SaaS and enterprise)</Section.Text>
+                    <div className="text-right"><Section.Text size="sm">~$5–10B (QA + internal ops in mid-market SaaS and enterprise)</Section.Text></div>
                   </div>
                   <div className="flex justify-between items-start">
                     <span className="text-yellow-400 font-semibold">SOM</span>
-                    <Section.Text size="sm" className="text-right">~5,000 companies with CI/CD pipelines and automation pain</Section.Text>
+                    <div className="text-right"><Section.Text size="sm">~5,000 companies with CI/CD pipelines and automation pain</Section.Text></div>
                   </div>
                 </div>
-                
+
                 <div>
-                  <Section.Text className="text-yellow-400 font-bold mb-3">⚡ Why Now?</Section.Text>
+                  <div className="text-yellow-400 font-bold mb-3"><Section.Text>⚡ Why Now?</Section.Text></div>
                   <Section.List variant="bullet">
                     <li>AI vision + reasoning is now fast, accurate, and production-ready</li>
                     <li>Engineering fatigue from maintaining flaky tests and bots</li>
@@ -297,26 +293,13 @@ export default function PitchDeckPage() {
           /* The Solution */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-8">
-              <Section.Heading size="xl">✅ The Solution</Section.Heading>
+              <Section.Heading size="lg">✅ The Solution</Section.Heading>
               <Section.Text size="lg">Tilt is an intelligent vision-action agent that automates software workflows like a real user—visually, autonomously, and with common sense.</Section.Text>
             </div>
-            
-            <Section.Card className="mb-6">
-              <div className="text-center">
-                <Section.Text className="text-yellow-400 font-bold mb-3">
-                  No DOM selectors. No code. No brittle scripts.
-                </Section.Text>
-                <Section.Text>Just plain language:</Section.Text>
-                <div className="bg-gray-900/50 rounded-lg p-4 mt-3 italic text-yellow-400">
-                  &quot;Test the checkout flow and confirm the price is $19.99&quot;<br/>
-                  &quot;Log in and download today&apos;s report from each account&quot;
-                </div>
-              </div>
-            </Section.Card>
-            
+
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold mb-4">How it works:</Section.Text>
+                <div className="text-yellow-400 font-bold mb-4"><Section.Text>How it works:</Section.Text></div>
                 <Section.List variant="bullet">
                   <li><span className="text-yellow-400 font-semibold">Sees the screen like a human</span>—using a vision model</li>
                   <li><span className="text-yellow-400 font-semibold">Understands plain English</span>—via a language model</li>
@@ -324,9 +307,9 @@ export default function PitchDeckPage() {
                   <li><span className="text-yellow-400 font-semibold">Flexible:</span> run one task or an entire queue, on demand or on a schedule</li>
                 </Section.List>
               </Section.Card>
-              
+
               <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold mb-4">Built for:</Section.Text>
+                <div className="text-yellow-400 font-bold mb-4"><Section.Text>Built for:</Section.Text></div>
                 <Section.List variant="none">
                   <li><span className="text-yellow-400 font-semibold">QA teams:</span> End-to-end, visual tests that survive UI changes</li>
                   <li><span className="text-yellow-400 font-semibold">Ops teams:</span> Cross-app automation without brittle RPA</li>
@@ -335,12 +318,8 @@ export default function PitchDeckPage() {
                 </Section.List>
               </Section.Card>
             </Section.Grid>
-            
-            <div className="text-center mt-6">
-              <Section.Text size="lg" className="font-bold">
-                <span className="text-yellow-400">Tilt</span> doesn&apos;t automate code. It automates people work.
-              </Section.Text>
-            </div>
+
+
           </Section>
         )}
 
@@ -348,62 +327,63 @@ export default function PitchDeckPage() {
           /* Business Model */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-6">
-              <Section.Heading size="xl">🔥 Business Model</Section.Heading>
+              <Section.Heading size="lg">🔥 Business Model</Section.Heading>
               <Section.Text size="lg">Usage-first, license-second. High-margin, high-retention.</Section.Text>
             </div>
-            
+
             <Section.Grid cols="2" responsive={true} gap="md">
               <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold ">🪝 Year 1: Trojan Horse Entry</Section.Text>
+                <div className="text-yellow-400 font-bold "><Section.Text>🪝 Year 1: Trojan Horse Entry</Section.Text></div>
                 <Section.List variant="bullet">
                   <li><span className="text-yellow-400 font-semibold">No per-seat fees</span> — teams install freely</li>
-                  <li>Monetize <span className="text-yellow-400 font-semibold">task execution</span> — $0.05–$1.00 per run</li>
-                  <li><span className="text-yellow-400 font-semibold">50 active installs</span> = $750–$150K/month</li>
+                  <li>Monetize <span className="text-yellow-400 font-semibold">task execution</span> — pennies, to dollars</li>
+                  <li><span className="text-yellow-400 font-semibold">50 active seats</span> Inference costs: $750–$65k/month</li>
+                  <li><span className="text-yellow-400 font-semibold">We keep as much at 70%</span> of these inference costs</li>
                 </Section.List>
-                
+
                 <div className="bg-gray-900/50 rounded-lg p-3 mt-3">
-                  <Section.Text className="">Revenue (Monthly)</Section.Text>
+                  <Section.Text>Revenue (Monthly)</Section.Text>
                   <div className="space-y-1">
                     <div className="flex justify-between">
-                      <span>50 copies:</span>
-                      <span className="text-yellow-400 font-semibold">$750 - $150K</span>
+                      <span>50 seats:</span>
+                      <span className="text-yellow-400 font-semibold">$750 - $65k</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>500 copies:</span>
-                      <span className="text-yellow-400 font-semibold">$7.5K - $1.5M</span>
+                      <span>500 seats:</span>
+                      <span className="text-yellow-400 font-semibold">$7.5K - $65M</span>
                     </div>
                   </div>
                 </div>
               </Section.Card>
-              
+
               <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold ">🧠 Year 2: Seat-Based Licensing</Section.Text>
+                <div className="text-yellow-400 font-bold "><Section.Text>🧠 Year 2: Seat-Based Licensing</Section.Text></div>
                 <Section.List variant="bullet">
                   <li><span className="text-yellow-400 font-semibold">Tilt self-reports</span> deployments across teams</li>
-                  <li>Installs convert to <span className="text-yellow-400 font-semibold">per-seat licenses</span> ($1,000+/year)</li>
-                  <li><span className="text-yellow-400 font-semibold">50 seats</span> = $50K+ annual revenue + usage</li>
+                  <li>Installs convert to <span className="text-yellow-400 font-semibold">per-seat licenses</span></li>
+                  <li><span className="text-yellow-400 font-semibold">Seat price is negotiated</span> per organization per year</li>
                 </Section.List>
-                
+
                 <div className="bg-gray-900/50 rounded-lg p-3 mt-3">
-                  <Section.Text className="">License Revenue (Annual)</Section.Text>
+                  <Section.Text>License Revenue (Annual)</Section.Text>
                   <div className="space-y-1">
                     <div className="flex justify-between">
                       <span>50 seats:</span>
-                      <span className="text-yellow-400 font-semibold">$50K + usage</span>
+                      <span className="text-yellow-400 font-semibold">$10K + usage</span>
                     </div>
                     <div className="flex justify-between">
                       <span>500 seats:</span>
-                      <span className="text-yellow-400 font-semibold">$500K + usage</span>
+                      <span className="text-yellow-400 font-semibold">$100K + usage</span>
                     </div>
                   </div>
                 </div>
               </Section.Card>
             </Section.Grid>
-            
+
             <div className="text-center mt-4">
-              <Section.Text className="font-semibold text-yellow-400">
-                📈 High Usage = High Stickiness — By Year 2, Tilt is embedded in CI pipelines and daily workflows.
-              </Section.Text>
+              <div className="font-semibold text-yellow-400"><Section.Text>
+                📈 By Year 2, Tilt becomes <span className="text-yellow-400 font-semibold">deeply embedded</span> in our customers&apos; workflows and automation pipelines, <span className="text-yellow-400 font-semibold">creating high switching costs</span> and making it a mission-critical part of their operations.
+              </Section.Text></div>
             </div>
           </Section>
         )}
@@ -412,51 +392,39 @@ export default function PitchDeckPage() {
           /* Go-to-Market */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-6">
-              <Section.Heading size="xl">🚀 Go-to-Market</Section.Heading>
-              <Section.Text size="lg">Land, Expand, Lock In</Section.Text>
+              <Section.Heading size="lg">🚀 Go-to-Market</Section.Heading>
             </div>
-            
+
             <Section.Grid cols="2" responsive={true} gap="md">
               <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold ">👥 Inside Champions</Section.Text>
-                <Section.Text size="sm" className="mb-4">
-                  We built Tilt after interviewing internal QA engineers at large companies — the exact people now piloting our early builds.
-                </Section.Text>
-                
-                <Section.Text className="text-yellow-400 font-bold ">🚪 Entry: Team-Level Pilots</Section.Text>
+                <div className="text-yellow-400 font-bold "><Section.Text>👥 Inside Champions</Section.Text></div>
+                <div className="mb-4"><Section.Text size="sm">
+                  Tilt was built after interviewing internal QA engineers at large companies — the very people now piloting our early builds.
+                </Section.Text></div>
+
+                <div className="text-yellow-400 font-bold "><Section.Text>🚪 Entry: Team-Level Pilots</Section.Text></div>
                 <Section.List variant="bullet">
-                  <li>Tilt is installed via <span className="text-yellow-400 font-semibold">Docker</span> — works on Mac, Windows, Linux</li>
-                  <li><span className="text-yellow-400 font-semibold">No setup time</span>, no security review blockers</li>
-                  <li>Just deploy and run</li>
+                  <li>Tilt installs quickly via Docker</li>
+                  <li>Compatible with Mac, Windows, and Linux</li>
+                  <li>No security review blockers, enabling fast onboarding</li>
                 </Section.List>
               </Section.Card>
-              
+
               <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold ">📈 Expansion Through Usage</Section.Text>
+                <div className="text-yellow-400 font-bold "><Section.Text>📈 Expansion Through Usage</Section.Text></div>
                 <Section.List variant="bullet">
                   <li>Teams integrate Tilt into daily automation workflows</li>
-                  <li>Testing UIs, validating events (Google Analytics), visual test queues</li>
-                  <li><span className="text-yellow-400 font-semibold">Spreads from 1 engineer to 10+</span> organically</li>
-                </Section.List>
-                
-                <Section.Text className="text-yellow-400 font-bold ">🔄 Lock-In via Embedded Workflow</Section.Text>
-                <Section.List variant="bullet">
-                  <li>By Year 2, <span className="text-yellow-400 font-semibold">Tilt is entrenched</span></li>
-                  <li>Teams depend on it, removing it <span className="text-yellow-400 font-semibold">breaks processes</span></li>
-                  <li>Licensing becomes a practical necessity, not a sales push</li>
+                  <li>Use cases include UI testing, validating Google Analytics events, and managing visual test queues</li>
+                  <li>Adoption spreads organically from <span className="text-yellow-400 font-semibold">1 engineer to 10+</span> within teams</li>
                 </Section.List>
               </Section.Card>
             </Section.Grid>
-            
+
             <div className="mt-6">
-              <Section.Card>
-                <Section.Text className="text-yellow-400 font-bold ">The Pain Point We Solve</Section.Text>
-                <Section.Text size="sm" className="italic">
-                  &quot;Google Analytics tag and event testing for 8 brands takes 10 engineers all day to run by hand. 
-                  Our automated test suite breaks every time another team changes the design even a little.&quot;
-                </Section.Text>
-                <Section.Text size="sm" className="text-yellow-400 font-semibold mt-2">— Our inside champions at 3 large companies</Section.Text>
-              </Section.Card>
+              <p className="italic text-lg">
+                &quot;Google Analytics tag and event testing for 7 brands takes a couple engineers all day to run by hand. Their automated test suites break every time another team changes the design even a little.&quot;
+              </p>
+              <p className="text-yellow-400 font-semibold mt-2">— Inside champions at multiple large companies</p>
             </div>
           </Section>
         )}
@@ -465,13 +433,13 @@ export default function PitchDeckPage() {
           /* The Moat */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-6">
-              <Section.Heading size="xl">🛡 The Moat</Section.Heading>
+              <Section.Heading size="lg">🛡 The Moat</Section.Heading>
               <Section.Text size="lg">Tilt&apos;s defensibility comes from three compounding advantages:</Section.Text>
             </div>
-            
+
             <Section.Grid cols="3" responsive={true} gap="md">
               <Section.Card>
-                <Section.Text className="text-white font-bold ">Architecture Advantage</Section.Text>
+                <div className="text-white font-bold "><Section.Text>Architecture Advantage</Section.Text></div>
                 <Section.List variant="none">
                   <li>Tilt is built to <span className="text-yellow-400 font-semibold">act like a person, not code</span>.</li>
                   <li><span className="text-yellow-400 font-semibold">Cross-platform, self-healing vision agents</span> emulate users—not brittle scripts.</li>
@@ -479,17 +447,17 @@ export default function PitchDeckPage() {
                   <li><span className="text-yellow-400 font-semibold">Client is open source</span> — auditable and extendable, but inference is locked to our model.</li>
                 </Section.List>
               </Section.Card>
-              
+
               <Section.Card>
-                <Section.Text className="text-white font-bold ">Intelligence Flywheel</Section.Text>
+                <div className="text-white font-bold "><Section.Text>Intelligence Flywheel</Section.Text></div>
                 <Section.List variant="none">
                   <li>Every task generates data: <span className="text-yellow-400 font-semibold">how humans describe work, what succeeds visually, and how agents recover from failure</span>.</li>
                   <li>Tilt continuously learns from real-world execution, building a <span className="text-yellow-400 font-semibold">unique, human-labeled task graph</span> that accelerates automation quality and speed.</li>
                 </Section.List>
               </Section.Card>
-              
+
               <Section.Card>
-                <Section.Text className="text-white font-bold ">Embedded Distribution</Section.Text>
+                <div className="text-white font-bold "><Section.Text>Embedded Distribution</Section.Text></div>
                 <Section.List variant="none">
                   <li>Tilt installs <span className="text-yellow-400 font-semibold">frictionlessly inside teams</span>.</li>
                   <li>By the time licensing starts, it&apos;s already <span className="text-yellow-400 font-semibold">embedded in CI, QA, and ops workflows</span>.</li>
@@ -498,11 +466,11 @@ export default function PitchDeckPage() {
                 </Section.List>
               </Section.Card>
             </Section.Grid>
-            
+
             <div className="text-center mt-4">
-              <Section.Text className="font-semibold">
+              <div className="font-semibold"><Section.Text>
                 We combine <span className="text-yellow-400 font-bold">open adoption</span> with <span className="text-yellow-400 font-bold">enforced monetization</span> — a dual strategy that builds community while preserving defensibility.
-              </Section.Text>
+              </Section.Text></div>
             </div>
           </Section>
         )}
@@ -510,143 +478,100 @@ export default function PitchDeckPage() {
         {currentSlide === 6 && (
           /* The Vision */
           <Section isIPhone={isIPhone} isHero={true}>
-            <div className="text-center mb-6">
-              <Section.Heading size="xl">🌅 The Vision</Section.Heading>
-              <Section.Text size="lg">Tilt is building the AI agent layer for the desktop and the enterprise.</Section.Text>
-              <Section.Text className="mt-4">
-                Automation today is fragile, fragmented, and only works for developers.<br/>
-                Tilt makes it <span className="text-yellow-400 font-semibold">visual, reliable, and accessible to anyone</span> — like a human assistant that never sleeps.
-              </Section.Text>
+            <div className="text-center mb-8">
+              <Section.Heading size="lg">🌅 The Vision</Section.Heading>
+              <Section.Text size="lg">Tilt is building the AI agent layer for desktop and enterprise.</Section.Text>
             </div>
-            
-            <div className="mb-6">
-              <div className="text-center mb-6">
-                <Section.Text className="text-white font-bold ">🪜 Our 3-Phase Path to Dominance</Section.Text>
-              </div>
-              
-              <div className="space-y-4">
-                <Section.Card className="border-l-4 border-yellow-400">
-                  <Section.Text className="text-yellow-400 font-bold ">1. SaaS Footprint (Now)</Section.Text>
+
+            <Section.Grid cols="3" responsive={true} gap="md">
+              <Section.Card className="border-t-4 border-yellow-400">
+                <div className="text-center">
+                  <Section.Text>
+                    <span className="text-yellow-400 font-bold text-lg">1. SaaS Footprint</span><br />
+                    <span className="text-sm">(Now)</span>
+                  </Section.Text>
                   <Section.Text size="sm">Desktop-first, Docker-deployable agents</Section.Text>
-                  <Section.List variant="none" className="mt-2">
-                    <li>→ Fast installs, low cost, easy adoption</li>
-                    <li>→ No cloud hosting required = <span className="text-yellow-400 font-semibold">profitable from day one</span></li>
+                  <Section.List variant="none">
+                    <li>→ Fast installs, low cost</li>
+                    <li>→ No cloud hosting = <span className="text-yellow-400 font-semibold">profitable day one</span></li>
                   </Section.List>
-                </Section.Card>
-                
-                <Section.Card className="border-l-4 border-yellow-400">
-                  <Section.Text className="text-yellow-400 font-bold ">2. Transactional Platform (Next)</Section.Text>
-                  <Section.Text size="sm">We host the model. Every task run = revenue.</Section.Text>
-                  <Section.List variant="none" className="mt-2">
-                    <li>→ Usage-based pricing aligns with customer value</li>
-                    <li>→ First-party inference = <span className="text-yellow-400 font-semibold">high-margin, recurring revenue</span></li>
+                </div>
+              </Section.Card>
+
+              <Section.Card className="border-t-4 border-yellow-400">
+                <div className="text-center">
+                  <Section.Text>
+                    <span className="text-yellow-400 font-bold text-lg">2. Transactional Platform</span><br />
+                    <span className="text-sm">(Next)</span>
+                  </Section.Text>
+                  <Section.Text size="sm">We host the model. Every task = revenue.</Section.Text>
+                  <Section.List variant="none">
+                    <li>→ Usage-based pricing</li>
+                    <li>→ First-party inference = <span className="text-yellow-400 font-semibold">high-margin revenue</span></li>
                   </Section.List>
-                </Section.Card>
-                
-                <Section.Card className="border-l-4 border-yellow-400">
-                  <Section.Text className="text-yellow-400 font-bold ">3. Agent Tool Marketplace (Future)</Section.Text>
-                  <Section.Text size="sm">Agents gain superpowers via plugins and tools</Section.Text>
-                  <Section.List variant="none" className="mt-2">
-                    <li>→ Think Zapier for vision agents: extract data, access systems, customize workflows</li>
-                    <li>→ We monetize the ecosystem — <span className="text-yellow-400 font-semibold">30% of every tool sold</span></li>
+                </div>
+              </Section.Card>
+
+              <Section.Card className="border-t-4 border-yellow-400">
+                <div className="text-center">
+                  <Section.Text>
+                    <span className="text-yellow-400 font-bold text-lg">3. Agent Marketplace</span><br />
+                    <span className="text-sm">(Future)</span>
+                  </Section.Text>
+                  <Section.Text size="sm">Agents gain superpowers via plugins</Section.Text>
+                  <Section.List variant="none" >
+                    <li>→ Think Zapier for vision agents</li>
+                    <li>→ We take <span className="text-yellow-400 font-semibold">30% of ecosystem</span></li>
                   </Section.List>
-                </Section.Card>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <Section.Text className="font-bold">
-                We don&apos;t just automate software. We automate <span className="text-yellow-400 font-semibold">how people use software</span> — visually, intelligently, across everything.
-              </Section.Text>
-            </div>
+                </div>
+              </Section.Card>
+            </Section.Grid>
           </Section>
         )}
 
         {currentSlide === 7 && (
           /* The Team */
           <Section isIPhone={isIPhone} isHero={true}>
-            <div className="text-center mb-4">
-              <Section.Heading size="xl">🧠 The Team</Section.Heading>
-              <Section.Text>
-                Tilt is led by two founders with complementary strengths:<br/>
-                one from the enterprise trenches, one from the bleeding edge of technology.
+            <div className="text-center mb-12">
+              <Section.Heading size="lg">The Team</Section.Heading>
+              <Section.Text size="lg">
+                Two founders with complementary strengths
+              </Section.Text>
+              <Section.Text size="lg">
+                Mike and Ryan have worked together on many projects and on several teams for the last 10 years and enjoy working together.
               </Section.Text>
             </div>
-            
-            <Section.Grid cols="2" responsive={true} gap="md" className="mb-4">
-              <Section.Card>
-                <div className="text-center mb-3">
-                  <div className="w-12 h-12 bg-yellow-600 rounded-full mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-xl font-bold text-white">R</span>
-                  </div>
-                  <Section.Text className="">👤 Ryan [Last Name]</Section.Text>
-                  <Section.Text size="sm">Enterprise team leader, deep operational experience, degree in Brain Science</Section.Text>
-                  <Section.Text className="text-yellow-400 font-semibold ">Enterprise strategy, customer development, GTM</Section.Text>
+
+            <Section.Grid cols="2" responsive={true} gap="lg">
+              <div className="text-center">
+                <div className="w-24 h-24  mx-auto mb-6 flex items-center justify-center">
+                  <img src="mike-headshot.jpeg" alt="Mike ONeal, CEO/CTO" className='rounded-full' />
                 </div>
-                
-                <div className="space-y-2">
-                  <div>
-                    <Section.Text className="text-white font-bold ">Greatest Achievement:</Section.Text>
-                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
-                      [Ryan fills this in — ideally something that demonstrates leadership, large-scale responsibility, or cross-functional execution]
-                    </Section.Text>
-                  </div>
-                  
-                  <div>
-                    <Section.Text className="text-white font-bold ">Why Ryan is the perfect partner for Mike:</Section.Text>
-                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
-                      [Ryan&apos;s POV: why the partnership works and what Mike uniquely brings to the table]
-                    </Section.Text>
-                  </div>
+                <Section.Text size="lg">Mike ONeal</Section.Text>
+                <Section.Text>CEO/CTO</Section.Text>
+                <Section.Text size="sm">
+                  Veteran systems architect with 25+ years building and testing software and deep learning experience
+                </Section.Text>
+              </div>
+
+
+              <div className="text-center">
+                <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
+                  <img src="ryan.webp" alt="Ryan Bent, COO/CFO" className='rounded-full' />
                 </div>
-              </Section.Card>
-              
-              <Section.Card>
-                <div className="text-center mb-3">
-                  <div className="w-12 h-12 bg-yellow-600 rounded-full mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-xl font-bold text-white">M</span>
-                  </div>
-                  <Section.Text className="">👤 Mike [Last Name]</Section.Text>
-                  <Section.Text size="sm">Veteran systems architect, autodidact, 25+ years solving hard tech problems</Section.Text>
-                  <Section.Text className="text-yellow-400 font-semibold ">Product vision, architecture, model orchestration</Section.Text>
-                </div>
-                
-                <div className="space-y-2">
-                  <div>
-                    <Section.Text className="text-white font-bold ">Greatest Achievement:</Section.Text>
-                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
-                      [Mike fills this in — ideally something showing creativity, scale, or key technical breakthroughs]
-                    </Section.Text>
-                  </div>
-                  
-                  <div>
-                    <Section.Text className="text-white font-bold ">Why Mike is the perfect partner for Ryan:</Section.Text>
-                    <Section.Text className="italic bg-gray-900/40 rounded-lg p-2">
-                      [Mike&apos;s POV: why the partnership works and what Ryan enables]
-                    </Section.Text>
-                  </div>
-                </div>
-              </Section.Card>
+                <Section.Text size="lg">Ryan Bent</Section.Text>
+                <Section.Text>COO/CFO</Section.Text>
+                <Section.Text size="sm">
+                  Enterprise team leader with deep operational experience and a love of Product.
+                </Section.Text>
+              </div>
             </Section.Grid>
-            
-            <div className="text-center">
-              <Section.Card>
-                <Section.Text className="text-white font-bold ">🤝 Why This Team Will Win</Section.Text>
-                <Section.Text size="sm">Together, we combine...</Section.Text>
-                
-                <Section.Grid cols="4" responsive={true} gap="sm" className="mt-3 mb-3">
-                  <Section.Text className="text-yellow-400 font-bold text-center">Real pain, from inside the enterprise</Section.Text>
-                  <Section.Text className="text-yellow-400 font-bold text-center">Unmatched technical firepower</Section.Text>
-                  <Section.Text className="text-yellow-400 font-bold text-center">Trust from pilot customers</Section.Text>
-                  <Section.Text className="text-yellow-400 font-bold text-center">A shared obsession with making intelligent automation usable by anyone</Section.Text>
-                </Section.Grid>
-                
-                <div className="bg-gray-900/40 rounded-lg p-3">
-                  <Section.Text size="sm" className="italic">
-                    [Your shared answer to: Why these two people are the ones to build and dominate this market?]
-                  </Section.Text>
-                </div>
-              </Section.Card>
+
+            <div className="text-center mt-12">
+
+              <Section.Text size="md" >
+                Real enterprise pain + Unmatched technical execution + Insanely great customer care
+              </Section.Text>
             </div>
           </Section>
         )}
@@ -655,24 +580,26 @@ export default function PitchDeckPage() {
           /* The Ask */
           <Section isIPhone={isIPhone} isHero={true}>
             <div className="text-center mb-8">
-              <Section.Heading size="xl">💸 The Ask</Section.Heading>
-              <Section.Text size="lg" className="text-yellow-400 font-bold">
-                We&apos;re raising $25K for 3%<br/>
-                to fund our next critical milestone:
+              <Section.Heading size="lg">💸 The Ask</Section.Heading>
+              <Section.Text size="lg">
+                We are raising $25-50K for the next stage for ?%
+              </Section.Text>
+              <Section.Text size="md" >
+                We will let the market decide our value at this pre-money stage.
               </Section.Text>
             </div>
-            
+
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
                 <div className="space-y-6">
-                  <Section.Text className="text-green-400 font-bold ">✅ Already Completed</Section.Text>
+                  <Section.Text>✅ <span className="font-bold">Already Completed</span></Section.Text>
                   <Section.List>
                     <li>Built the product (cross-platform vision-action agent)</li>
                     <li>Built the website and pitch deck</li>
                     <li>Have inside champions at 3 enterprise orgs</li>
                   </Section.List>
-                  
-                  <Section.Text className="text-yellow-400 font-bold ">🔜 Next 90 Days</Section.Text>
+
+                  <Section.Text>🔜 <span className="font-bold">Next 90 Days</span></Section.Text>
                   <Section.List>
                     <li>Launch 3 pilots (enterprise, SMB, individual users)</li>
                     <li>Build hosted inference pipeline</li>
@@ -681,19 +608,20 @@ export default function PitchDeckPage() {
                   </Section.List>
                 </div>
               </Section.Card>
-              
-              <Section.Card>
-                <div className="space-y-6">
-                  <Section.Text className="text-blue-400 font-bold ">🚧 Cap Table Now</Section.Text>
-                  <div className="bg-gray-900/40 rounded-lg p-4 space-y-2">
-                    <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Valuation:</span> $75K</Section.Text>
-                    <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Founders:</span> 50 / 50 split</Section.Text>
-                  </div>
-                  
-                  <Section.Text className="text-green-400 font-bold ">📈 Post-Raise</Section.Text>
-                  <div className="bg-gray-900/40 rounded-lg p-4 space-y-2">
-                    <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Valuation:</span> $100K</Section.Text>
-                    <Section.Text size="sm"><span className="text-yellow-400 font-semibold">Ownership:</span> 48.5% / 48.5% / 3% (investor)</Section.Text>
+
+              <Section.Card className="bg-gray-900/20 border-dashed border-2 border-gray-600">
+                <div className="text-center space-y-4">
+                  <Section.Text>🔒 <span className="font-bold">CONFIDENTIAL</span></Section.Text>
+                  <Section.Text size="sm">
+                    Cap table, valuations, and ownership details available upon request to qualified investors.
+                  </Section.Text>
+                  <div className="bg-gray-800/50 rounded-lg p-6 space-y-2">
+                    <div className="text-xs text-gray-500 space-y-1">
+                      <div>██████████████</div>
+                      <div>██████████</div>
+                      <div>███████████████</div>
+                      <div>██████████████████</div>
+                    </div>
                   </div>
                 </div>
               </Section.Card>
@@ -722,9 +650,8 @@ export default function PitchDeckPage() {
                   <button
                     key={slideIndex}
                     onClick={() => setCurrentSlide(slideIndex)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      currentSlide === slideIndex ? 'bg-yellow-400' : 'bg-gray-600 hover:bg-gray-400'
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-colors ${currentSlide === slideIndex ? 'bg-yellow-400' : 'bg-gray-600 hover:bg-gray-400'
+                      }`}
                   />
                 ))}
               </div>

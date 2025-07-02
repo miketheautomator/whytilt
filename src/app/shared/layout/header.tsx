@@ -44,6 +44,7 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
       <DemoModal 
         isOpen={isDemoModalOpen} 
         onClose={() => setIsDemoModalOpen(false)}
+        theme="homepage"
       />
       
       {/* Navigation Bar - Sticky Header */}

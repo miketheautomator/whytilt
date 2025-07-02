@@ -62,7 +62,23 @@ export function Header({ containerRef }: HeaderProps) {
             scrolled ? "text-sm" : "text-base"
           }`}
         >
-          {/* Add nav links here */}
+          <a
+            href="https://github.com/WhyTilt/tilt-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center gap-2 text-white hover:text-yellow-400 transition-colors duration-200 ${
+              scrolled ? "text-sm" : "text-base"
+            }`}
+          >
+            <svg 
+              className={`${scrolled ? "w-4 h-4" : "w-5 h-5"} transition-all duration-300`} 
+              fill="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 2L14.09 8.26L20 9L15.5 13.74L16.18 21L12 18L7.82 21L8.5 13.74L4 9L9.91 8.26L12 2Z"/>
+            </svg>
+            Star us
+          </a>
         </nav>
       </div>
     </header>

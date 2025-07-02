@@ -28,7 +28,7 @@ export function SectionButtonGroup({ children, direction = 'row', full = false, 
   
   const enhancedChildren = Children.map(children, (child) => {
     if (isValidElement(child) && full) {
-      return cloneElement(child, { full: true });
+      return cloneElement(child, { full: true } as { full?: boolean });
     }
     return child;
   });

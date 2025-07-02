@@ -48,7 +48,7 @@ export default function EnterprisePage() {
       />
       <div className="fixed inset-0 z-0" style={{ opacity: 0.6 }}>
         <Aurora
-          colorStops={["#5227FF", "#1E40AF", "#0F172A"]}
+          colorStops={["#3B82F6", "#1E40AF", "#0F172A"]}
           blend={0.5}
           amplitude={1.0}
           speed={0.5}
@@ -58,7 +58,7 @@ export default function EnterprisePage() {
         <PixelBackground
           gap={8}
           speed={60}
-          colors="#5227FF,#3B82F6,#1E3A8A"
+          colors="#3B82F6,#1E40AF,#1E3A8A"
           autoStart={true}
         />
       </div>

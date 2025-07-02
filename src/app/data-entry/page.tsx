@@ -8,7 +8,7 @@ import { Section } from '@/app/shared/section';
 import { DemoButton } from '@/app/shared/demo-button';
 
 export default function DataEntryPage() {
-  const mainRef = useRef<HTMLElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
   
   return (
     <>
