@@ -273,7 +273,7 @@ export default function PitchDeckPage() {
                   </div>
                   <div className="flex justify-between items-start">
                     <span className="text-yellow-400 font-semibold">SOM</span>
-                    <div className="text-right"><Section.Text size="sm">~5,000 companies with CI/CD pipelines and automation pain</Section.Text></div>
+                    <div className="text-right"><Section.Text size="sm">~25,000 companies with CI/CD pipelines and automation pain</Section.Text></div>
                   </div>
                 </div>
 
