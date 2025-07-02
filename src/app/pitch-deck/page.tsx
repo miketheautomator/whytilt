@@ -585,7 +585,7 @@ export default function PitchDeckPage() {
             <div className="text-center mb-8">
               <Section.Heading size="lg">💸 The Ask</Section.Heading>
               <Section.Text size="lg">
-                We are raising $25-50K for the next stage for ?%
+                We are raising $25-50K for the next stage
               </Section.Text>
               <Section.Text size="md" >
                 We will let the market decide our value at this pre-money stage.
@@ -595,19 +595,19 @@ export default function PitchDeckPage() {
             <Section.Grid cols="2" responsive={true} gap="lg">
               <Section.Card>
                 <div className="space-y-6">
-                  <Section.Text>✅ <span className="font-bold">Already Completed</span></Section.Text>
+                  <Section.Text>✅ <span className="font-bold">MVP - Done</span></Section.Text>
                   <Section.List>
-                    <li>Built the product (cross-platform vision-action agent)</li>
-                    <li>Built the website and pitch deck</li>
-                    <li>Have inside champions at 3 enterprise orgs</li>
+                    <li>1 pilot program launched (Enterprise)</li>
+                    <li>Website up</li>
+                    <li>Inference model in training</li>
                   </Section.List>
 
-                  <Section.Text>🔜 <span className="font-bold">Next 90 Days</span></Section.Text>
+                  <Section.Text>🔜 <span className="font-bold">Next 90</span></Section.Text>
                   <Section.List>
-                    <li>Launch 3 pilots (enterprise, SMB, individual users)</li>
-                    <li>Build hosted inference pipeline</li>
-                    <li>Begin revenue collection via task execution</li>
-                    <li>Iterate during 6-month beta across customer segments</li>
+                    <li>Launch three more pilots</li>
+                    <li>Build hosting pipeline (instant revenue)</li>
+                    <li>Focus on sales (Ryan)</li>
+                    <li>Focus on customer onboarding/satisfaction (Mike)</li>
                   </Section.List>
                 </div>
               </Section.Card>
