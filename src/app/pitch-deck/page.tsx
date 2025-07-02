@@ -265,15 +265,15 @@ export default function PitchDeckPage() {
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between items-center">
                     <span className="text-yellow-400 font-semibold">TAM</span>
-                    <Section.Text size="sm">~$70B+ (QA + RPA combined)</Section.Text>
+                    <Section.Text size="sm">$70B+ QA + RPA</Section.Text>
                   </div>
                   <div className="flex justify-between items-start">
                     <span className="text-yellow-400 font-semibold">SAM</span>
-                    <div className="text-right"><Section.Text size="sm">~$5–10B (QA + internal ops in mid-market SaaS and enterprise)</Section.Text></div>
+                    <div><Section.Text size="sm">$5–10B in mid-market SaaS and enterprise</Section.Text></div>
                   </div>
                   <div className="flex justify-between items-start">
                     <span className="text-yellow-400 font-semibold">SOM</span>
-                    <div className="text-right"><Section.Text size="sm">~25,000 companies with CI/CD pipelines and automation pain</Section.Text></div>
+                    <div><Section.Text size="sm">25,000 companies with QA automation pain</Section.Text></div>
                   </div>
                 </div>
 
