@@ -263,27 +263,29 @@ export default function PitchDeckPage() {
               <Section.Card>
                 <div className="font-bold text-yellow-400 mb-4"><Section.Text>Market Layers</Section.Text></div>
                 <div className="space-y-3 mb-6">
-                  <div className="flex justify-between items-center">
+                  <div>
                     <span className="text-yellow-400 font-semibold">TAM</span>
-                    <Section.Text size="sm">$70B+ QA + RPA</Section.Text>
+                    <span className="ml-4"><Section.Text size="sm">$70B+ QA + RPA</Section.Text></span>
                   </div>
-                  <div className="flex justify-between items-start">
+                  <div>
                     <span className="text-yellow-400 font-semibold">SAM</span>
-                    <div><Section.Text size="sm">$5–10B in mid-market SaaS and enterprise</Section.Text></div>
+                    <span className="ml-4"><Section.Text size="sm">$5-10B in mid-market SaaS and enterprise</Section.Text></span>
                   </div>
-                  <div className="flex justify-between items-start">
+                  <div>
                     <span className="text-yellow-400 font-semibold">SOM</span>
-                    <div><Section.Text size="sm">25,000 companies with QA automation pain</Section.Text></div>
+                    <span className="ml-4"><Section.Text size="sm">25,000 companies with QA automation pain</Section.Text></span>
                   </div>
                 </div>
 
-                <div>
-                  <div className="text-yellow-400 font-bold mb-3"><Section.Text>⚡ Why Now?</Section.Text></div>
-                  <Section.List variant="bullet">
-                    <li>AI vision + reasoning is now fast, accurate, and production-ready</li>
-                    <li>Engineering fatigue from maintaining flaky tests and bots</li>
-                    <li>Teams are shifting from scripts to agents — Tilt is how they get there</li>
-                  </Section.List>
+                <div className="space-y-3">
+                  <div>
+                    <span className="text-yellow-400 font-semibold">⚡ Why Now?</span>
+                  </div>
+                  <div className="ml-4 space-y-2">
+                    <div><Section.Text size="sm">AI vision + reasoning is now fast, accurate, and production-ready</Section.Text></div>
+                    <div><Section.Text size="sm">Engineering fatigue from maintaining flaky tests and bots</Section.Text></div>
+                    <div><Section.Text size="sm">Teams are shifting from scripts to agents — Tilt is how they get there</Section.Text></div>
+                  </div>
                 </div>
               </Section.Card>
             </Section.Grid>
