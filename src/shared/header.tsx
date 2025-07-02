@@ -23,8 +23,9 @@ export function Header({ containerRef }: HeaderProps) {
     handleScroll(); // Set initial state
     
     if (containerRef?.current) {
-      containerRef.current.addEventListener("scroll", handleScroll);
-      return () => containerRef.current?.removeEventListener("scroll", handleScroll);
+      const container = containerRef.current;
+      container.addEventListener("scroll", handleScroll);
+      return () => container?.removeEventListener("scroll", handleScroll);
     } else {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);

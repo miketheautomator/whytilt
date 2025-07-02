@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { Header } from '@/shared/header';
 import { Footer } from '@/shared/footer';
 import { Section } from '@/shared/section';
@@ -545,7 +546,7 @@ export default function PitchDeckPage() {
             <Section.Grid cols="2" responsive={true} gap="lg">
               <div className="text-center">
                 <div className="w-24 h-24  mx-auto mb-6 flex items-center justify-center">
-                  <img src="mike-headshot.jpeg" alt="Mike ONeal, CEO/CTO" className='rounded-full' />
+                  <Image src="/mike-headshot.jpeg" alt="Mike ONeal, CEO/CTO" width={96} height={96} className='rounded-full' />
                 </div>
                 <Section.Text size="lg">Mike ONeal</Section.Text>
                 <Section.Text>CEO/CTO</Section.Text>
@@ -557,7 +558,7 @@ export default function PitchDeckPage() {
 
               <div className="text-center">
                 <div className="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
-                  <img src="ryan.webp" alt="Ryan Bent, COO/CFO" className='rounded-full' />
+                  <Image src="/ryan.webp" alt="Ryan Bent, COO/CFO" width={96} height={96} className='rounded-full' />
                 </div>
                 <Section.Text size="lg">Ryan Bent</Section.Text>
                 <Section.Text>COO/CFO</Section.Text>

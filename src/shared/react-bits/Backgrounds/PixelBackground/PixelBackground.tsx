@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 class Pixel {
   width: number;
@@ -165,7 +165,7 @@ export default function PixelBackground({
     typeof window !== 'undefined' ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false
   ).current;
 
-  const initPixels = () => {
+  const initPixels = useCallback(() => {
     if (!containerRef.current || !canvasRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
@@ -205,9 +205,9 @@ export default function PixelBackground({
       }
     }
     pixelsRef.current = pxs;
-  };
+  }, [colors, gap, speed, reducedMotion]);
 
-  const doAnimate = (fnName: keyof Pixel) => {
+  const doAnimate = useCallback((fnName: keyof Pixel) => {
     animationRef.current = requestAnimationFrame(() => doAnimate(fnName));
     const timeNow = performance.now();
     const timePassed = timeNow - timePreviousRef.current;
@@ -235,14 +235,14 @@ export default function PixelBackground({
     if (allIdle && fnName === 'disappear') {
       cancelAnimationFrame(animationRef.current);
     }
-  };
+  }, []);
 
-  const handleAnimation = (name: keyof Pixel) => {
+  const handleAnimation = useCallback((name: keyof Pixel) => {
     if (animationRef.current !== null) {
       cancelAnimationFrame(animationRef.current);
     }
     animationRef.current = requestAnimationFrame(() => doAnimate(name));
-  };
+  }, [doAnimate]);
 
   const onMouseEnter = () => handleAnimation("appear");
   const onMouseLeave = () => {
@@ -280,7 +280,7 @@ export default function PixelBackground({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [gap, speed, colors, autoStart]);
+  }, [gap, speed, colors, autoStart, handleAnimation, initPixels]);
 
   return (
     <div
