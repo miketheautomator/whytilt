@@ -1,5 +1,5 @@
-import { Section } from "@/app/shared/section";
-import { DemoButton } from "@/app/shared/demo-button";
+import { Section } from "@/shared/section";
+import { DemoButton } from "@/shared/demo-button";
 
 export function DemoRequestProfessionals() {
   return (

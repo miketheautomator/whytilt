@@ -1,4 +1,4 @@
-import { Section } from "@/app/shared/section";
+import { Section } from "@/shared/section";
 
 export function LifestyleEnterprise() {
   return (

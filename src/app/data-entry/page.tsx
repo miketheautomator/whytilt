@@ -1,11 +1,11 @@
 'use client';
 import { useRef } from 'react';
-import { Header } from '@/app/shared/header';
-import { Footer } from '@/app/shared/footer';
-import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
-import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
-import { Section } from '@/app/shared/section';
-import { DemoButton } from '@/app/shared/demo-button';
+import { Header } from '@/shared/header';
+import { Footer } from '@/shared/footer';
+import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import { Section } from '@/shared/section';
+import { DemoButton } from '@/shared/demo-button';
 
 export default function DataEntryPage() {
   const mainRef = useRef<HTMLDivElement>(null);

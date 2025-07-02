@@ -1,14 +1,14 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Header } from '@/app/shared/header';
+import { Header } from '@/shared/header';
 import { FooterProfessionals } from './footer-professionals';
-import { Section } from '@/app/shared/section';
+import { Section } from '@/shared/section';
 import { Hero } from './hero-landing';
-import { OnboardingContent } from '@/app/shared/onboarding';
+import { OnboardingContent } from '@/shared/onboarding';
 import { PricingProfessionals } from './pricing-professionals';
 import { DemoRequestProfessionals } from './demo-request-professionals';
-import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function ProfessionalsPage() {
   const containerRef = useRef<HTMLDivElement>(null);

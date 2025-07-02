@@ -1,18 +1,18 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Header } from '@/app/shared/header';
+import { Header } from '@/shared/header';
 import { FooterEnterprise } from './footer-enterprise';
-import { Section } from '@/app/shared/section';
+import { Section } from '@/shared/section';
 import { Hero } from './hero-landing';
 import { LifestyleEnterprise } from './lifestyle-enterprise';
 import { UseCasesEnterprise } from './use-cases-enterprise';
-import { SavingsContent } from '@/app/shared/savings';
+import { SavingsContent } from '@/shared/savings';
 import { PricingEnterprise } from './pricing-enterprise';
-import { LicensingContent } from '@/app/shared/licensing';
-import { OnboardingContent } from '@/app/shared/onboarding';
+import { LicensingContent } from '@/shared/licensing';
+import { OnboardingContent } from '@/shared/onboarding';
 import { DemoRequestEnterprise } from './demo-request-enterprise';
-import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function EnterprisePage() {
   const containerRef = useRef<HTMLDivElement>(null);

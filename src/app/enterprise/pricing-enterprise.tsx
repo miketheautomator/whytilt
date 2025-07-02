@@ -1,5 +1,5 @@
-import { Section } from "@/app/shared/section";
-import { EnterprisePricingCard, PricingHeader } from "@/app/shared/pricing-shared";
+import { Section } from "@/shared/section";
+import { EnterprisePricingCard, PricingHeader } from "@/shared/pricing-shared";
 
 export function PricingEnterprise() {
   return (

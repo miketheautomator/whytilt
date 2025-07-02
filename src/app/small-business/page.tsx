@@ -1,15 +1,15 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Header } from '@/app/shared/header';
+import { Header } from '@/shared/header';
 import { FooterSmallBusiness } from './footer-small-business';
-import { Section } from '@/app/shared/section';
+import { Section } from '@/shared/section';
 import { Hero } from './hero-landing';
-import { SavingsContent } from '@/app/shared/savings';
+import { SavingsContent } from '@/shared/savings';
 import { PricingSmallBusiness } from './pricing-small-business';
-import { OnboardingContent } from '@/app/shared/onboarding';
+import { OnboardingContent } from '@/shared/onboarding';
 import { DemoRequestSmallBusiness } from './demo-request-small-business';
-import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
+import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function SmallBusinessPage() {
   const containerRef = useRef<HTMLDivElement>(null);

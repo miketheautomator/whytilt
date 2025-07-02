@@ -26,3 +26,5 @@ export function SectionIcon({ children, type = 'custom', color = 'gray' }: Secti
     </span>
   );
 }
+
+export default SectionIcon;

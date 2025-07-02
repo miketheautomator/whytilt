@@ -1,17 +1,17 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
-import { Header } from "@/app/shared/header";
-import { Footer } from "@/app/shared/footer";
-import { Section } from "@/app/shared/section";
-import { HeroContent } from "@/app/shared/hero";
-import { AudienceSelection } from "@/app/shared/audience-selection";
-import { DemoContent } from "@/app/shared/demo";
-import { CapabilitiesContent } from "@/app/shared/capabilities";
-import { PricingContent } from "@/app/shared/pricing";
-import { OnboardingContent } from "@/app/shared/onboarding";
-import { DemoRequestContent } from "@/app/shared/demo-request";
-import PixelBackground from "@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground";
-import Aurora from "@/app/shared/react-bits/Backgrounds/Aurora/Aurora";
+import { Header } from "@/shared/header";
+import { Footer } from "@/shared/footer";
+import { Section } from "@/shared/section";
+import { HeroContent } from "@/shared/hero";
+import { AudienceSelection } from "@/shared/audience-selection";
+import { DemoContent } from "@/shared/demo";
+import { CapabilitiesContent } from "@/shared/capabilities";
+import { PricingContent } from "@/shared/pricing";
+import { OnboardingContent } from "@/shared/onboarding";
+import { DemoRequestContent } from "@/shared/demo-request";
+import PixelBackground from "@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground";
+import Aurora from "@/shared/react-bits/Backgrounds/Aurora/Aurora";
 
 export default function Page() {
   const containerRef = useRef<HTMLDivElement>(null);

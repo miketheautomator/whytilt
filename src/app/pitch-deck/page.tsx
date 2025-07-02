@@ -1,10 +1,10 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { Header } from '@/app/shared/header';
-import { Footer } from '@/app/shared/footer';
-import { Section } from '@/app/shared/section';
-import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
+import { Header } from '@/shared/header';
+import { Footer } from '@/shared/footer';
+import { Section } from '@/shared/section';
+import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function PitchDeckPage() {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -1,13 +1,13 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { Header } from '@/app/shared/header';
-import { Footer } from '@/app/shared/footer';
-import { Section } from '@/app/shared/section';
-import { OnboardingContent } from '@/app/shared/onboarding';
-import { DemoRequestContent } from '@/app/shared/demo-request';
-import { DemoButton } from '@/app/shared/demo-button';
-import PixelBackground from '@/app/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
-import Aurora from '@/app/shared/react-bits/Backgrounds/Aurora/Aurora';
+import { Header } from '@/shared/header';
+import { Footer } from '@/shared/footer';
+import { Section } from '@/shared/section';
+import { OnboardingContent } from '@/shared/onboarding';
+import { DemoRequestContent } from '@/shared/demo-request';
+import { DemoButton } from '@/shared/demo-button';
+import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
+import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 
 export default function AnalyticsTestingPage() {
   const containerRef = useRef<HTMLDivElement>(null);

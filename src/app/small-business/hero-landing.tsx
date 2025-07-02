@@ -1,6 +1,6 @@
-import { Section } from "@/app/shared/section";
-import { DemoButton } from "@/app/shared/demo-button";
-import SplitText from "@/app/shared/react-bits/TextAnimations/SplitText/SplitText";
+import { Section } from "@/shared/section";
+import { DemoButton } from "@/shared/demo-button";
+import SplitText from "@/shared/react-bits/TextAnimations/SplitText/SplitText";
 
 interface HeroProps {
   primaryText: string;

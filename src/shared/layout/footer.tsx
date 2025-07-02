@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Section } from '@/app/shared/section';
+import { Section } from '@/shared/section';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface FooterProps {}

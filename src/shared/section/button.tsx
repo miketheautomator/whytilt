@@ -34,8 +34,6 @@ export function SectionButton({ children, onClick, href, variant = 'primary', fu
     return (
       <a 
         href={href}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         className={buttonClasses}
       >
         {buttonContent}
@@ -46,8 +44,6 @@ export function SectionButton({ children, onClick, href, variant = 'primary', fu
   return (
     <button 
       onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={buttonClasses}
     >
       {buttonContent}
