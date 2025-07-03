@@ -4,11 +4,11 @@ import { sendDemoRequest } from '@/lib/smtp';
 export async function POST(request: NextRequest) {
   try {
     console.log('Demo API called');
-    const { name, revenue, employees, automation, theme } = await request.json();
-    console.log('Form data received:', { name, revenue, employees, automation, theme });
+    const { name, email, revenue, employees, automation, theme } = await request.json();
+    console.log('Form data received:', { name, email, revenue, employees, automation, theme });
 
     // Validate required fields
-    if (!name || !revenue || !employees || !automation) {
+    if (!name || !email || !revenue || !employees || !automation) {
       console.log('Validation failed - missing fields');
       return NextResponse.json(
         { error: 'All fields are required' },
@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
     // Send email
     const emailResult = await sendDemoRequest({
       name,
+      email,
       revenue,
       employees,
       automation,

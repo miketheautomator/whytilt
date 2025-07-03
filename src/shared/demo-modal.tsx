@@ -12,6 +12,7 @@ interface DemoModalProps {
 export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     revenue: '',
     employees: '',
     automation: ''
@@ -73,10 +74,19 @@ export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
 
   const themeClasses = getThemeClasses();
 
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!formData.name || !formData.revenue || !formData.employees || !formData.automation) {
+    if (!formData.name || !formData.email || !formData.revenue || !formData.employees || !formData.automation) {
+      return;
+    }
+
+    if (!isValidEmail(formData.email)) {
       return;
     }
 
@@ -90,6 +100,7 @@ export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
         },
         body: JSON.stringify({
           name: formData.name,
+          email: formData.email,
           revenue: formData.revenue,
           employees: formData.employees,
           automation: formData.automation,
@@ -117,7 +128,7 @@ export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
   };
 
   const handleClose = () => {
-    setFormData({ name: '', revenue: '', employees: '', automation: '' });
+    setFormData({ name: '', email: '', revenue: '', employees: '', automation: '' });
     setIsSuccess(false);
     onClose();
   };
@@ -161,6 +172,22 @@ export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-opacity-50"
                   placeholder="Enter your full name"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 bg-zinc-800 border border-zinc-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-opacity-50"
+                  placeholder="Enter your email address"
                 />
               </div>
 
@@ -221,7 +248,7 @@ export function DemoModal({ isOpen, onClose, theme }: DemoModalProps) {
               {/* Submit Button */}
               <button
                 type="submit"
-                disabled={isSubmitting || !formData.name || !formData.revenue || !formData.employees || !formData.automation}
+                disabled={isSubmitting || !formData.name || !formData.email || !isValidEmail(formData.email) || !formData.revenue || !formData.employees || !formData.automation}
                 className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${themeClasses.button}`}
               >
                 {isSubmitting ? 'Sending...' : 'Request Demo'}

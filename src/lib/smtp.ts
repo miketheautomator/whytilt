@@ -12,6 +12,7 @@ export const transporter = nodemailer.createTransport({
 
 export interface DemoRequestData {
   name: string;
+  email: string;
   revenue: string;
   employees: string;
   automation: string;
@@ -19,7 +20,7 @@ export interface DemoRequestData {
 }
 
 export async function sendDemoRequest(data: DemoRequestData) {
-  const { name, revenue, employees, automation, theme } = data;
+  const { name, email, revenue, employees, automation, theme } = data;
   
   return await transporter.sendMail({
     from: '"Tilt Demo" <hello@whytilt.com>',
@@ -28,6 +29,7 @@ export async function sendDemoRequest(data: DemoRequestData) {
     html: `
       <h2>New Demo Request</h2>
       <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
       <p><strong>Annual Revenue:</strong> ${revenue}</p>
       <p><strong>Employee Count:</strong> ${employees}</p>
       <p><strong>Page Theme:</strong> ${theme}</p>
@@ -38,6 +40,7 @@ export async function sendDemoRequest(data: DemoRequestData) {
       New Demo Request
       
       Name: ${name}
+      Email: ${email}
       Annual Revenue: ${revenue}
       Employee Count: ${employees}
       Page Theme: ${theme}
