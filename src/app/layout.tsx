@@ -3,6 +3,7 @@ import { Geist_Mono, Contrail_One, Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from "../shared/analytics";
 import { createMetadata, LdJsonScript } from "../shared/metadata";
+import { PostHogProvider } from './providers';
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -170,7 +171,9 @@ export default function RootLayout({
         className={`${geistMono.variable} ${contrailOne.variable} ${inter.variable} ${oswald.variable} antialiased`}
       >
         {gaId && <GoogleAnalytics gaId={gaId} />}
-        {children}
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );
