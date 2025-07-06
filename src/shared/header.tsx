@@ -48,7 +48,7 @@ export function Header({ containerRef }: HeaderProps) {
             scrolled ? "gap-2" : "gap-3"
           }`}>
           <Image
-            src="/android-chrome-192x192.png"
+            src="/logo.png"
             alt="Tilt Logo"
             width={scrolled ? 28 : 48}
             height={scrolled ? 28 : 48}
