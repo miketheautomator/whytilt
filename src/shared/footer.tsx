@@ -49,7 +49,7 @@ export function Footer({ theme = 'blue' }: FooterProps) {
         <div className="mb-6 flex justify-center">
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
-              src="/android-chrome-192x192.png"
+              src="/logo.png"
               alt="Tilt Logo"
               width={64}
               height={64}
