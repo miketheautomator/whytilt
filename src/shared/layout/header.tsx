@@ -61,7 +61,7 @@ export const Header: FC<HeaderProps> = ({ onReset, selectedPath, mainRef }) => {
                 className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
               >
                 <Image 
-                  src="/android-chrome-192x192.png" 
+                  src="/logo.png" 
                   alt="Tilt Logo" 
                   width={64} 
                   height={64}
