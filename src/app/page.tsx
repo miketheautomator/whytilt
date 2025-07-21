@@ -6,6 +6,7 @@ import { Section } from '@/shared/section';
 import { Hero } from './web-testing/hero-landing';
 import { DownloadButton } from './web-testing/download-button';
 import { AirbnbSlideshow } from './web-testing/airbnb-slideshow';
+import { ContactSalesButton } from './web-testing/contact-sales-button';
 import { DemoRequestContent } from '@/shared/demo-request';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
@@ -82,7 +83,7 @@ export default function HomePage() {
               <div>
                 <h3 className="text-base font-medium text-white mb-3">Get Started Today</h3>
                 <p className="text-base text-zinc-300 leading-relaxed">
-                  Docker Desktop is required. Linux, Windows or Mac Silicon is required.
+                  Docker Desktop required. Supports Windows, Mac, and Linux (Mac/Linux use same run scripts).
                 </p>
               </div>
               <div>
@@ -171,9 +172,6 @@ export default function HomePage() {
                 <div className="text-base text-zinc-300">
                   + Pay for model usage. Most tests are less than a penny
                 </div>
-                <div className="text-base text-zinc-400 mt-4">
-                  This is for everybody, but we do have enterprise seat pricing as well.
-                </div>
                 <div className="mt-6">
                   <DownloadButton />
                 </div>
@@ -194,9 +192,7 @@ export default function HomePage() {
                   <div className="text-base text-zinc-400">✓ Priority support</div>
                   <div className="text-base text-zinc-400">✓ Custom integrations</div>
                 </div>
-                <a href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip" className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base">
-                  Download
-                </a>
+                <ContactSalesButton />
               </div>
             </Section.Card>
           </Section.Grid>

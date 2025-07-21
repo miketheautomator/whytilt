@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePostHog } from 'posthog-js/react';
 
 interface HeaderProps {
   containerRef?: React.RefObject<HTMLDivElement | null>;
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 export function Header({ containerRef }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const posthog = usePostHog();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +33,13 @@ export function Header({ containerRef }: HeaderProps) {
       return () => window.removeEventListener("scroll", handleScroll);
     }
   }, [containerRef]);
+
+  const handleDownloadClick = () => {
+    posthog?.capture('download_button_clicked', {
+      location: 'header',
+      button_text: 'Download'
+    });
+  };
 
   return (
     <header
@@ -65,11 +74,12 @@ export function Header({ containerRef }: HeaderProps) {
         >
           <a
             href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip"
-            className={`bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white rounded-full transition-all duration-300 ${
-              scrolled ? "text-sm px-3 py-1" : "text-base px-4 py-2"
+            className={`text-white hover:text-orange-400 transition-colors duration-200 relative ${
+              scrolled ? "text-sm" : "text-base"
             }`}
+            onClick={handleDownloadClick}
           >
-            Download
+            <span className="relative">Download</span>
           </a>
           <a
             href="https://github.com/WhyTilt/tilt-app"

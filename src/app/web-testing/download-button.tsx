@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Section } from '@/shared/section';
+import { usePostHog } from 'posthog-js/react';
 
 export function DownloadButton() {
   const [os, setOs] = useState<'windows' | 'mac' | 'linux' | null>(null);
+  const posthog = usePostHog();
 
   useEffect(() => {
     const userAgent = navigator.userAgent.toLowerCase();
@@ -34,8 +36,20 @@ export function DownloadButton() {
     }
   };
 
+  const handleDownloadClick = () => {
+    posthog?.capture('download_button_clicked', {
+      os: os,
+      button_text: getButtonText(),
+      location: 'download_section'
+    });
+  };
+
   return (
-    <a href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip" className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base">
+    <a 
+      href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip" 
+      className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base"
+      onClick={handleDownloadClick}
+    >
       {getButtonText()}
     </a>
   );

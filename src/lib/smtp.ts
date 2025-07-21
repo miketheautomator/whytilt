@@ -22,12 +22,16 @@ export interface DemoRequestData {
 export async function sendDemoRequest(data: DemoRequestData) {
   const { name, email, revenue, employees, automation, theme } = data;
   
+  // Use different email address for enterprise sales
+  const toEmail = theme === 'enterprise' ? 'hello+ent-sales@whytilt.com' : 'hello@whytilt.com';
+  const subjectPrefix = theme === 'enterprise' ? 'Enterprise Sales Request' : 'Demo Request';
+  
   return await transporter.sendMail({
     from: '"Tilt Demo" <hello@whytilt.com>',
-    to: 'hello@whytilt.com',
-    subject: `Demo Request from ${name}`,
+    to: toEmail,
+    subject: `${subjectPrefix} from ${name}`,
     html: `
-      <h2>New Demo Request</h2>
+      <h2>${theme === 'enterprise' ? 'New Enterprise Sales Request' : 'New Demo Request'}</h2>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Annual Revenue:</strong> ${revenue}</p>
@@ -37,7 +41,7 @@ export async function sendDemoRequest(data: DemoRequestData) {
       <p>${automation.replace(/\n/g, '<br>')}</p>
     `,
     text: `
-      New Demo Request
+      ${theme === 'enterprise' ? 'New Enterprise Sales Request' : 'New Demo Request'}
       
       Name: ${name}
       Email: ${email}

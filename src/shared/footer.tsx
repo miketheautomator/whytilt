@@ -58,16 +58,17 @@ export function Footer({ theme = 'blue' }: FooterProps) {
         </div>
         
         <div className="flex justify-center space-x-8">
-          <a href="mailto:hello@tilt.dev" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+          <a href="mailto:hello@whytilt.com" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
             Contact
           </a>
-          <a href="https://github.com/tilt-dev" target="_blank" rel="noopener noreferrer" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+          <a href="https://github.com/WhyTilt/tilt-app" target="_blank" rel="noopener noreferrer" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
             GitHub
           </a>
         </div>
 
         <div className="border-t border-white/20 pt-6 space-y-2">
           <p className="text-gray-400 text-sm">Throw those headless tests in the trash and use Tilt instead!</p>
+          <p className="text-gray-400 text-sm">Made with ❤️ in sunny San Diego.</p>
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Tilt. All rights reserved.
           </p>
