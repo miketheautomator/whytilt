@@ -123,13 +123,13 @@ export default function Page() {
 - Open source transparency vs. vendor lock-in
 
 ### Demo & Onboarding Process
-**White-Glove Service:**
-1. Personal setup session with team installation
+**Guided Setup & Training:**
+1. Dedicated setup session with team installation
 2. Identify 2-3 critical scenarios from current workflow
-3. Live test creation with hands-on training
+3. Live automation creation with expert training
 4. Recorded sessions for reference
 5. Email support and live screen sharing until autonomous
-6. Personal founder involvement in setup process
+6. Expert team support throughout setup process
 
 ### Technical Architecture
 - **Vision-based element detection** instead of DOM selectors

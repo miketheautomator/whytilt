@@ -9,7 +9,6 @@ import { UseCasesEnterprise } from './use-cases-enterprise';
 import { SavingsContent } from '@/shared/savings';
 import { PricingEnterprise } from './pricing-enterprise';
 import { LicensingContent } from '@/shared/licensing';
-import { OnboardingContent } from '@/shared/onboarding';
 import { DemoRequestEnterprise } from './demo-request-enterprise';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
@@ -96,10 +95,6 @@ export default function EnterprisePage() {
 
         <Section isIPhone={isIPhone}>
           <PricingEnterprise />
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <OnboardingContent />
         </Section>
 
         <Section isIPhone={isIPhone}>

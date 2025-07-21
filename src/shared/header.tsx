@@ -64,10 +64,18 @@ export function Header({ containerRef }: HeaderProps) {
           }`}
         >
           <a
+            href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip"
+            className={`bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white rounded-full transition-all duration-300 ${
+              scrolled ? "text-sm px-3 py-1" : "text-base px-4 py-2"
+            }`}
+          >
+            Download
+          </a>
+          <a
             href="https://github.com/WhyTilt/tilt-app"
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 text-white hover:text-yellow-400 transition-colors duration-200 ${
+            className={`flex items-center gap-1 text-white hover:text-yellow-400 transition-colors duration-200 ${
               scrolled ? "text-sm" : "text-base"
             }`}
           >
@@ -76,9 +84,9 @@ export function Header({ containerRef }: HeaderProps) {
               fill="currentColor" 
               viewBox="0 0 24 24"
             >
-              <path d="M12 2L14.09 8.26L20 9L15.5 13.74L16.18 21L12 18L7.82 21L8.5 13.74L4 9L9.91 8.26L12 2Z"/>
+              <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
             </svg>
-            Star us
+            <span>Star us</span>
           </a>
         </nav>
       </div>

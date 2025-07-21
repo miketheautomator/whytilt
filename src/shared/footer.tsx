@@ -57,58 +57,17 @@ export function Footer({ theme = 'blue' }: FooterProps) {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto">
-          {/* Audiences */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Audiences</h3>
-            <div className="space-y-2">
-              <Link href="/enterprise" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Enterprise
-              </Link>
-              <Link href="/small-business" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Small Business
-              </Link>
-              <Link href="/professionals" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Professionals
-              </Link>
-            </div>
-          </div>
-
-          {/* Capabilities */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Capabilities</h3>
-            <div className="space-y-2">
-              <Link href="/automated-testing" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Website Automated Testing
-              </Link>
-              <Link href="/usability-testing" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Website Usability Testing
-              </Link>
-              <Link href="/analytics-testing" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Google Analytics Testing
-              </Link>
-            </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="text-white font-semibold mb-4">Company</h3>
-            <div className="space-y-2">
-              <Link href="/" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Home
-              </Link>
-              <a href="mailto:hello@tilt.dev" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                Contact
-              </a>
-              <a href="https://github.com/tilt-dev" target="_blank" rel="noopener noreferrer" className={`block text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-                GitHub
-              </a>
-            </div>
-          </div>
+        <div className="flex justify-center space-x-8">
+          <a href="mailto:hello@tilt.dev" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+            Contact
+          </a>
+          <a href="https://github.com/tilt-dev" target="_blank" rel="noopener noreferrer" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+            GitHub
+          </a>
         </div>
 
         <div className="border-t border-white/20 pt-6 space-y-2">
-          <p className="text-gray-400 text-sm">AI agents for real computer tasks</p>
+          <p className="text-gray-400 text-sm">Throw those headless tests in the trash and use Tilt instead!</p>
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Tilt. All rights reserved.
           </p>

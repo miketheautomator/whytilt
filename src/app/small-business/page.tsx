@@ -6,7 +6,6 @@ import { Section } from '@/shared/section';
 import { Hero } from './hero-landing';
 import { SavingsContent } from '@/shared/savings';
 import { PricingSmallBusiness } from './pricing-small-business';
-import { OnboardingContent } from '@/shared/onboarding';
 import { DemoRequestSmallBusiness } from './demo-request-small-business';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
@@ -81,10 +80,6 @@ export default function SmallBusinessPage() {
 
         <Section isIPhone={isIPhone}>
           <PricingSmallBusiness />
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <OnboardingContent />
         </Section>
 
         <Section isIPhone={isIPhone}>

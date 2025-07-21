@@ -29,7 +29,7 @@ export function SectionHeading({ children, hero = false, card = false, size }: S
   } else if (hero) {
     textSize = "text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl";
   } else if (card) {
-    textSize = "text-lg sm:text-xl md:text-2xl";
+    textSize = "text-xl sm:text-2xl md:text-3xl";
   } else {
     textSize = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl";
   }

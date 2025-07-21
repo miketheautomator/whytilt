@@ -16,7 +16,7 @@ export function AudienceSelection() {
           </div>
           <Section.Heading card>50x Production</Section.Heading>
           <div className="mb-12">
-            <Section.Text>Scale operations without scaling workforce. Get enterprise security, white-glove onboarding, and priority support.</Section.Text>
+            <Section.Text>Scale operations without scaling workforce. Get enterprise security, guided setup & training, and priority support.</Section.Text>
           </div>
           <div className="absolute bottom-6 right-6 text-blue-400 group-hover:text-blue-300 transition-colors">
             Learn more →

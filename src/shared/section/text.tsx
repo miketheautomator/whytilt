@@ -7,9 +7,9 @@ interface SectionTextProps {
 
 export function SectionText({ children, size = 'md' }: SectionTextProps) {
   const sizeClasses = {
-    sm: "text-sm sm:text-base",
-    md: "text-sm sm:text-base md:text-lg",
-    lg: "text-base sm:text-lg md:text-xl lg:text-2xl"
+    sm: "text-lg sm:text-xl",
+    md: "text-lg sm:text-xl md:text-2xl",
+    lg: "text-xl sm:text-2xl md:text-3xl lg:text-4xl"
   };
   
   return <p className={`${sizeClasses[size]} text-gray-200 leading-relaxed`}>{children}</p>;

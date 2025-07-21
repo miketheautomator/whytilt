@@ -1,0 +1,42 @@
+'use client';
+import { useEffect, useState } from 'react';
+import { Section } from '@/shared/section';
+
+export function DownloadButton() {
+  const [os, setOs] = useState<'windows' | 'mac' | 'linux' | null>(null);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    
+    if (userAgent.includes('win')) {
+      setOs('windows');
+    } else if (userAgent.includes('mac')) {
+      setOs('mac');
+    } else if (userAgent.includes('linux')) {
+      setOs('linux');
+    } else {
+      setOs('windows'); // Default fallback
+    }
+  }, []);
+
+  if (!os) return null;
+
+  const getButtonText = () => {
+    switch (os) {
+      case 'windows':
+        return 'Download for Windows';
+      case 'mac':
+        return 'Download for Mac';
+      case 'linux':
+        return 'Download for Linux';
+      default:
+        return 'Download Tilt';
+    }
+  };
+
+  return (
+    <a href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip" className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base">
+      {getButtonText()}
+    </a>
+  );
+}

@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Header } from '@/shared/header';
 import { Footer } from '@/shared/footer';
 import { Section } from '@/shared/section';
-import { OnboardingContent } from '@/shared/onboarding';
 import { DemoRequestContent } from '@/shared/demo-request';
 import { DemoButton } from '@/shared/demo-button';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
@@ -110,10 +109,6 @@ export default function UsabilityTestingPage() {
               <Section.Text>Validate mobile user experience, touch interactions, and responsive design across different screen sizes.</Section.Text>
             </Section.Card>
           </Section.Grid>
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <OnboardingContent />
         </Section>
 
         <Section isIPhone={isIPhone}>

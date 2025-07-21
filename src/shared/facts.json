@@ -95,7 +95,7 @@
       "threshold": "ENTERPRISE > 250K/YR REVENUE",
       "features": [
         "No licensing costs the first year",
-        "White glove onboarding", 
+        "Guided setup & training", 
         "Priority support",
         "Open source"
       ],
@@ -116,12 +116,12 @@
     }
   },
   "onboarding": {
-    "title": "White Glove Onboarding",
-    "subtitle": "A founder will personally help you get started",
+    "title": "Guided Setup & Training",
+    "subtitle": "Get expert support to quickly implement automation for your team",
     "features": [
-      "Personal setup session with team installation",
+      "Dedicated setup session with team installation",
       "Identify 2-3 critical scenarios from your workflow", 
-      "Live test creation with hands-on training",
+      "Live automation creation with expert training",
       "Recorded sessions for reference",
       "Email support until you're autonomous"
     ]
