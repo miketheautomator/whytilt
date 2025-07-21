@@ -6,6 +6,12 @@ import { PostHogProvider as PHProvider } from 'posthog-js/react'
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    
+    if (isLocalhost) {
+      return // Don't initialize PostHog on localhost
+    }
+    
     console.log('PostHog initializing with:', {
       key: process.env.NEXT_PUBLIC_POSTHOG_KEY,
       host: process.env.NEXT_PUBLIC_POSTHOG_HOST
