@@ -1,6 +1,6 @@
 import { Section } from "@/shared/section";
-import { DemoButton } from "@/shared/demo-button";
-import Image from "next/image";
+// import { DemoButton } from "@/shared/demo-button";
+// import Image from "next/image";
 import { useEffect, useState, RefObject, useRef } from "react";
 
 interface HeroProps {
@@ -9,7 +9,7 @@ interface HeroProps {
   tertiaryText?: string;
   description: string;
   audience: 'enterprise' | 'small-business' | 'professionals';
-  containerRef: RefObject<HTMLDivElement>;
+  containerRef: RefObject<HTMLDivElement | null>;
 }
 
 export function Hero({ primaryText, secondaryText, tertiaryText, description, containerRef }: HeroProps) {

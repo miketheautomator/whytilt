@@ -17,14 +17,17 @@ interface SectionProps {
   children: ReactNode;
   isIPhone?: boolean;
   isHero?: boolean;
+  id?: string;
+  className?: string;
 }
 
-export function Section({ children, isIPhone, isHero }: SectionProps) {
+export function Section({ children, isIPhone, isHero, id, className }: SectionProps) {
   return (
     <section 
-      className="snap-start h-screen w-full flex items-center justify-center relative overflow-hidden" 
+      id={id}
+      className={`snap-start h-screen w-full flex items-center justify-center relative overflow-hidden ${className || ''}`}
     >
-      <div className={`relative z-30 max-w-7xl w-full text-left p-8 ${isIPhone ? 'pb-12' : ''}`} style={isIPhone ? { transform: 'translateY(-15px)' } : {}}>
+      <div className={`relative z-30 max-w-7xl w-full text-left p-8 ${isIPhone ? 'pb-12' : ''} ${isHero ? 'hero-section' : ''}`} style={isIPhone ? { transform: 'translateY(-15px)' } : {}}>
         {children}
       </div>
     </section>

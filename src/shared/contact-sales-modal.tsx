@@ -68,7 +68,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
     }
 
     if (!formData.automation.trim()) {
-      newErrors.automation = 'Please describe what you\'d like to automate';
+      newErrors.automation = 'Please describe what you&apos;d like to automate';
     }
 
     setErrors(newErrors);
@@ -324,7 +324,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
             <div className="text-center">
               <div className="text-6xl mb-4">🎉</div>
               <h3 className="text-2xl font-bold text-white mb-4">Thank you!</h3>
-              <p className="text-gray-300 mb-6">We'll be in touch within 24 hours to schedule your enterprise demo.</p>
+              <p className="text-gray-300 mb-6">We&apos;ll be in touch within 24 hours to schedule your enterprise demo.</p>
               <button
                 onClick={handleClose}
                 className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"

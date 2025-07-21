@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Section } from '@/shared/section';
+// import { Section } from '@/shared/section';
 import { usePostHog } from 'posthog-js/react';
 
 export function DownloadButton() {

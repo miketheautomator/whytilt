@@ -6,7 +6,7 @@ import { Section } from '@/shared/section';
 import { Hero } from './hero-landing';
 import { DownloadButton } from './download-button';
 import { AirbnbSlideshow } from './airbnb-slideshow';
-import { DemoRequestContent } from '@/shared/demo-request';
+// import { DemoRequestContent } from '@/shared/demo-request';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 
@@ -98,7 +98,7 @@ export default function WebsiteTestingPage() {
           <Section.Grid cols="2">
             <Section.Card>
               <h3 className="text-2xl font-bold text-white mb-4">Headless Testing is Fake Testing</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Your customers don't use headless browsers. They use real Chrome, Safari, and Firefox with real rendering, real JavaScript, and real user interactions.</p>
+              <p className="text-xl text-zinc-300 leading-relaxed">Your customers don&apos;t use headless browsers. They use real Chrome, Safari, and Firefox with real rendering, real JavaScript, and real user interactions.</p>
             </Section.Card>
             <Section.Card>
               <h3 className="text-2xl font-bold text-white mb-4">DOM Selectors Break Everything</h3>
@@ -110,7 +110,7 @@ export default function WebsiteTestingPage() {
             </Section.Card>
             <Section.Card>
               <h3 className="text-2xl font-bold text-white mb-4">No Intelligence or Adaptation</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Traditional tools can't handle popups, changed text, moved buttons, network errors, or site redesigns. One small change breaks everything.</p>
+              <p className="text-xl text-zinc-300 leading-relaxed">Traditional tools can&apos;t handle popups, changed text, moved buttons, network errors, or site redesigns. One small change breaks everything.</p>
             </Section.Card>
           </Section.Grid>
         </Section>
@@ -125,11 +125,11 @@ export default function WebsiteTestingPage() {
             </Section.Card>
             <Section.Card>
               <h3 className="text-2xl font-bold text-white mb-4">Plain English Instructions</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Write tests in plain English. No code, no selectors, no technical syntax. Just describe what you want tested like you're talking to a person.</p>
+              <p className="text-xl text-zinc-300 leading-relaxed">Write tests in plain English. No code, no selectors, no technical syntax. Just describe what you want tested like you&apos;re talking to a person.</p>
             </Section.Card>
             <Section.Card>
               <h3 className="text-2xl font-bold text-white mb-4">Intelligent & Adaptive</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Tilt overcomes popups, changed text, moved buttons, network errors, and even whole site redesigns. It's an intelligent agent, not a brittle script.</p>
+              <p className="text-xl text-zinc-300 leading-relaxed">Tilt overcomes popups, changed text, moved buttons, network errors, and even whole site redesigns. It&apos;s an intelligent agent, not a brittle script.</p>
             </Section.Card>
           </Section.Grid>
         </Section>
@@ -141,13 +141,13 @@ export default function WebsiteTestingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
               <div className="space-y-3 text-xl text-zinc-300" style={{ fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace' }}>
-                <p>await page.locator('[data-testid="login-button"]').click();</p>
-                <p>await page.fill('#username-input-field-id', 'user@test.com');</p>
+                <p>await page.locator(&apos;[data-testid=&quot;login-button&quot;]&apos;).click();</p>
+                <p>await page.fill(&apos;#username-input-field-id&apos;, &quot;user@test.com&quot;);</p>
                 <p>Breaks when any CSS class or ID changes</p>
               </div>
             </div>
             <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
-              <p className="text-xl text-zinc-300 leading-relaxed" style={{ fontFamily: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif' }}>Go to the login page, enter 'user@test.com' as the username and 'password123' as the password, click login, and verify the welcome message appears.</p>
+              <p className="text-xl text-zinc-300 leading-relaxed" style={{ fontFamily: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif' }}>Go to the login page, enter &quot;user@test.com&quot; as the username and &quot;password123&quot; as the password, click login, and verify the welcome message appears.</p>
             </div>
           </div>
           <p className="text-base text-zinc-300 text-center mt-8 max-w-4xl mx-auto">Tilt handles the rest - finding elements visually, dealing with loading states, and adapting to changes automatically.</p>

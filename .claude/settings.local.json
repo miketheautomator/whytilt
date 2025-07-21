@@ -39,7 +39,8 @@
       "Bash(ssh:*)",
       "Bash(cat:*)",
       "Bash(convert:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": []
   }

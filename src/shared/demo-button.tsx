@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import { DemoModal } from './demo-modal';
 import facts from './facts.json';
 
 interface DemoButtonProps {
@@ -10,10 +9,7 @@ interface DemoButtonProps {
 }
 
 export function DemoButton({ theme, children = 'Book your demo', className }: DemoButtonProps) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  
-  console.log('DemoButton component rendered!', { theme, children });
   
   const themeData = facts.themes[theme];
   const primaryColor = themeData.primary;
@@ -32,32 +28,24 @@ export function DemoButton({ theme, children = 'Book your demo', className }: De
   };
 
   return (
-    <>
-      <button 
-        onClick={() => {
-          console.log('DemoButton clicked! Opening modal...');
-          setIsModalOpen(true);
+    <button 
+      onClick={() => {
+        // Just log for now - no modal functionality
+        console.log('DemoButton clicked!');
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 ${getButtonClasses()} text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg text-base sm:text-lg ${className || ''}`}
+    >
+      <span className="relative z-20">{children}</span>
+      <div
+        className="absolute inset-0 pointer-events-none transition-transform duration-700 ease-out z-10"
+        style={{
+          background: 'linear-gradient(-30deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)',
+          width: '300px',
+          transform: isHovered ? 'translateX(100%)' : 'translateX(-100%)'
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className={`relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 ${getButtonClasses()} text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg text-base sm:text-lg ${className || ''}`}
-      >
-        <span className="relative z-20">{children}</span>
-        <div
-          className="absolute inset-0 pointer-events-none transition-transform duration-700 ease-out z-10"
-          style={{
-            background: 'linear-gradient(-30deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%)',
-            width: '300px',
-            transform: isHovered ? 'translateX(100%)' : 'translateX(-100%)'
-          }}
-        />
-      </button>
-      
-      <DemoModal 
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        theme={theme}
       />
-    </>
+    </button>
   );
 }
