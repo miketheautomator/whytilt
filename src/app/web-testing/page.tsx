@@ -194,7 +194,7 @@ export default function WebsiteTestingPage() {
                   <div className="text-base text-zinc-400">✓ Priority support</div>
                   <div className="text-base text-zinc-400">✓ Custom integrations</div>
                 </div>
-                <a href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip" className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base">
+                <a href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/v0.0.70.zip" className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base">
                   Download
                 </a>
               </div>

@@ -73,7 +73,7 @@ export function Header({ containerRef }: HeaderProps) {
           }`}
         >
           <a
-            href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip"
+            href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/v0.0.70.zip"
             className={`text-white hover:text-orange-400 transition-colors duration-200 relative ${
               scrolled ? "text-sm" : "text-base"
             }`}

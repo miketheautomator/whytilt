@@ -46,7 +46,7 @@ export function DownloadButton() {
 
   return (
     <a 
-      href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/0.0.64.zip" 
+      href="https://github.com/WhyTilt/tilt-app/archive/refs/tags/v0.0.70.zip" 
       className="inline-block bg-gradient-to-b from-orange-600 to-orange-700 hover:from-orange-500 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all text-base"
       onClick={handleDownloadClick}
     >
