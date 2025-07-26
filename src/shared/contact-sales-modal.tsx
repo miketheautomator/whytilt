@@ -291,8 +291,8 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
             {/* Right Column - Content */}
             <div className="bg-gradient-to-br from-orange-900/20 to-zinc-800/50 p-8 flex flex-col justify-center">
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white">Enterprise Demo</h3>
-                <p className="text-gray-300 text-lg">Get a personalized demo tailored to your enterprise needs</p>
+                <h3 className="text-2xl font-bold text-white">Enterprise Sales</h3>
+                <p className="text-gray-300 text-lg">We demo the app for you and onboard you personally - helping you create your initial test suite</p>
                 
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">
@@ -301,15 +301,19 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300">Personal onboarding and training sessions</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300">Help creating your initial test suite</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300">Custom ROI analysis for your organization</p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
                     <p className="text-gray-300">Enterprise security and compliance review</p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-300">Implementation roadmap and timeline</p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -324,7 +328,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
             <div className="text-center">
               <div className="text-6xl mb-4">🎉</div>
               <h3 className="text-2xl font-bold text-white mb-4">Thank you!</h3>
-              <p className="text-gray-300 mb-6">We&apos;ll be in touch within 24 hours to schedule your enterprise demo.</p>
+              <p className="text-gray-300 mb-6">We&apos;ll be in touch within 24 hours to schedule your personal onboarding and demo.</p>
               <button
                 onClick={handleClose}
                 className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
