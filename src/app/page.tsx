@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Header } from '@/shared/header';
 import { Footer } from '@/shared/footer';
 import { Section } from '@/shared/section';
-import { Hero } from './web-testing/hero-landing';
-import { DownloadButton } from './web-testing/download-button';
-import { AirbnbSlideshow } from './web-testing/airbnb-slideshow';
-import { ContactSalesButton } from './web-testing/contact-sales-button';
+import { Hero } from '@/shared/hero-landing';
+import { DownloadButton } from '@/shared/download-button';
+import { AirbnbSlideshow } from '@/shared/airbnb-slideshow';
+import { ContactSalesButton } from '@/shared/contact-sales-button';
 // import { DemoRequestContent } from '@/shared/demo-request';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
 import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
@@ -140,15 +140,29 @@ export default function HomePage() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl">Real Browser Testing in Plain English</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
-              <div className="space-y-3 text-xl text-zinc-300" style={{ fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace' }}>
-                <p>await page.locator(&apos;[data-testid=&quot;login-button&quot;]&apos;).click();</p>
-                <p>await page.fill(&apos;#username-input-field-id&apos;, &quot;user@test.com&quot;);</p>
-                <p>Breaks when any CSS class or ID changes</p>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">Before Tilt</h3>
+              <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
+                <div className="space-y-3 text-xl text-zinc-300 font-mono">
+                  <p>await page.locator(&apos;[data-testid=&quot;login-button&quot;]&apos;).click();</p>
+                  <p>await page.fill(&apos;#username-input-field-id&apos;, &quot;user@test.com&quot;);</p>
+                  <p>await page.fill(&apos;#password-input-field-id&apos;, &quot;password123&quot;);</p>
+                  <p>await page.click(&apos;[data-testid=&quot;submit-button&quot;]&apos;);</p>
+                  <p>await expect(page.locator(&apos;.welcome-message&apos;)).toBeVisible();</p>
+                </div>
               </div>
             </div>
-            <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
-              <p className="text-xl text-zinc-300 leading-relaxed" style={{ fontFamily: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif' }}>Go to the login page, enter &quot;user@test.com&quot; as the username and &quot;password123&quot; as the password, click login, and verify the welcome message appears.</p>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">After Tilt</h3>
+              <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
+                <div className="space-y-3 text-xl text-zinc-300 font-mono">
+                  <p>Go to https://pageurl.domain</p>
+                  <p>Enter &quot;user@test.com&quot; as the username</p>
+                  <p>Enter &quot;password123&quot; as the password</p>
+                  <p>Click login</p>
+                  <p>Verify the welcome message appears</p>
+                </div>
+              </div>
             </div>
           </div>
           <p className="text-base text-zinc-300 text-center mt-8 max-w-4xl mx-auto">Tilt handles the rest - finding elements visually, dealing with loading states, and adapting to changes automatically.</p>
