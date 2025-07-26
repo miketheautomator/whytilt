@@ -28,6 +28,134 @@ export default function HomePage() {
     if (containerRef.current) {
       containerRef.current.scrollTop = 0;
     }
+
+    // Handle keyboard navigation
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!containerRef.current) return;
+      
+      const container = containerRef.current;
+      const sections = container.querySelectorAll('section');
+      const currentScrollTop = container.scrollTop;
+      
+      // Find current section - more precise detection
+      let currentIndex = -1;
+      let closestDistance = Infinity;
+      
+      sections.forEach((section, index) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const distance = Math.abs(currentScrollTop - sectionTop);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          currentIndex = index;
+        }
+      });
+
+      const maxScrollTop = container.scrollHeight - container.clientHeight;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (currentIndex < sections.length - 1) {
+          const nextSection = sections[currentIndex + 1] as HTMLElement;
+          container.scrollTo({
+            top: nextSection.offsetTop,
+            behavior: 'smooth'
+          });
+        } else if (currentIndex === sections.length - 1) {
+          // At last section, scroll to footer
+          container.scrollTo({
+            top: maxScrollTop,
+            behavior: 'smooth'
+          });
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentScrollTop >= maxScrollTop - 10) {
+          // At footer, go to last section
+          const lastSection = sections[sections.length - 1] as HTMLElement;
+          container.scrollTo({
+            top: lastSection.offsetTop,
+            behavior: 'smooth'
+          });
+        } else if (currentIndex > 0) {
+          const prevSection = sections[currentIndex - 1] as HTMLElement;
+          container.scrollTo({
+            top: prevSection.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    // Prevent default scroll behavior and ensure snap scrolling
+    const handleWheel = (e: WheelEvent) => {
+      if (!containerRef.current) return;
+      
+      e.preventDefault();
+      
+      const container = containerRef.current;
+      const sections = container.querySelectorAll('section');
+      const currentScrollTop = container.scrollTop;
+      
+      // Find current section - more precise detection
+      let currentIndex = -1;
+      let closestDistance = Infinity;
+      
+      sections.forEach((section, index) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const distance = Math.abs(currentScrollTop - sectionTop);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          currentIndex = index;
+        }
+      });
+
+      const maxScrollTop = container.scrollHeight - container.clientHeight;
+
+      if (e.deltaY > 0) {
+        // Scroll down
+        if (currentIndex < sections.length - 1) {
+          const nextSection = sections[currentIndex + 1] as HTMLElement;
+          container.scrollTo({
+            top: nextSection.offsetTop,
+            behavior: 'smooth'
+          });
+        } else if (currentIndex === sections.length - 1) {
+          // At last section, scroll to footer
+          container.scrollTo({
+            top: maxScrollTop,
+            behavior: 'smooth'
+          });
+        }
+      } else if (e.deltaY < 0) {
+        // Scroll up
+        if (currentScrollTop >= maxScrollTop - 10) {
+          // At footer, go to last section
+          const lastSection = sections[sections.length - 1] as HTMLElement;
+          container.scrollTo({
+            top: lastSection.offsetTop,
+            behavior: 'smooth'
+          });
+        } else if (currentIndex > 0) {
+          const prevSection = sections[currentIndex - 1] as HTMLElement;
+          container.scrollTo({
+            top: prevSection.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    if (containerRef.current) {
+      containerRef.current.addEventListener('wheel', handleWheel, { passive: false });
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      if (containerRef.current) {
+        containerRef.current.removeEventListener('wheel', handleWheel);
+      }
+    };
   }, []);
 
   return (
