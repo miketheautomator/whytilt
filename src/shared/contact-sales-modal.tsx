@@ -92,7 +92,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
     setErrors({});
 
     try {
-      const response = await fetch('/api/demo', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

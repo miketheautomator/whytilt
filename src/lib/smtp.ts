@@ -1,14 +1,9 @@
-import nodemailer from 'nodemailer';
+import * as postmark from 'postmark';
 
-export const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER!,
-    pass: process.env.SMTP_PASSWORD!,
-  },
-});
+// Initialize Postmark client
+export const postmarkClient = new postmark.ServerClient(
+  process.env.POSTMARK_SERVER_TOKEN || ''
+);
 
 export interface DemoRequestData {
   name: string;
@@ -22,16 +17,12 @@ export interface DemoRequestData {
 export async function sendDemoRequest(data: DemoRequestData) {
   const { name, email, revenue, employees, automation, theme } = data;
   
-  // Use different email address for enterprise sales
-  const toEmail = theme === 'enterprise' ? 'hello+ent-sales@whytilt.com' : 'hello@whytilt.com';
-  const subjectPrefix = theme === 'enterprise' ? 'Enterprise Sales Request' : 'Demo Request';
-  
-  return await transporter.sendMail({
-    from: '"Tilt Demo" <hello@whytilt.com>',
-    to: toEmail,
-    subject: `${subjectPrefix} from ${name}`,
-    html: `
-      <h2>${theme === 'enterprise' ? 'New Enterprise Sales Request' : 'New Demo Request'}</h2>
+  return await postmarkClient.sendEmail({
+    From: 'hello@whytilt.com',
+    To: 'hello+ent-sales@whytilt.com',
+    Subject: `Enterprise Sales Request from ${name}`,
+    HtmlBody: `
+      <h2>New Enterprise Sales Request</h2>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Annual Revenue:</strong> ${revenue}</p>
@@ -40,8 +31,8 @@ export async function sendDemoRequest(data: DemoRequestData) {
       <h3>What would you automate away if you could?</h3>
       <p>${automation.replace(/\n/g, '<br>')}</p>
     `,
-    text: `
-      ${theme === 'enterprise' ? 'New Enterprise Sales Request' : 'New Demo Request'}
+    TextBody: `
+      New Enterprise Sales Request
       
       Name: ${name}
       Email: ${email}
@@ -51,6 +42,7 @@ export async function sendDemoRequest(data: DemoRequestData) {
       
       What would you automate away if you could?
       ${automation}
-    `
+    `,
+    MessageStream: 'outbound'
   });
 }

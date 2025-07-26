@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       theme
     });
 
-    console.log('Email sent successfully:', emailResult.messageId);
+    console.log('Email sent successfully:', emailResult.MessageID);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Demo request error:', error);
