@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { Header } from '@/shared/header';
 import { Footer } from '@/shared/footer';
 import { Section } from '@/shared/section';
@@ -14,6 +14,8 @@ import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isIPhone, setIsIPhone] = useState(false);
+  const [currentSection, setCurrentSection] = useState(0);
+  const isScrolling = useRef(false);
 
   useEffect(() => {
     const detectIPhone = () => {
@@ -28,150 +30,101 @@ export default function HomePage() {
     if (containerRef.current) {
       containerRef.current.scrollTop = 0;
     }
+  }, []);
+
+  const scrollToSection = useCallback((index: number) => {
+    if (!containerRef.current || isScrolling.current) return;
+    
+    const container = containerRef.current;
+    const sections = container.querySelectorAll('section');
+    
+    if (index >= 0 && index < sections.length) {
+      isScrolling.current = true;
+      const targetSection = sections[index] as HTMLElement;
+      
+      container.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: 'smooth'
+      });
+      
+      setCurrentSection(index);
+      
+      // Reset scrolling flag after animation
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 1000);
+    }
+  }, []);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let scrollTimeout: NodeJS.Timeout;
+    let lastScrollTop = 0;
+    
+    const handleScroll = () => {
+      if (isScrolling.current) return;
+      
+      clearTimeout(scrollTimeout);
+      
+      scrollTimeout = setTimeout(() => {
+        const scrollTop = container.scrollTop;
+        lastScrollTop = scrollTop;
+        
+        const sections = container.querySelectorAll('section');
+        let nearestIndex = 0;
+        let nearestDistance = Infinity;
+        
+        sections.forEach((section, index) => {
+          const sectionTop = (section as HTMLElement).offsetTop;
+          const distance = Math.abs(scrollTop - sectionTop);
+          
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearestIndex = index;
+          }
+        });
+        
+        // Snap to nearest section if not already there
+        if (nearestDistance > 50) {
+          scrollToSection(nearestIndex);
+        } else {
+          setCurrentSection(nearestIndex);
+        }
+      }, 150);
+    };
 
     // Handle keyboard navigation
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!containerRef.current) return;
-      
-      const container = containerRef.current;
-      const sections = container.querySelectorAll('section');
-      const currentScrollTop = container.scrollTop;
-      
-      // Find current section - more precise detection
-      let currentIndex = -1;
-      let closestDistance = Infinity;
-      
-      sections.forEach((section, index) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const distance = Math.abs(currentScrollTop - sectionTop);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          currentIndex = index;
-        }
-      });
-
-      const maxScrollTop = container.scrollHeight - container.clientHeight;
-
       if (e.key === 'ArrowDown') {
         e.preventDefault();
-        if (currentIndex < sections.length - 1) {
-          const nextSection = sections[currentIndex + 1] as HTMLElement;
-          container.scrollTo({
-            top: nextSection.offsetTop,
-            behavior: 'smooth'
-          });
-        } else if (currentIndex === sections.length - 1) {
-          // At last section, scroll to footer
-          container.scrollTo({
-            top: maxScrollTop,
-            behavior: 'smooth'
-          });
+        const sections = container.querySelectorAll('section');
+        if (currentSection < sections.length - 1) {
+          scrollToSection(currentSection + 1);
         }
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        if (currentScrollTop >= maxScrollTop - 10) {
-          // At footer, go to last section
-          const lastSection = sections[sections.length - 1] as HTMLElement;
-          container.scrollTo({
-            top: lastSection.offsetTop,
-            behavior: 'smooth'
-          });
-        } else if (currentIndex > 0) {
-          const prevSection = sections[currentIndex - 1] as HTMLElement;
-          container.scrollTo({
-            top: prevSection.offsetTop,
-            behavior: 'smooth'
-          });
+        if (currentSection > 0) {
+          scrollToSection(currentSection - 1);
         }
       }
     };
 
-    // Prevent default scroll behavior and ensure snap scrolling
-    const handleWheel = (e: WheelEvent) => {
-      if (!containerRef.current) return;
-      
-      e.preventDefault();
-      
-      const container = containerRef.current;
-      const sections = container.querySelectorAll('section');
-      const currentScrollTop = container.scrollTop;
-      
-      // Find current section - more precise detection
-      let currentIndex = -1;
-      let closestDistance = Infinity;
-      
-      sections.forEach((section, index) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        const distance = Math.abs(currentScrollTop - sectionTop);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          currentIndex = index;
-        }
-      });
-
-      const maxScrollTop = container.scrollHeight - container.clientHeight;
-
-      if (e.deltaY > 0) {
-        // Scroll down
-        if (currentIndex < sections.length - 1) {
-          const nextSection = sections[currentIndex + 1] as HTMLElement;
-          container.scrollTo({
-            top: nextSection.offsetTop,
-            behavior: 'smooth'
-          });
-        } else if (currentIndex === sections.length - 1) {
-          // At last section, scroll to footer
-          container.scrollTo({
-            top: maxScrollTop,
-            behavior: 'smooth'
-          });
-        }
-      } else if (e.deltaY < 0) {
-        // Scroll up
-        if (currentScrollTop >= maxScrollTop - 10) {
-          // At footer, go to last section
-          const lastSection = sections[sections.length - 1] as HTMLElement;
-          container.scrollTo({
-            top: lastSection.offsetTop,
-            behavior: 'smooth'
-          });
-        } else if (currentIndex > 0) {
-          const prevSection = sections[currentIndex - 1] as HTMLElement;
-          container.scrollTo({
-            top: prevSection.offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      }
-    };
-
+    container.addEventListener('scroll', handleScroll, { passive: true });
     document.addEventListener('keydown', handleKeyDown);
-    if (containerRef.current) {
-      containerRef.current.addEventListener('wheel', handleWheel, { passive: false });
-    }
 
     return () => {
+      container.removeEventListener('scroll', handleScroll);
       document.removeEventListener('keydown', handleKeyDown);
-      if (containerRef.current) {
-        containerRef.current.removeEventListener('wheel', handleWheel);
-      }
+      clearTimeout(scrollTimeout);
     };
-  }, []);
+  }, [currentSection, scrollToSection]);
 
   return (
     <div className="h-screen w-screen relative">
-      <div 
-        className="fixed inset-0 z-0"
-        style={{
-          background: `
-            linear-gradient(135deg, #0a0e1a 0%, #0f172a 100%),
-            radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
-            radial-gradient(ellipse at 20% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(5, 150, 105, 0.06) 0%, transparent 70%)
-          `
-        }}
-      />
-      <div className="fixed inset-0 z-0" style={{ opacity: 0.6 }}>
+      <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0a0e1a] to-[#0f172a]" />
+      <div className="fixed inset-0 z-0 opacity-60">
         <Aurora
           colorStops={["#5227FF", "#1E40AF", "#0F172A"]}
           blend={0.5}
@@ -179,7 +132,7 @@ export default function HomePage() {
           speed={0.5}
         />
       </div>
-      <div className="fixed inset-0 z-0" style={{ opacity: 0.25 }}>
+      <div className="fixed inset-0 z-0 opacity-25">
         <PixelBackground
           gap={8}
           speed={60}
@@ -190,7 +143,8 @@ export default function HomePage() {
 
       <div
         ref={containerRef}
-        className="h-screen w-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth text-white relative z-10"
+        className="h-screen w-screen overflow-y-scroll snap-y snap-proximity scroll-smooth text-white relative z-10"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <Header containerRef={containerRef} />
 
