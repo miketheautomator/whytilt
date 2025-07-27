@@ -1,5 +1,10 @@
 'use client';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const ReactPageScroller = dynamic(() => import('react-page-scroller'), {
+  ssr: false,
+});
 import { Header } from '@/shared/header';
 import { Footer } from '@/shared/footer';
 import { Section } from '@/shared/section';
@@ -14,8 +19,7 @@ import Aurora from '@/shared/react-bits/Backgrounds/Aurora/Aurora';
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isIPhone, setIsIPhone] = useState(false);
-  const [currentSection, setCurrentSection] = useState(0);
-  const isScrolling = useRef(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const detectIPhone = () => {
@@ -26,101 +30,15 @@ export default function HomePage() {
     };
 
     setIsIPhone(detectIPhone());
-
-    if (containerRef.current) {
-      containerRef.current.scrollTop = 0;
-    }
   }, []);
 
-  const scrollToSection = useCallback((index: number) => {
-    if (!containerRef.current || isScrolling.current) return;
-    
-    const container = containerRef.current;
-    const sections = container.querySelectorAll('section');
-    
-    if (index >= 0 && index < sections.length) {
-      isScrolling.current = true;
-      const targetSection = sections[index] as HTMLElement;
-      
-      container.scrollTo({
-        top: targetSection.offsetTop,
-        behavior: 'smooth'
-      });
-      
-      setCurrentSection(index);
-      
-      // Reset scrolling flag after animation
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 1000);
-    }
-  }, []);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let scrollTimeout: NodeJS.Timeout;
-    
-    const handleScroll = () => {
-      if (isScrolling.current) return;
-      
-      clearTimeout(scrollTimeout);
-      
-      scrollTimeout = setTimeout(() => {
-        const scrollTop = container.scrollTop;
-        
-        const sections = container.querySelectorAll('section');
-        let nearestIndex = 0;
-        let nearestDistance = Infinity;
-        
-        sections.forEach((section, index) => {
-          const sectionTop = (section as HTMLElement).offsetTop;
-          const distance = Math.abs(scrollTop - sectionTop);
-          
-          if (distance < nearestDistance) {
-            nearestDistance = distance;
-            nearestIndex = index;
-          }
-        });
-        
-        // Snap to nearest section if not already there
-        if (nearestDistance > 50) {
-          scrollToSection(nearestIndex);
-        } else {
-          setCurrentSection(nearestIndex);
-        }
-      }, 150);
-    };
-
-    // Handle keyboard navigation
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        const sections = container.querySelectorAll('section');
-        if (currentSection < sections.length - 1) {
-          scrollToSection(currentSection + 1);
-        }
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        if (currentSection > 0) {
-          scrollToSection(currentSection - 1);
-        }
-      }
-    };
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      container.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('keydown', handleKeyDown);
-      clearTimeout(scrollTimeout);
-    };
-  }, [currentSection, scrollToSection]);
+  const handlePageChange = (number: number) => {
+    setCurrentPage(number);
+  };
 
   return (
     <div className="h-screen w-screen relative">
+      {/* Background layers */}
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#0a0e1a] to-[#0f172a]" />
       <div className="fixed inset-0 z-0 opacity-60">
         <Aurora
@@ -139,161 +57,199 @@ export default function HomePage() {
         />
       </div>
 
-      <div
-        ref={containerRef}
-        className="h-screen w-screen overflow-y-scroll snap-y snap-proximity scroll-smooth text-white relative z-10"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      {/* Header */}
+      <Header containerRef={containerRef} />
+      
+      {/* Page Scroller */}
+      <ReactPageScroller
+        pageOnChange={handlePageChange}
+        customPageNumber={currentPage}
+        animationTimer={1000}
+        animationTimerBuffer={100}
+        transitionTimingFunction="cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+        containerHeight="100vh"
+        containerWidth="100vw"
+        blockScrollUp={false}
+        blockScrollDown={false}
+        renderAllPagesOnFirstRender={false}
       >
-        <Header containerRef={containerRef} />
+        {/* Page 1: Hero */}
+        <div 
+          className="h-screen w-screen flex items-center justify-center relative z-10 text-white outline-none overflow-hidden"
+          tabIndex={0}
+          ref={(input) => {
+            if (input) {
+              input.focus();
+            }
+          }}
+        >
+          <Section isIPhone={isIPhone} isHero={true}>
+            <Hero 
+              primaryText="Tilt tests websites the way"
+              secondaryText="your users do. With a real browser."
+              description=""
+              audience="enterprise"
+              containerRef={containerRef}
+            />
+          </Section>
+        </div>
 
-        <Section isIPhone={isIPhone} isHero={true}>
-          <Hero 
-            primaryText="Tilt tests websites the way"
-            secondaryText="your users do. With a real browser."
-            description=""
-            audience="enterprise"
-            containerRef={containerRef}
-          />
-        </Section>
-
-        <Section isIPhone={isIPhone} id="download">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl text-center mb-8">Download Tilt</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="flex flex-col justify-center space-y-6">
-              <div>
-                <h3 className="text-base font-medium text-white mb-3">Get Started Today</h3>
-                <p className="text-base text-zinc-300 leading-relaxed">
-                  Docker Desktop required. Supports Windows, Mac, and Linux (Mac/Linux use same run scripts).
-                </p>
-              </div>
-              <div>
-                <DownloadButton />
-              </div>
-            </div>
-            <AirbnbSlideshow />
-          </div>
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl text-center mb-8">The Problem with Current Testing Tools</h2>
-          <Section.Grid cols="2">
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">Headless Testing is Fake Testing</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Your customers don&apos;t use headless browsers. They use real Chrome, Safari, and Firefox with real rendering, real JavaScript, and real user interactions.</p>
-            </Section.Card>
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">DOM Selectors Break Everything</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Every time you change a class name, move a button, or update your design, your tests break. DOM-based testing is obsolete.</p>
-            </Section.Card>
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">Esoteric Code Requirements</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Playwright and Selenium require expensive, ever-changing, complicated code suites. Your tests become another codebase to maintain.</p>
-            </Section.Card>
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">No Intelligence or Adaptation</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Traditional tools can&apos;t handle popups, changed text, moved buttons, network errors, or site redesigns. One small change breaks everything.</p>
-            </Section.Card>
-          </Section.Grid>
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl text-center mb-4">Tilt: Vision-Based Website Testing That Actually Works</h2>
-          <p className="text-xl text-zinc-300 text-center mb-8 max-w-4xl mx-auto">Tilt can actually SEE your website and navigate it using a real browser on a real desktop using a mouse and keyboard - just like a real customer would.</p>
-          <Section.Grid cols="3">
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">Vision AI That Actually Sees</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Our powerful vision model sees your website like a human does - identifying buttons, forms, and content visually, not through fragile DOM selectors.</p>
-            </Section.Card>
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">Plain English Instructions</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Write tests in plain English. No code, no selectors, no technical syntax. Just describe what you want tested like you&apos;re talking to a person.</p>
-            </Section.Card>
-            <Section.Card>
-              <h3 className="text-2xl font-bold text-white mb-4">Intelligent & Adaptive</h3>
-              <p className="text-xl text-zinc-300 leading-relaxed">Tilt overcomes popups, changed text, moved buttons, network errors, and even whole site redesigns. It&apos;s an intelligent agent, not a brittle script.</p>
-            </Section.Card>
-          </Section.Grid>
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl">Real Browser Testing in Plain English</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4">Before Tilt</h3>
-              <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
-                <div className="space-y-3 text-xl text-zinc-300 font-mono">
-                  <p>await page.locator(&apos;[data-testid=&quot;login-button&quot;]&apos;).click();</p>
-                  <p>await page.fill(&apos;#username-input-field-id&apos;, &quot;user@test.com&quot;);</p>
-                  <p>await page.fill(&apos;#password-input-field-id&apos;, &quot;password123&quot;);</p>
-                  <p>await page.click(&apos;[data-testid=&quot;submit-button&quot;]&apos;);</p>
-                  <p>await expect(page.locator(&apos;.welcome-message&apos;)).toBeVisible();</p>
+        {/* Page 2: Download */}
+        <div className="h-screen w-screen flex items-center justify-center relative z-10 text-white overflow-hidden">
+          <Section isIPhone={isIPhone} id="download">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl text-center mb-8">Download Tilt</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <div className="flex flex-col justify-center space-y-6">
+                <div>
+                  <h3 className="text-base font-medium text-white mb-3">Get Started Today</h3>
+                  <p className="text-base text-zinc-300 leading-relaxed">
+                    Docker Desktop required. Supports Windows, Mac, and Linux (Mac/Linux use same run scripts).
+                  </p>
                 </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4">After Tilt</h3>
-              <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
-                <div className="space-y-3 text-xl text-zinc-300 font-mono">
-                  <p>Go to https://pageurl.domain</p>
-                  <p>Enter &quot;user@test.com&quot; as the username</p>
-                  <p>Enter &quot;password123&quot; as the password</p>
-                  <p>Click login</p>
-                  <p>Verify the welcome message appears</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p className="text-base text-zinc-300 text-center mt-8 max-w-4xl mx-auto">Tilt handles the rest - finding elements visually, dealing with loading states, and adapting to changes automatically.</p>
-        </Section>
-
-        <Section isIPhone={isIPhone}>
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl">Simple, Transparent Pricing</h2>
-            <p className="text-base text-zinc-300">Our pricing is easy - start free, then pay as you scale</p>
-          </div>
-          <Section.Grid cols="2">
-            <Section.Card>
-              <div className="text-base font-semibold text-white mb-4">For Everyone</div>
-              <div className="space-y-4">
-                <div className="text-2xl font-bold text-blue-400">
-                  Initial month: <span className="text-blue-400">$0/mo</span>
-                </div>
-                <div className="text-xl font-semibold">
-                  After: <span className="text-white">$25/mo</span>
-                </div>
-                <div className="text-base text-zinc-300">
-                  + Pay for model usage. Most tests are less than a penny
-                </div>
-                <div className="mt-6">
+                <div>
                   <DownloadButton />
                 </div>
               </div>
-            </Section.Card>
-            <Section.Card>
-              <div className="text-base font-semibold text-white mb-4">Enterprise</div>
-              <div className="space-y-4">
-                <div className="text-xl font-semibold text-blue-400">
-                  Custom Seat Pricing
-                </div>
-                <div className="text-base text-zinc-300">
-                  Tailored pricing for teams and organizations
-                </div>
-                <div className="space-y-3">
-                  <div className="text-base text-zinc-400">✓ Volume discounts available</div>
-                  <div className="text-base text-zinc-400">✓ On-premises deployment</div>
-                  <div className="text-base text-zinc-400">✓ Priority support</div>
-                  <div className="text-base text-zinc-400">✓ Custom integrations</div>
-                </div>
-                <ContactSalesButton />
-              </div>
-            </Section.Card>
-          </Section.Grid>
-        </Section>
+              <AirbnbSlideshow />
+            </div>
+          </Section>
+        </div>
 
-        <Footer />
-      </div>
+        {/* Page 3: Problems */}
+        <div className="h-screen w-screen flex items-center justify-center relative z-10 text-white overflow-hidden">
+          <Section isIPhone={isIPhone}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl text-center mb-8">The Problem with Current Testing Tools</h2>
+            <Section.Grid cols="2">
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">Headless Testing is Fake Testing</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Your customers don&apos;t use headless browsers. They use real Chrome, Safari, and Firefox with real rendering, real JavaScript, and real user interactions.</p>
+              </Section.Card>
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">DOM Selectors Break Everything</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Every time you change a class name, move a button, or update your design, your tests break. DOM-based testing is obsolete.</p>
+              </Section.Card>
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">Esoteric Code Requirements</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Playwright and Selenium require expensive, ever-changing, complicated code suites. Your tests become another codebase to maintain.</p>
+              </Section.Card>
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">No Intelligence or Adaptation</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Traditional tools can&apos;t handle popups, changed text, moved buttons, network errors, or site redesigns. One small change breaks everything.</p>
+              </Section.Card>
+            </Section.Grid>
+          </Section>
+        </div>
+
+        {/* Page 4: Solution */}
+        <div className="h-screen w-screen flex items-center justify-center relative z-10 text-white overflow-hidden">
+          <Section isIPhone={isIPhone}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl text-center mb-4">Tilt: Vision-Based Website Testing That Actually Works</h2>
+            <p className="text-xl text-zinc-300 text-center mb-8 max-w-4xl mx-auto">Tilt can actually SEE your website and navigate it using a real browser on a real desktop using a mouse and keyboard - just like a real customer would.</p>
+            <Section.Grid cols="3">
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">Vision AI That Actually Sees</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Our powerful vision model sees your website like a human does - identifying buttons, forms, and content visually, not through fragile DOM selectors.</p>
+              </Section.Card>
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">Plain English Instructions</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Write tests in plain English. No code, no selectors, no technical syntax. Just describe what you want tested like you&apos;re talking to a person.</p>
+              </Section.Card>
+              <Section.Card>
+                <h3 className="text-2xl font-bold text-white mb-4">Intelligent & Adaptive</h3>
+                <p className="text-xl text-zinc-300 leading-relaxed">Tilt overcomes popups, changed text, moved buttons, network errors, and even whole site redesigns. It&apos;s an intelligent agent, not a brittle script.</p>
+              </Section.Card>
+            </Section.Grid>
+          </Section>
+        </div>
+
+        {/* Page 5: Code Example */}
+        <div className="h-screen w-screen flex items-center justify-center relative z-10 text-white overflow-hidden">
+          <Section isIPhone={isIPhone}>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl">Real Browser Testing in Plain English</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-4">Before Tilt</h3>
+                <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
+                  <div className="space-y-3 text-xl text-zinc-300 font-mono">
+                    <p>await page.locator(&apos;[data-testid=&quot;login-button&quot;]&apos;).click();</p>
+                    <p>await page.fill(&apos;#username-input-field-id&apos;, &quot;user@test.com&quot;);</p>
+                    <p>await page.fill(&apos;#password-input-field-id&apos;, &quot;password123&quot;);</p>
+                    <p>await page.click(&apos;[data-testid=&quot;submit-button&quot;]&apos;);</p>
+                    <p>await expect(page.locator(&apos;.welcome-message&apos;)).toBeVisible();</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white mb-4">After Tilt</h3>
+                <div className="backdrop-blur-md bg-white/5 p-6 border border-white/10 rounded-lg">
+                  <div className="space-y-3 text-xl text-zinc-300 font-mono">
+                    <p>Go to https://pageurl.domain</p>
+                    <p>Enter &quot;user@test.com&quot; as the username</p>
+                    <p>Enter &quot;password123&quot; as the password</p>
+                    <p>Click login</p>
+                    <p>Verify the welcome message appears</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-base text-zinc-300 text-center mt-8 max-w-4xl mx-auto">Tilt handles the rest - finding elements visually, dealing with loading states, and adapting to changes automatically.</p>
+          </Section>
+        </div>
+
+        {/* Page 6: Pricing */}
+        <div className="h-screen w-screen flex items-center justify-center relative z-10 text-white overflow-hidden">
+          <Section isIPhone={isIPhone}>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white mb-4 leading-snug font-bold max-w-6xl">Simple, Transparent Pricing</h2>
+              <p className="text-base text-zinc-300">Our pricing is easy - start free, then pay as you scale</p>
+            </div>
+            <Section.Grid cols="2">
+              <Section.Card>
+                <div className="text-base font-semibold text-white mb-4">For Everyone</div>
+                <div className="space-y-4">
+                  <div className="text-2xl font-bold text-blue-400">
+                    Initial month: <span className="text-blue-400">$0/mo</span>
+                  </div>
+                  <div className="text-xl font-semibold">
+                    After: <span className="text-white">$25/mo</span>
+                  </div>
+                  <div className="text-base text-zinc-300">
+                    + Pay for model usage. Most tests are less than a penny
+                  </div>
+                  <div className="mt-6">
+                    <DownloadButton />
+                  </div>
+                </div>
+              </Section.Card>
+              <Section.Card>
+                <div className="text-base font-semibold text-white mb-4">Enterprise</div>
+                <div className="space-y-4">
+                  <div className="text-xl font-semibold text-blue-400">
+                    Custom Seat Pricing
+                  </div>
+                  <div className="text-base text-zinc-300">
+                    Tailored pricing for teams and organizations
+                  </div>
+                  <div className="space-y-3">
+                    <div className="text-base text-zinc-400">✓ Volume discounts available</div>
+                    <div className="text-base text-zinc-400">✓ On-premises deployment</div>
+                    <div className="text-base text-zinc-400">✓ Priority support</div>
+                    <div className="text-base text-zinc-400">✓ Custom integrations</div>
+                  </div>
+                  <ContactSalesButton />
+                </div>
+              </Section.Card>
+            </Section.Grid>
+          </Section>
+        </div>
+
+        {/* Page 7: Footer */}
+        <div className="h-screen w-screen flex items-center justify-center relative z-10 text-white overflow-hidden">
+          <Footer />
+        </div>
+      </ReactPageScroller>
     </div>
   );
 }
