@@ -61,7 +61,6 @@ export default function HomePage() {
     if (!container) return;
 
     let scrollTimeout: NodeJS.Timeout;
-    let lastScrollTop = 0;
     
     const handleScroll = () => {
       if (isScrolling.current) return;
@@ -70,7 +69,6 @@ export default function HomePage() {
       
       scrollTimeout = setTimeout(() => {
         const scrollTop = container.scrollTop;
-        lastScrollTop = scrollTop;
         
         const sections = container.querySelectorAll('section');
         let nearestIndex = 0;
