@@ -41,13 +41,13 @@ export function Hero({ primaryText, secondaryText, tertiaryText, description, co
 
   return (
     <>
-      {/* Desktop: Top section with text - fixed to top 50% */}
-      <div className="hidden md:flex fixed top-0 left-0 right-0 z-20 items-center justify-center px-8 md:px-12 h-[50vh]">
-        <div className="max-w-2xl mx-auto text-center">
-          <Section.Heading hero>
+      {/* Text section */}
+      <div className="fixed top-0 left-0 right-0 z-20 flex items-end md:items-center justify-center px-8 h-[50vh] md:h-[50vh]">
+        <div className="max-w-xs md:max-w-2xl mx-auto text-center pb-4 md:pb-0">
+          <div className="text-4xl md:text-3xl lg:text-4xl xl:text-5xl text-white mb-8 md:mb-6 leading-tight font-bold">
             {primaryText}
-          </Section.Heading>
-          <Section.Heading size="xl">
+          </div>
+          <div className="text-xl md:text-xl lg:text-2xl xl:text-3xl text-white mb-8 md:mb-6 leading-tight font-bold">
             {secondaryText}
             {tertiaryText && (
               <>
@@ -55,53 +55,22 @@ export function Hero({ primaryText, secondaryText, tertiaryText, description, co
                 {tertiaryText}
               </>
             )}
-          </Section.Heading>
+          </div>
           {description && (
             <Section.Text size="sm">{description}</Section.Text>
           )}
         </div>
       </div>
       
-      {/* Mobile: Combined text + video section */}
-      <div className={`md:hidden fixed top-0 left-0 right-0 z-30 transition-opacity duration-500 h-screen flex flex-col ${showScreenshot ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <div className="flex-1 flex items-end justify-center px-6 pb-4">
-          <div className="max-w-xs text-center">
-            <Section.Heading hero>
-              {primaryText}
-            </Section.Heading>
-            <Section.Heading size="xl">
-              {secondaryText}
-              {tertiaryText && (
-                <>
-                  <br />
-                  {tertiaryText}
-                </>
-              )}
-            </Section.Heading>
-          </div>
-        </div>
-        <div className="flex-1 flex items-center justify-center">
+      {/* Video section */}
+      <div className={`fixed bottom-0 left-0 right-0 z-30 transition-opacity duration-500 h-[50vh] md:h-[50vh] ${showScreenshot ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <div className="relative overflow-hidden h-full flex items-center justify-center px-4 md:px-16">
           <video
             ref={videoRef}
             autoPlay
             muted
             playsInline
-            className="object-contain w-full h-full max-w-full max-h-full"
-          >
-            <source src="/slideshow.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-      
-      {/* Desktop: Bottom section with video - fixed to bottom 50% */}
-      <div className={`hidden md:flex fixed bottom-0 left-0 right-0 z-30 transition-opacity duration-500 h-[50vh] ${showScreenshot ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <div className="relative overflow-hidden h-full flex items-center justify-center">
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            playsInline
-            className="object-contain w-full h-full max-w-full max-h-full"
+            className="object-contain w-full h-full"
           >
             <source src="/slideshow.mp4" type="video/mp4" />
           </video>
