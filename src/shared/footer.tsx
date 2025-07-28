@@ -1,50 +1,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { Mail } from 'lucide-react'
 
 interface FooterProps {
   theme?: 'blue' | 'green' | 'purple' | 'automated-testing' | 'usability-testing' | 'analytics-testing';
 }
 
 export function Footer({ theme = 'blue' }: FooterProps) {
-  const getThemeGradient = () => {
-    switch (theme) {
-      case 'automated-testing':
-        return 'bg-gradient-to-b from-slate-900 via-blue-950/50 to-slate-900';
-      case 'usability-testing':
-        return 'bg-gradient-to-b from-slate-900 via-purple-950/50 to-slate-900';
-      case 'analytics-testing':
-        return 'bg-gradient-to-b from-slate-900 via-green-950/50 to-slate-900';
-      case 'green':
-        return 'bg-gradient-to-b from-slate-900 via-green-950/50 to-slate-900';
-      case 'purple':
-        return 'bg-gradient-to-b from-slate-900 via-purple-950/50 to-slate-900';
-      case 'blue':
-      default:
-        return 'bg-gradient-to-b from-slate-900 via-blue-950/50 to-slate-900';
-    }
-  };
-
-  const getThemeHoverColor = () => {
-    switch (theme) {
-      case 'automated-testing':
-        return 'hover:text-blue-400';
-      case 'usability-testing':
-        return 'hover:text-purple-400';
-      case 'analytics-testing':
-        return 'hover:text-green-400';
-      case 'green':
-        return 'hover:text-green-400';
-      case 'purple':
-        return 'hover:text-purple-400';
-      case 'blue':
-      default:
-        return 'hover:text-blue-400';
-    }
-  };
-
   return (
-    <footer className={`snap-start h-screen w-full ${getThemeGradient()} flex flex-col items-center justify-center text-center px-4`}>
+    <footer className="snap-start h-screen w-full bg-gradient-to-b from-slate-900 via-blue-950/50 to-slate-900 flex flex-col items-center justify-center text-center px-4">
       <div className="max-w-7xl w-full space-y-8">
         <div className="mb-6 flex justify-center">
           <Link href="/" className="hover:opacity-80 transition-opacity">
@@ -56,12 +21,26 @@ export function Footer({ theme = 'blue' }: FooterProps) {
             />
           </Link>
         </div>
-        
+
         <div className="flex justify-center space-x-8">
-          <a href="mailto:hello@whytilt.com" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
-            Contact
+          <a
+            href="mailto:hello@whytilt.com"
+            className="flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+          >
+            <Mail className="w-4 h-4 mr-2" />
+            <span>hello@whytilt.com</span>
           </a>
-          <a href="https://github.com/WhyTilt/tilt-app" target="_blank" rel="noopener noreferrer" className={`text-gray-400 ${getThemeHoverColor()} transition-colors`}>
+          <span className="text-gray-600">•</span>
+          <a
+            href="https://engineers.whytilt.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            engineers.whytilt.com
+          </a>
+          <span className="text-gray-600">•</span>
+          <a href="https://github.com/WhyTilt/tilt-app" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors">
             GitHub
           </a>
         </div>
@@ -69,6 +48,7 @@ export function Footer({ theme = 'blue' }: FooterProps) {
         <div className="border-t border-white/20 pt-6 space-y-2">
           <p className="text-gray-400 text-sm">Throw those headless tests in the trash and use Tilt instead!</p>
           <p className="text-gray-400 text-sm">Made with ❤️ in sunny San Diego.</p>
+
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Tilt. All rights reserved.
           </p>
