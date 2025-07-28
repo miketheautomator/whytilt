@@ -148,7 +148,7 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
             className="object-contain w-full h-full hover:scale-105 transition-transform"
             priority={currentSlide <= 3}
             unoptimized
-            onError={(e) => console.error('Image failed to load:', getImagePath(currentSlide))}
+            onError={() => console.error('Image failed to load:', getImagePath(currentSlide))}
           />
           <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
             Click to expand

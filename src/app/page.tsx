@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 const ReactPageScroller = dynamic(() => import('react-page-scroller'), {
@@ -10,7 +10,6 @@ import { Footer } from '@/shared/footer';
 import { Section } from '@/shared/section';
 import { Hero } from '@/shared/hero-landing';
 import { DownloadButton } from '@/shared/download-button';
-import { AirbnbSlideshow } from '@/shared/airbnb-slideshow';
 import { ContactSalesButton } from '@/shared/contact-sales-button';
 // import { DemoRequestContent } from '@/shared/demo-request';
 import PixelBackground from '@/shared/react-bits/Backgrounds/PixelBackground/PixelBackground';
