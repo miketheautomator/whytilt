@@ -3,11 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail } from 'lucide-react'
 
-interface FooterProps {
-  theme?: 'blue' | 'green' | 'purple' | 'automated-testing' | 'usability-testing' | 'analytics-testing';
-}
-
-export function Footer({ theme = 'blue' }: FooterProps) {
+export function Footer() {
   return (
     <footer className="snap-start h-screen w-full bg-gradient-to-b from-slate-900 via-blue-950/50 to-slate-900 flex flex-col items-center justify-center text-center px-4">
       <div className="max-w-7xl w-full space-y-8">
