@@ -5,5 +5,5 @@ interface SectionSubheadingProps {
 }
 
 export function SectionSubheading({ children }: SectionSubheadingProps) {
-  return <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300">{children}</p>;
+  return <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white mb-2 sm:mb-3 md:mb-4">{children}</h3>;
 }

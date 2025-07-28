@@ -15,14 +15,14 @@ export function SectionCard({ children, variant = 'default', padding = 'md', cla
   };
   
   const paddingClasses = {
-    sm: "p-4 sm:p-6",
-    md: "p-6 sm:p-8", 
-    lg: "p-8 sm:p-10"
+    sm: "p-3 sm:p-4 md:p-5 lg:p-6 xl:p-7",
+    md: "p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8", 
+    lg: "p-5 sm:p-6 md:p-7 lg:p-8 xl:p-10"
   };
   
   return (
     <div 
-      className={`${variantClasses[variant]} ${paddingClasses[padding]} rounded-lg w-full min-w-0 overflow-hidden space-y-2 sm:space-y-3 ${className}`}
+      className={`${variantClasses[variant]} ${paddingClasses[padding]} rounded-lg w-full min-w-0 overflow-hidden space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 ${className}`}
       onClick={onClick}
     >
       {children}

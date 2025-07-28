@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { createPortal } from 'react-dom';
 
 interface SlideData {
   slide: number;
@@ -21,6 +22,11 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
   const [currentMessage, setCurrentMessage] = useState('');
   const [speed, setSpeed] = useState(initialSpeed);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     // Load slides data
@@ -130,17 +136,19 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
     <>
       <div className="flex flex-col space-y-4">
         <div 
-          className="relative overflow-hidden rounded-lg shadow-xl cursor-pointer" 
-          style={{ height: '300px' }}
+          className="relative overflow-hidden rounded-lg shadow-xl cursor-pointer h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 bg-zinc-800" 
           onClick={() => setIsFullscreen(true)}
         >
           <Image
+            key={currentSlide}
             src={getImagePath(currentSlide)}
             alt={`Airbnb demo step ${currentSlide}`}
             width={800}
             height={600}
-            className="object-cover object-top w-full h-full hover:scale-105 transition-transform"
+            className="object-contain w-full h-full hover:scale-105 transition-transform"
             priority={currentSlide <= 3}
+            unoptimized
+            onError={(e) => console.error('Image failed to load:', getImagePath(currentSlide))}
           />
           <div className="absolute top-2 right-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
             Click to expand
@@ -150,10 +158,10 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
       </div>
 
       {/* Fullscreen Modal */}
-      {isFullscreen && (
+      {isFullscreen && mounted && createPortal(
         <div 
           className="fixed inset-0 bg-zinc-900"
-          style={{ zIndex: 999999 }}
+          style={{ zIndex: 2147483647 }}
           onClick={() => setIsFullscreen(false)}
         >
           <button
@@ -162,7 +170,7 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
               setIsFullscreen(false);
             }}
             className="absolute top-4 right-4 text-white text-2xl hover:text-zinc-300 bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
-            style={{ zIndex: 999999 }}
+            style={{ zIndex: 2147483647 }}
           >
             ✕
           </button>
@@ -170,11 +178,13 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
           <div className="w-full h-screen flex flex-col">
             <div className="flex-1 flex items-center justify-center">
               <Image
+                key={currentSlide}
                 src={getImagePath(currentSlide)}
                 alt={`Airbnb demo step ${currentSlide}`}
                 width={1920}
                 height={1080}
                 className="w-full h-auto max-h-full object-contain"
+                unoptimized
                 priority
               />
             </div>
@@ -186,7 +196,8 @@ export function AirbnbSlideshow({ speed: initialSpeed = 2 }: AirbnbSlideshowProp
               {renderControls()}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
       
       <style jsx>{`

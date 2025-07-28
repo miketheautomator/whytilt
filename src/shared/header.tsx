@@ -1,38 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React from "react";
 import { usePostHog } from 'posthog-js/react';
 
 interface HeaderProps {
-  containerRef?: React.RefObject<HTMLDivElement | null>;
+  scrolled?: boolean;
 }
 
-export function Header({ containerRef }: HeaderProps) {
-  const [scrolled, setScrolled] = useState(false);
+export function Header({ scrolled = false }: HeaderProps) {
   const posthog = usePostHog();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef?.current) {
-        const scrollTop = containerRef.current.scrollTop;
-        setScrolled(scrollTop > window.innerHeight * 0.5); // Shrink after scrolling past 50% of first section
-      } else {
-        setScrolled(window.scrollY > 50);
-      }
-    };
-
-    handleScroll(); // Set initial state
-    
-    if (containerRef?.current) {
-      const container = containerRef.current;
-      container.addEventListener("scroll", handleScroll);
-      return () => container?.removeEventListener("scroll", handleScroll);
-    } else {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, [containerRef]);
 
   const handleDownloadClick = () => {
     posthog?.capture('download_button_clicked', {
