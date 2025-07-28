@@ -73,8 +73,8 @@ export default function HomePage() {
         >
           <Section isHero={true}>
             <Hero 
-              primaryText="Tilt tests websites the way"
-              secondaryText="your users do. With a real browser."
+              primaryText="Throw away your headless test suites."
+              secondaryText="Tilt interracts with your web applications the same way your users do, through a real browser."
               description=""
               audience="enterprise"
               containerRef={containerRef}

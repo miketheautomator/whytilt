@@ -7,7 +7,7 @@ export function OnboardingContent() {
       <Section.Subheading>Get expert support to quickly implement automation for your team</Section.Subheading>
       <div className="mt-12 max-w-2xl">
         <div className="bg-zinc-800/30 border border-zinc-600/30 rounded-lg p-8">
-          <h3 className="text-xl font-bold text-white mb-6">What&apos;s Included:</h3>
+          <Section.Subheading>What&apos;s Included:</Section.Subheading>
           <ul className="space-y-3 text-gray-300 mb-8 text-left">
             <li>• Dedicated setup session with team installation</li>
             <li>• Identify 2-3 critical scenarios from your workflow</li>

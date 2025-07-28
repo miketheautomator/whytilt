@@ -2,6 +2,7 @@
 
 import { FC, useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Section } from '@/shared/section';
 
 interface ScreenshotCarouselProps {
   className?: string;
@@ -109,9 +110,9 @@ export const ScreenshotCarousel: FC<ScreenshotCarouselProps> = ({ className = ''
 
           {/* Title and Dots inside screenshot container */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-            <h3 className="text-white text-xl font-semibold text-center mb-3">
+            <Section.Subheading>
               {screenshots[currentIndex].title}
-            </h3>
+            </Section.Subheading>
             
             {/* Dots Indicator */}
             <div className="flex justify-center space-x-3">

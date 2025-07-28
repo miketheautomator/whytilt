@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Section } from '@/shared/section';
 
 interface ComparisonProps {
   title: string;
@@ -13,9 +14,9 @@ interface ComparisonProps {
 export const Comparison: FC<ComparisonProps> = ({ title, items }) => {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 md:mb-8 lg:mb-12 text-white text-center">
+      <Section.Heading>
         {title}
-      </h2>
+      </Section.Heading>
       
       <div className="grid md:grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
         {items.map((item, index) => (
@@ -27,7 +28,7 @@ export const Comparison: FC<ComparisonProps> = ({ title, items }) => {
                 : 'bg-zinc-700/30 border-zinc-500/30'
             }`}
           >
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4 md:mb-6">{item.title}</h3>
+            <Section.Subheading>{item.title}</Section.Subheading>
             {item.subtitle && (
               <p className="text-sm sm:text-base text-zinc-400 mb-3 sm:mb-4 md:mb-6">{item.subtitle}</p>
             )}

@@ -27,7 +27,7 @@ export function SectionHeading({ children, hero = false, card = false, size }: S
         break;
     }
   } else if (hero) {
-    textSize = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl";
+    textSize = "text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl";
   } else if (card) {
     textSize = "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl";
   } else {
@@ -36,5 +36,5 @@ export function SectionHeading({ children, hero = false, card = false, size }: S
   
 
   // Temporarily disable SplitText to fix scroll issues
-  return <h1 className={`${textSize} text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-8 leading-snug font-bold text-center`} style={{ fontFamily: 'Oswald, ui-sans-serif, system-ui, sans-serif' }}>{children}</h1>;
+  return <div className={`${textSize} text-white mb-8 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-8 leading-tight font-bold text-center`} style={{ fontFamily: 'Oswald, ui-sans-serif, system-ui, sans-serif' }}>{children}</div>;
 }

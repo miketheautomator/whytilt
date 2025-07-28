@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { usePostHog } from 'posthog-js/react';
+import { Section } from '@/shared/section';
 
 interface ContactSalesModalProps {
   isOpen: boolean;
@@ -156,7 +157,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
             {/* Left Column - Form */}
             <div className="p-8">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">Contact Sales</h2>
+                <Section.Subheading>Contact Sales</Section.Subheading>
                 <button
                   type="button"
                   onClick={handleClose}
@@ -291,7 +292,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
             {/* Right Column - Content */}
             <div className="bg-gradient-to-br from-orange-900/20 to-zinc-800/50 p-8 flex flex-col justify-center">
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold text-white">Enterprise Sales</h3>
+                <Section.Subheading>Enterprise Sales</Section.Subheading>
                 <p className="text-gray-300 text-lg">We demo the app for you and onboard you personally - helping you create your initial test suite</p>
                 
                 <div className="space-y-4">
@@ -327,7 +328,7 @@ export function ContactSalesModal({ isOpen, onClose }: ContactSalesModalProps) {
           <div className="flex items-center justify-center h-full p-8">
             <div className="text-center">
               <div className="text-6xl mb-4">🎉</div>
-              <h3 className="text-2xl font-bold text-white mb-4">Thank you!</h3>
+              <Section.Subheading>Thank you!</Section.Subheading>
               <p className="text-gray-300 mb-6">We&apos;ll be in touch within 24 hours to schedule your personal onboarding and demo.</p>
               <button
                 onClick={handleClose}

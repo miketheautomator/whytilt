@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
+import { Section } from '@/shared/section';
 
 interface HeroProps extends PropsWithChildren {
   title: string;
@@ -14,14 +15,14 @@ export const Hero: FC<HeroProps> = ({
 }) => {
   return (
     <div className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center ${className}`}>
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 leading-tight text-white">
+      <Section.Heading hero>
         {title}
-      </h1>
+      </Section.Heading>
       
       {subtitle && (
-        <h2 className="text-xl sm:text-2xl text-zinc-400 mb-8 text-center">
+        <Section.Subheading>
           {subtitle}
-        </h2>
+        </Section.Subheading>
       )}
       
       {children}
